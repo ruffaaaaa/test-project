@@ -1,4 +1,4 @@
-php artisan route:clear<?php
+<?php
 
 namespace App\Http\Middleware;
 

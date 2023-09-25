@@ -29,8 +29,8 @@
 
 </head>
 
-<body>
-    <nav class="bg-light border-b-2 border-green-600">
+<body class="bg-[#E5EFE8]">
+    <nav class>
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
             <a class="flex items-center" href="#">
                 <img src="/images/lsu-logo 2.png" alt="Logo" class="h-12 mr-4">
@@ -56,29 +56,30 @@
             </div>
         </div>
     </nav>
-    <section class="w-full h-96 bg-no-repeat bg-cover relative">
-    <div class="hidden sm:block md:hidden bg-cover bg-center h-96" style="background-image: url('/images/mobile-view.png');">
-        <div class="container mx-auto h-full relative">
-            <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
-                <a href="#" role="button" id="reservation-btn"
-                    class="bg-green-700 text-white font-bold py-2 px-4 rounded-lg
-                            w-48 text-center hover:bg-green-800 focus:outline-none">
-                    RESERVATION
-                </a>
-                <br>
-                <a href="#" role="button" id="check-status-btn"
-                    class="bg-white text-green-700 font-bold py-2 px-4 rounded-lg
-                            w-48 text-center hover:text-white hover:bg-green-700 focus:outline-none mb-8">
-                    CHECK STATUS
-                </a>
+    
+        <!-- <section class="bg-no-repeat bg-cover relative ml-12 mr-12 ">
+        <div class="hidden sm:block md:hidden bg-cover bg-center h-96" style="background-image: url('/images/mobile-view.png');">
+            <div class="container mx-auto h-full relative">
+                <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
+                    <a href="#" role="button" id="reservation-btn"
+                        class="bg-green-700 text-white font-bold py-2 px-4 rounded-lg
+                                w-48 text-center hover:bg-green-800 focus:outline-none">
+                        RESERVATION
+                    </a>
+                    <br>
+                    <a href="#" role="button" id="check-status-btn"
+                        class="bg-white text-green-700 font-bold py-2 px-4 rounded-lg
+                                w-48 text-center hover:text-white hover:bg-green-700 focus:outline-none mb-8">
+                        CHECK STATUS
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
+        </div> -->
 
   
-    <div class="hidden lg:block bg-cover bg-center h-96" style="background-image: url('/images/bg.png'); height: 520px">
+    <div class="hidden lg:block bg-center h-96 rounded-3xl" style="background-image: url('/images/bg.png')">
         <div class="container mx-auto h-full relative">
-            <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
+            <!-- <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
                 <a href="#" role="button" id="reservation-btn"
                     class="bg-green-700 text-white font-bold py-2 px-4 rounded-lg
                             w-48 text-center hover:bg-green-800 focus:outline-none">
@@ -90,10 +91,14 @@
                             w-48 text-center hover:text-white hover:bg-green-700 focus:outline-none mb-12">
                     CHECK STATUS
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
+    
+    <section >
+        
+    </section>
 
 
 
