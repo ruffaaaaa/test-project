@@ -57,8 +57,8 @@
         </div>
     </nav>
     
-        <!-- <section class="bg-no-repeat bg-cover relative ml-12 mr-12 ">
-        <div class="hidden sm:block md:hidden bg-cover bg-center h-96" style="background-image: url('/images/mobile-view.png');">
+        <section class="bg-no-repeat bg-cover relative ml-12 mr-12 ">
+        <!-- <div class="hidden sm:block md:hidden bg-cover bg-center h-96" style="background-image: url('/images/mobile-view.png');">
             <div class="container mx-auto h-full relative">
                 <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
                     <a href="#" role="button" id="reservation-btn"
@@ -77,9 +77,9 @@
         </div> -->
 
   
-    <div class="hidden lg:block bg-center h-96 rounded-3xl" style="background-image: url('/images/bg.png')">
+    <div class="hidden lg:block bg-center h-96 rounded-2xl " style="background-image: url('/images/bg.png')">
         <div class="container mx-auto h-full relative">
-            <!-- <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
+            <div class="background-desktop-content text-center absolute inset-0 flex flex-col justify-end items-center">
                 <a href="#" role="button" id="reservation-btn"
                     class="bg-green-700 text-white font-bold py-2 px-4 rounded-lg
                             w-48 text-center hover:bg-green-800 focus:outline-none">
@@ -91,7 +91,7 @@
                             w-48 text-center hover:text-white hover:bg-green-700 focus:outline-none mb-12">
                     CHECK STATUS
                 </a>
-            </div> -->dsadsadsadsds
+            </div>
         </div>
     </div>
 </section>
