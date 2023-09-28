@@ -206,7 +206,7 @@
     </div>
   </main> -->
 
-  <main class="ml-60 max-h-screen overflow-auto">
+  <main class="ml-60 max-h-screen w-auto overflow-auto">
     <div class="px-6 py-8">
       <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-3xl p-8 mb-5">
@@ -221,13 +221,6 @@
     </div>
   </main>
 
-  <!-- <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right "><i class="fa fa-plus "></i> Add New Employee</a>
-                    </div> -->
 </body>
 <!-- partial -->
   

@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('facilities', function (Blueprint $table) {
             $table->id('facilityID');
             $table->string('facilityName')->unique();
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('image'); // Add the img column
+            $table->mediumText('image')->nullable(); 
+            $table->enum('status', ['Available', 'Not Available'])->default('Available');
+            // Add the img column
         });
     }
 

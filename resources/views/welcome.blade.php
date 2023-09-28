@@ -13,6 +13,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Add these lines to your HTML file's <head> section -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body class="bg-[#E5EFE8]">
@@ -43,7 +46,7 @@
                     <div class="md:absolute md:inset-0 flex flex-col items-center mt-12">
                         <img src="images/lsu-logo 2.png" style="height: 90px;">
                         <span class="text-4xl md:text-7xl text-green mt-5" style="font-family: 'Times New Roman', Times, serif; color: green;">La Salle University</span>
-                        <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">This is where your LSU experience begins.</span>
+                        <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">Reshaping Futures.</span>
                     </div>
                 </div>
 
@@ -75,11 +78,54 @@
                 </div>
             </div>
     </section>
-    <section>
-        <div class=" flex flex-col items-center mt-9">
-            <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">FACILITIES</span>
-        </div>  
-    </section>
+    
+    <section class="m-10">
+    <div class="flex flex-col items-center mt-9">
+        <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">FACILITIES</span>
+    </div>
+
+    <div class="swiper-container mt-5">
+        <div class="swiper-wrapper">
+            @foreach ($facilities as $facility)
+                <div class="swiper-slide w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/4 min-w-1/4">
+                    <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl">
+                    <p class="text-2xl font-bold text-green-600">{{ $facility->facilityName }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<style>
+    .swiper-container {
+        overflow-x: hidden;
+    }
+</style>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto', 
+        spaceBetween: 10,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+   
+            640: {
+                slidesPerView: 1,
+            },
+          
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
+
 
 
     
