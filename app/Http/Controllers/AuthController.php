@@ -46,12 +46,12 @@ class AuthController extends Controller
 
         public function index1()
         {
-            return view('dashboard.index1');
+            return view('dashboard.admin.index1');
         }
         public function index2()
         {
             // Logic for handling index2 goes here
-            return view('dashboard.index2'); // Replace with your desired view
+            return view('dashboard.user.index2'); // Replace with your desired view
         }
 
 
