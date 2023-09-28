@@ -17,17 +17,15 @@ class AuthController extends Controller
         public function login(Request $request)
         {
             $request->validate([
-                'email' => ['required', 'string', 'email:filter'], // Allow numeric email addresses
+                'email' => ['required', 'string', 'email:filter'],
                 'password' => ['required', 'string'],
             ]);
 
             $credentials = $request->only('email', 'password');
 
             if (Auth::attempt($credentials)) {
-                // Authentication was successful
-                $user = Auth::user(); // Get the authenticated user
+                $user = Auth::user(); 
 
-                // Check the user's role_id
                 switch ($user->role_id) {
                     case 1:
                         return redirect()->route('index1'); // Redirect to index1 for role_id 1
@@ -46,12 +44,12 @@ class AuthController extends Controller
 
         public function index1()
         {
-            return view('dashboard.admin.index1');
+            return view('dashboard.admin.index');
         }
         public function index2()
         {
             // Logic for handling index2 goes here
-            return view('dashboard.user.index2'); // Replace with your desired view
+            return view('dashboard.user.index'); // Replace with your desired view
         }
 
 

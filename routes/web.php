@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FacilitiesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/index1', [AuthController::class, 'index1'])->name('index1');
 Route::get('/index2', [AuthController::class, 'index2'])->name('index2');
+Route::get('/facilities', [FacilitiesController::class, 'showFacilities'])->name('facilities');
+Route::get('/create', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
+
 
 Route::match(['get', 'post'], '/insert-admin-user', [AdminController::class, 'insertAdminUser']);
 

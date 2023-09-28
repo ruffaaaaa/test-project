@@ -55,16 +55,15 @@
                     <span class="text-4xl md:text-7xl text-green mt-5" style="font-family: 'Times New Roman', Times, serif; color: green;">La Salle University</span>
                     <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">This is where your LSU experience begins.</span>
                     <div>
-                            <div class=" bottom-0 left-0 right-0 p-4 flex flex-col items-center mt-6">
-                            <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full mb-2 sm:block">RESERVATION</a>
-                            <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full">CHECK STATUS</a>
-                            </div>
+                        <div class=" bottom-0 left-0 right-0 p-4 flex flex-col items-center mt-6">
+                        <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full mb-2 sm:block">RESERVATION</a>
+                        <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full">CHECK STATUS</a>
+                        </div>
                     </div>
                 </div>   
 
             </div>
         
-
             <div class="hidden md:block container mx-auto h-full md:relative md:mt-10">
                 <div class="md:absolute md:inset-0 flex flex-col justify-end items-center">
                     <div class="bg-white p-3 md:p-5 rounded-full md:w-96 md:m-auto md:mt-4">
@@ -75,15 +74,11 @@
                     </div>
                 </div>
             </div>
-        
     </section>
-        
     <section>
-            <div class="md:absolute md:inset-0 flex flex-col items-center mt-12">
-                <span>
-</span>
-            </div>
-        </div>
+        <div class=" flex flex-col items-center mt-9">
+            <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">FACILITIES</span>
+        </div>  
     </section>
 
 
