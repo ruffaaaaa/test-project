@@ -10,6 +10,7 @@ module.exports = {
       backgroundImage: {
         'gradient-green': '#AFDBA8', 
       },
+      
      
     },
   },

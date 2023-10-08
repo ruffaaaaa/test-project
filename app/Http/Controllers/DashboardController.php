@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $adminusers = Auth::user(); // Get the authenticated user
+        $admins = Auth::user(); // Get the authenticated user
 
         // Check the user's role_id
         switch ($user->role_id) {

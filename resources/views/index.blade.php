@@ -16,6 +16,7 @@
     <!-- Add these lines to your HTML file's <head> section -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="bg-[#E5EFE8]">
@@ -79,55 +80,63 @@
             </div>
     </section>
     
-    <section class="m-10">
-    <div class="flex flex-col items-center mt-9">
-        <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">FACILITIES</span>
-    </div>
-
-    <div class="swiper-container mt-5">
-        <div class="swiper-wrapper">
-            @foreach ($facilities as $facility)
-                <div class="swiper-slide w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/4 min-w-1/4">
-                    <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl">
-                    <p class="text-2xl font-bold text-green-600">{{ $facility->facilityName }}</p>
-                </div>
-            @endforeach
+    <section class="m-10 -mb-5">
+        <div class="flex flex-col items-center mt-9">
+            <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">FACILITIES</span>
         </div>
-    </div>
-</section>
 
-<style>
-    .swiper-container {
-        overflow-x: hidden;
-    }
-</style>
-
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 'auto', 
-        spaceBetween: 10,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-   
-            640: {
-                slidesPerView: 1,
-            },
-          
-            768: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-        },
-    });
-</script>
-
-
+        <div class="swiper-container mt-5">
+            <div class="swiper-wrapper">
+                @foreach ($facilities as $facility)
+                    <div class="swiper-slide w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/4 min-w-1/4">
+                        <div class="image-container relative">
+                            <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl">
+                            <div class="overlay absolute top-0 left-0 w-full h-full flex justify-center items-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+                                <p class="text-2xl font-bold text-white">{{ $facility->status }}</p>
+                            </div>
+                        </div>
+                        <p class="text-2xl font-bold text-green-600 text-center">{{ $facility->facilityName }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     
+    <section class = "-mt-1">
+        <div class="flex flex-col items-center">
+            <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">CALENDAR</span>
+        </div>
+    </section>
+
+    <style>
+        .swiper-container {
+            overflow-x: hidden;
+        }
+    </style>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto', 
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+    
+                640: {
+                    slidesPerView: 1,
+                },
+            
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
 </body>
 </html>

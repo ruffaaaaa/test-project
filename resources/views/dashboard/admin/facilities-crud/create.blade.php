@@ -21,7 +21,13 @@
         <h1 class="text-xl font-bold text-green-600 text-black m-2">ADD NEW FACILITY</h1>
         <div class="mx-auto p-4 bg-white rounded-3xl max-w-md"> <!-- Added max-w-md -->
             <form action="{{ route('save') }}" method="POST" enctype="multipart/form-data">
+
                 @csrf
+            @if(session('success'))
+                <div class="bg-green-200 text-green-800 rounded-md p-2 mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
                 <div class="mb-4">
                     <label for="facilityName" class="block text-gray-700 font-bold mb-2 ">Facility Name</label>
                     <input type="text" class="form-input w-full border border-solid border-gray-300" id="facilityName" name="facilityName" required>
@@ -40,7 +46,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="bg-green-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+                <button type="submit" class="bg-green-600 text-white font-bold py-2 px-4 rounded">Submit</a></button>
             </form>
         </div>
     </div>

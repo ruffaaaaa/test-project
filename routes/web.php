@@ -1,45 +1,41 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\NavigateController;
+use App\Http\Controllers\HomeController;
 use App\Models\Facilities;
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-
-Route::get('/index2', [AuthController::class, 'index2'])->name('index2');
-Route::get('/facilities', [FacilitiesController::class, 'showFacilities'])->name('facilities');
-Route::get('/create', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
-Route::post('/create', [FacilitiesController::class, 'CreateFacilities'])->name('save');
-Route::match(['get', 'post'], '/insert-admin-user', [AdminController::class, 'insertAdminUser']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/', [FacilitiesController::class, 'CarouselFacilities']);
-Route::get('/', [FacilityController::class, 'FacilitiesNamee']);
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Add the '/dashboard' route within the 'auth' middleware group
+// AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
-    Route::get('/index1', [AuthController::class, 'index1'])->name('index1');
+    Route::get('/index1', [AdminAuthController::class, 'index1'])->name('index1');
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+});
+Route::get('/login', [AdminAuthController::class, 'DisplayLoginForm'])->name('login');
+Route::post('/login', [AdminAuthController::class, 'login']);
+Route::get('/index2', [AdminAuthController::class, 'index2'])->name('index2');
+Route::match(['get', 'post'], '/insert-admin-user', [AdminAuthController::class, 'insertAdmin']);
+
+
+// Facilities
+Route::middleware(['auth'])->group(function () {
+    Route::get('/facilities', function () {
+        $facilities = Facilities::all();
+        return view('dashboard.admin.facilities', compact('facilities'));
+    })->name('facilities');
+    Route::put('/facilities/{facilityID}', 'FacilitiesController@update')->name('facilities.update');
+    Route::delete('/facilities/{facilityID}', 'FacilitiesController@destroy')->name('facilities.destroy');
+    Route::post('/create', [FacilitiesController::class, 'create'])->name('save');
 });
 
-Route::get('/', function () {
 
-    // $facilityImages = Facilities::select('image')->get();
-    // return view('welcome', compact('facilityImages'));
+// Home
+Route::get('/', [HomeController::class, 'CarouselFacilities']);
 
-    // $facilities = Facilities::all(); 
-    // return view('resource.welcome', compact('facilities'));
+// Navigate
+Route::get('/create', [NavigateController::class, 'showCreatePage'])->name('facility-create');
 
-    $facilities = Facilities::all(); // Retrieve all facilities from the database
-
-    return view('welcome', compact('facilities'));
-});
 

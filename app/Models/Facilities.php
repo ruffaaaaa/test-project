@@ -10,6 +10,7 @@ use App\Http\Controllers\FacilitiesController;
 class Facilities extends Model
 {
     protected $table = 'facilities';
+    protected $primaryKey = 'facilityID';
     protected $fillable = ['facilityName', 'image', 'status'];
     
 }

@@ -5,23 +5,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Facilities;
+use Illuminate\Support\Facades\Auth;
 
 
 class FacilitiesController extends Controller
 {
-    // Display the login form
-    public function showFacilities()
-    {
-        return view('dashboard.admin.facilities'); // Assuming your login form is in resources/views/auth/login.blade.php
-    }
 
-    public function showCreateFacilities()
+    // CRUD FACILITES
+    public function create(Request $request)
     {
-        return view('dashboard.admin.facilities-crud.create'); // Assuming your login form is in resources/views/auth/login.blade.php
-    }
 
-    public function CreateFacilities(Request $request)
-    {
         $facilities = new Facilities();
 
         $facilities-> facilityName = $request -> input('facilityName');
@@ -39,18 +32,36 @@ class FacilitiesController extends Controller
 
         $facilities->save();
 
-        return view('dashboard.admin.facilities-crud.create')->with('facilities', $facilities);
+        return redirect('/facilities');
 
     }
 
-    public function CarouselFacilities()
+    public function update(Request $request, $facilityID)
     {
-        // Retrieve facility images
-           $facilities = Facility::all(); // Retrieve all facilities from the database
+        $request->validate([
+            'facilityName' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
+        ]);
 
-         return view('resources.welcome', compact('facilities'));
+        $facility = Facilities::findOrFail($facilityID);
+        $facility->facilityName = $request->input('facilityName');
+        $facility->status = $request->input('status');
+        $facility->save();
 
+        return redirect()->route('facilities')->with('success', 'Facility updated successfully');
     }
 
- 
+    public function destroy($facilityID)
+    {
+        $facility = Facilities::find($facilityID);
+        
+        if (!$facility) {
+            return redirect()->route('facilities')->with('error', 'Facility not found');
+        }
+    
+        $facility->delete();
+    
+        return redirect()->route('facilities')->with('success', 'Facility deleted successfully');
+    }
+
 }

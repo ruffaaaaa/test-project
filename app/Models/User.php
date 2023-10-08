@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'adminusers'; // Specify the custom table name
+    protected $table = 'admins'; // Specify the custom table name
 
     /**
      * The attributes that are mass assignable.

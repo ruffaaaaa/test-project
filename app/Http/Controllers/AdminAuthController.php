@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class AdminAuthController extends Controller
 {
     public function __construct()
     {
@@ -12,7 +12,7 @@ class AuthController extends Controller
     }
 
     // Display the login form
-    public function showLoginForm()
+    public function DisplayLoginForm()
     {
         return view('auth.login');
     }
@@ -50,8 +50,7 @@ class AuthController extends Controller
 
     public function index2()
     {
-        // Logic for handling index2 goes here
-        return view('dashboard.user.index'); // Replace with your desired view
+        return view('dashboard.user.index'); // Replace with your desired 
     }
 
     protected $redirectTo = '/dashboard'; // Change '/dashboard' to your desired
@@ -60,5 +59,17 @@ class AuthController extends Controller
     {
         Auth::logout(); // Log the user out
         return redirect()->route('login'); // Redirect to the login page or any other desired page
+    }
+
+    public function insertAdmin(Request $request)
+    {
+        $admins = new User();
+        $admins->username = 'Ruffa';
+        $admins->email = 'ruffa@example.com';
+        $admins->password = bcrypt('12345');
+        $admins->role_id= 2;
+        $admins->save();
+
+        return 'Admin user created successfully';
     }
 }
