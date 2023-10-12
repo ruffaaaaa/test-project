@@ -24,18 +24,23 @@
             </div>
     </nav>
     <section class=" ml-10 mr-10">
-    
-
-    
+      
 <div class="relative">
     <div class="left-title"></div>
     <div class="absolute top-0 left-0 mt-24 ml-5">
         <span class="text-3xl font-bold text-white">FACILITIES RESERVATION FORM</span>
     </div>
-
+    <!-- <div class="reservation-code"></div>
+    <div class="absolute top-0 right-0 mt-24 ml-5"> 
+        <span class="text-3xl font-bold text-white">Reservation Code: </span>
+    </div> -->
 </div>
 
-
+<div class="relative">
+    <div class = "Facilities-Container"></div>
+    <div>
+        <span class="text-3xl font-bold text-white">FACILITIES</span>
+    </div>
 
 
 </section>
