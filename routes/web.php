@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\NavigateController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
 use App\Models\Facilities;
 
 // AdminAUTH
@@ -41,3 +42,5 @@ Route::get('/create', [NavigateController::class, 'showCreatePage'])->name('faci
 Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
 
 
+//Reservation
+Route::get('/reservation', [ReservationController::class, 'displayFacilities']);

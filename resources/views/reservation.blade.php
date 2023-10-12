@@ -16,86 +16,135 @@
 
 <body class="bg-[#E5EFE8]">
     <nav class>
-            <div class="container mx-auto flex items-center justify-between py-4 px-6">
-                <a class="flex items-center" href="/">
-                    <img src="/images/lsu-logo 2.png" alt="Logo" class="h-12 mr-4">
-                    <span class="text-green-600 font-bold mr lg:block hidden">LA SALLE UNIVERSITY</span>
-                </a>
-            </div>
+        <div class="container flex items-center ml-10 py-4 px-6 relative">
+            <a class="flex items-center" href="/">
+                <img src="/images/lsu-logo 2.png" alt="Logo" class="h-12 mr-4">
+                <span class="text-green-600 font-bold mr lg:block hidden">LA SALLE UNIVERSITY</span>
+            </a>
+        </div>
     </nav>
-    <section class=" ml-10 mr-10">
+    <section class=" ml-14 mr-14 rounded-xl">
       
-<div class="relative">
-    <div class="left-title"></div>
-    <div class="absolute top-0 left-0 mt-24 ml-5">
-        <span class="text-3xl font-bold text-white">FACILITIES RESERVATION FORM</span>
-    </div>
-    <!-- <div class="reservation-code"></div>
-    <div class="absolute top-0 right-0 mt-24 ml-5"> 
-        <span class="text-3xl font-bold text-white">Reservation Code: </span>
-    </div> -->
-</div>
-
-<div class="container-1 m-8">
-    <div class="container-2 border-2 border-black">
         <div class="relative">
-            <div class="Facilities-Container"></div>
-            <div class="bg-green-500 p-4">
-                <span class="text-2xl font-bold text-white">Facilities</span>
+            <div class="left-title"></div>
+            <div class="absolute top-0 left-0 mt-8 ml-5">
+                <span class="text-4xl font-bold text-green-900">RESERVATION 
+                    <br>FORM</span>
             </div>
-            <div class="absolute inset-x-0 top-full bg-white p-4 border-2 border-black">
-            <table class="w-full table-auto">
-                    <thead>
-                        <tr>
-                            <th class="border border-black p-2">Header 1</th>
-                            <th class="border border-black p-2">Header 2</th>
-                            <th class="border border-black p-2">Header 3</th>
-                            <th class="border border-black p-2">Header 4</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Rows -->
-                        <tr>
-                            <td class="border border-black p-2">Row 1, Cell 1</td>
-                            <td class="border border-black p-2">Row 1, Cell 2</td>
-                            <td class="border border-black p-2">Row 1, Cell 3</td>
-                            <td class="border border-black p-2">Row 1, Cell 4</td>
-                        </tr>
-                        <tr>
-                            <td class="border border-black p-2">Row 2, Cell 1</td>
-                            <td class="border border-black p-2">Row 2, Cell 2</td>
-                            <td class="border border-black p-2">Row 2, Cell 3</td>
-                            <td class="border border-black p-2">Row 2, Cell 4</td>
-                        </tr>
-                        <tr>
-                            <td class="border border-black p-2">Row 3, Cell 1</td>
-                            <td class="border border-black p-2">Row 3, Cell 2</td>
-                            <td class="border border-black p-2">Row 3, Cell 3</td>
-                            <td class="border border-black p-2">Row 3, Cell 4</td>
-                        </tr>
-                        <tr>
-                            <td class="border border-black p-2">Row 4, Cell 1</td>
-                            <td class="border border-black p-2">Row 4, Cell 2</td>
-                            <td class="border border-black p-2">Row 4, Cell 3</td>
-                            <td class="border border-black p-2">Row 4, Cell 4</td>
-                        </tr>
-                        <tr>
-                            <td class="border border-black p-2">Row 5, Cell 1</td>
-                            <td class="border border-black p-2">Row 5, Cell 2</td>
-                            <td class="border border-black p-2">Row 5, Cell 3</td>
-                            <td class="border border-black p-2">Row 5, Cell 4</td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+    </section>
+
+    <div class=" hidden md:inline container mx-auto p-4">
+        <div id="form-progress" class="flex items-center justify-center space-x-4">
+            <div class="step step-active">
+                <span class="md:mr-4">1</span>
+                <label class="hidden md:inline md:-mr-10 md:-ml-10">Select Facilities</label>
+            </div>
+            <div class="line hidden md:block md:w-1/4"></div>
+            <div class="step">
+                <span class="md:mr-4">2</span>
+                <label class="hidden md:inline md:-mr-10 md:-ml-10">Reservation Details</label>
+            </div>
+            <div class="line hidden md:block md:w-1/4"></div>
+            <div class="step md:mt-7 mt-6 ">
+                <span>3</span>
+                <label class="hidden md:inline md:-mr-10 md:-ml-10" >Reservee Details <br>and Endorsement</label>
+            </div>
+            <div class="line hidden md:block md:w-1/4"></div>
+            <div class="step">
+                <span class="md:mr-4 ">4</span>
+                <label class="hidden md:inline md:-mr-10 md:-ml-10">Confirmation</label>
             </div>
         </div>
     </div>
-</div>
-</section>
+    <div id="form-content" class=" bg-white ml-14 mr-14 rounded-xl">
+        <div class="step-content mt-" id="step-1-content">
+            <div class="p-6  bg-white rounded border-green rounded-xl">
+                <div class= "border-solid border-2 border-green-700 m-5 ">
+                    <div class="bg-green-700 p-2 ">
+                        <span class="text-xl font-bold text-white ">Facilities</span>
+                    </div>
+                    <form method="post">
+                        @csrf
+                        <div class="grid grid-cols-4 gap-4">
+                            @foreach ($facilities as $facility)
+                                <div class="col-span-1 mr-5 ml-5">
+                                    <label class="flex items-center space-x-2 text-xl">
+                                        <input type="checkbox" name="facilities[]" value="{{ $facility->id }}" class="form-checkbox">
+                                        <span>{{ $facility->facilityName }}</span>
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="step-content hidden" id="step-2-content">
+            <div>
+                <span>HELLO</span>
+            </div>
+        </div>
+        <div class="step-content hidden" id="step-3-content">
+            kapoy na
+        </div>
+        <div class="step-content hidden" id="step-4-content">
+            huhu
+        </div>
+    </div>
+
+    <div class="mt-4 flex justify-between ml-14 mr-14">
+        <button id="prev-button" class="bg-green-600 text-white px-4 py-2 rounded focus:outline-none">Previous</button>
+        <button id="next-button" class="bg-green-600 text-white px-7 py-2 rounded focus:outline-none">Next</button>
+    </div>
 
 
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const steps = document.querySelectorAll('.step');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const stepContent = document.querySelectorAll('.step-content');
+    let currentStep = 0;
 
+    function updateProgressBar() {
+        steps.forEach((step, index) => {
+            if (index < currentStep) {
+                step.classList.add('step-active');
+            } else if (index === currentStep) {
+                step.classList.add('step-active');
+            } else {
+                step.classList.remove('step-active');
+            }
+        });
+
+        stepContent.forEach((content, index) => {
+            if (index === currentStep) {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.add('hidden');
+            }
+        });
+    }
+
+    prevButton.addEventListener('click', function () {
+        if (currentStep > 0) {
+            currentStep--;
+            updateProgressBar();
+        }
+    });
+
+    nextButton.addEventListener('click', function () {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            updateProgressBar();
+        }
+    });
+});
+
+
+</script>
 </body>
 </html>
