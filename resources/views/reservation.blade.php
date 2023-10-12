@@ -36,14 +36,63 @@
     </div> -->
 </div>
 
-<div class="relative">
-    <div class = "Facilities-Container"></div>
-    <div>
-        <span class="text-3xl font-bold text-white">FACILITIES</span>
+<div class="container-1 m-8">
+    <div class="container-2 border-2 border-black">
+        <div class="relative">
+            <div class="Facilities-Container"></div>
+            <div class="bg-green-500 p-4">
+                <span class="text-2xl font-bold text-white">Facilities</span>
+            </div>
+            <div class="absolute inset-x-0 top-full bg-white p-4 border-2 border-black">
+            <table class="w-full table-auto">
+                    <thead>
+                        <tr>
+                            <th class="border border-black p-2">Header 1</th>
+                            <th class="border border-black p-2">Header 2</th>
+                            <th class="border border-black p-2">Header 3</th>
+                            <th class="border border-black p-2">Header 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows -->
+                        <tr>
+                            <td class="border border-black p-2">Row 1, Cell 1</td>
+                            <td class="border border-black p-2">Row 1, Cell 2</td>
+                            <td class="border border-black p-2">Row 1, Cell 3</td>
+                            <td class="border border-black p-2">Row 1, Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black p-2">Row 2, Cell 1</td>
+                            <td class="border border-black p-2">Row 2, Cell 2</td>
+                            <td class="border border-black p-2">Row 2, Cell 3</td>
+                            <td class="border border-black p-2">Row 2, Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black p-2">Row 3, Cell 1</td>
+                            <td class="border border-black p-2">Row 3, Cell 2</td>
+                            <td class="border border-black p-2">Row 3, Cell 3</td>
+                            <td class="border border-black p-2">Row 3, Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black p-2">Row 4, Cell 1</td>
+                            <td class="border border-black p-2">Row 4, Cell 2</td>
+                            <td class="border border-black p-2">Row 4, Cell 3</td>
+                            <td class="border border-black p-2">Row 4, Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black p-2">Row 5, Cell 1</td>
+                            <td class="border border-black p-2">Row 5, Cell 2</td>
+                            <td class="border border-black p-2">Row 5, Cell 3</td>
+                            <td class="border border-black p-2">Row 5, Cell 4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
-
+</div>
 </section>
+
 
 
 
