@@ -80,7 +80,7 @@ main.collapsed {
     position: relative;
     height: 150px;
     width:60%;
-    background: linear-gradient(125deg, rgba(201, 255, 199, 0.8) 75%, rgba(11, 117, 20, 0.8) 75%, rgba(58, 201, 26, 0.7) 80%, transparent 75%);
+    background: linear-gradient(125deg, rgba(166, 225, 163, 0.8) 75%, rgba(166, 225, 163, 0.8) 75%, rgba(58, 201, 26, 0.7) 80%, transparent 75%);
   }
   
   .left-title:after {
