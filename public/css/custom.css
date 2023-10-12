@@ -70,3 +70,28 @@ main.collapsed {
 .image-container:hover .overlay {
     opacity: 1;
 }
+
+.swiper-container {
+    overflow-x: hidden;
+}
+
+
+.left-title {
+    position: relative;
+    height: 150px;
+    width:60%;
+    background: linear-gradient(125deg, rgba(201, 255, 199, 0.8) 75%, rgba(11, 117, 20, 0.8) 75%, rgba(58, 201, 26, 0.7) 80%, transparent 75%);
+  }
+  
+  .left-title:after {
+    position: absolute;
+    content: '';
+    width: 165%;
+    height: 100%;
+    background: url('/images/form2.png'); 
+    background-size: cover; 
+    z-index: -1;
+  }
+
+  
+  

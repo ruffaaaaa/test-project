@@ -47,7 +47,7 @@
                     <div class="md:absolute md:inset-0 flex flex-col items-center mt-12">
                         <img src="images/lsu-logo 2.png" style="height: 90px;">
                         <span class="text-4xl md:text-7xl text-green mt-5" style="font-family: 'Times New Roman', Times, serif; color: green;">La Salle University</span>
-                        <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">Reshaping Futures.</span>
+                        <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">Facilities Reservation System</span>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                     <span class="text-xl md:text-2xl mt-3" style="font-family: 'Times New Roman', Times, serif; color: green;">This is where your LSU experience begins.</span>
                     <div>
                         <div class=" bottom-0 left-0 right-0 p-4 flex flex-col items-center mt-6">
-                        <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full mb-2 sm:block">RESERVATION</a>
+                        <a href="reservation" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full mb-2 sm:block">RESERVATION</a>
                         <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full">CHECK STATUS</a>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="md:absolute md:inset-0 flex flex-col justify-end items-center">
                     <div class="bg-white p-3 md:p-5 rounded-full md:w-96 md:m-auto md:mt-4">
                         <div class="flex flex-col md:flex-row md:space-x-4 justify-center">
-                            <a href="#" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">RESERVATION</a>
+                            <a href="reservation" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">RESERVATION</a>
                             <a href="#" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">CHECK STATUS</a>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                 @foreach ($facilities as $facility)
                     <div class="swiper-slide w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/4 min-w-1/4">
                         <div class="image-container relative">
-                            <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl">
+                            <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl h-30 w-15">
                             <div class="overlay absolute top-0 left-0 w-full h-full flex justify-center items-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                                 <p class="text-2xl font-bold text-white">{{ $facility->status }}</p>
                             </div>
@@ -103,17 +103,18 @@
     </section>
 
     
-    <section class = "-mt-1">
+    <!-- <section class = "-mt-1">
         <div class="flex flex-col items-center">
             <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">CALENDAR</span>
         </div>
-    </section>
+    </section> -->
 
-    <style>
-        .swiper-container {
-            overflow-x: hidden;
-        }
-    </style>
+
+    <footer class = "mt-10">
+        <div class="border-t border-solid border-green-600" style="border-top: 30px solid green; display: flex; justify-content: center; align-items: center;">
+            <img src="/images/polygon.png" class="-mt-12">
+        </div>
+    </footer>
 
     <script>
         var swiper = new Swiper('.swiper-container', {

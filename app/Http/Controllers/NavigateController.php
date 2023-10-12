@@ -15,8 +15,6 @@ class NavigateController extends Controller
         if (Auth::check()) {
         return view('dashboard.admin.facilities');
         }
-        // If not authenticated, you may want to redirect to the login page or show an error message.
-        // For example, redirect to the login page:
         return redirect()->route('login');
     }
 
@@ -27,11 +25,15 @@ class NavigateController extends Controller
 
     public function CarouselFacilities()
     {
-        // Retrieve facility images
-           $facilities = Facility::all(); // Retrieve all facilities from the database
+           $facilities = Facility::all(); 
 
          return view('resources.welcome', compact('facilities'));
 
+    }
+
+    public function showReservationPage(){
+
+        return view('reservation');
     }
 
 }

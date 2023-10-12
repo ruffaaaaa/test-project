@@ -21,7 +21,7 @@
                 <div class="flex flex-col items-center">
                     <a href="/" class="-mt-8">
                         <img src="/images/lsu-logo 2.png"  class="w-20 h-30" />
-                        <h1 class="text-2xl text-gray-900">Admin</h1>
+                        <h1 class="text-l text-green-600 text-center font-bold">ADMIN</h1>
                     </a>
                 </div>
 
@@ -31,8 +31,6 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <!-- Email Address -->
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-700">
@@ -40,10 +38,7 @@
                                 <p class="text-red-500 mt-2">{{ $errors->first('email') }}</p>
                             @endif
                         </div>
-
-
-
-                        <!-- Password -->
+                    
                         <div class="mb-4">
                             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                             <input id="password" type="password" name="password" required autocomplete="current-password" class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-700">
@@ -52,7 +47,6 @@
                             @endif
                         </div>
 
-                        <!-- Remember Me -->
                         <div class="mb-4">
                             <label for="remember_me" class="inline-flex items-center">
                                 <input id="remember_me" type="checkbox" name="remember" class="form-checkbox h-4 w-4 text-indigo-600 border-gray-300 rounded shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800">
@@ -61,14 +55,10 @@
                         </div>
 
                         <div class="flex items-center justify-center">
-                            <!-- Forgot Password Link -->
-                            <!-- @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">Forgot your password?</a>
-                            @endif -->
-
-                            <!-- Log in Button -->
                             <button type="submit" class="ml-3 py-2 px-4 bg-green-600 hover:bg-green-700 text-white rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 focus:ring-offset-gray-800">Log in</button>
                         </div>
+                        <a href="/" class="text-center text-black text-xs block mt-2 hover:text-green">Back to the Home Page</a>
+
                     </form>
 
                 

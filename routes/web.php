@@ -26,10 +26,11 @@ Route::middleware(['auth'])->group(function () {
         $facilities = Facilities::all();
         return view('dashboard.admin.facilities', compact('facilities'));
     })->name('facilities');
-    Route::put('/facilities/{facilityID}', 'FacilitiesController@update')->name('facilities.update');
-    Route::delete('/facilities/{facilityID}', 'FacilitiesController@destroy')->name('facilities.destroy');
     Route::post('/create', [FacilitiesController::class, 'create'])->name('save');
 });
+Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
+Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+
 
 
 // Home
@@ -37,5 +38,6 @@ Route::get('/', [HomeController::class, 'CarouselFacilities']);
 
 // Navigate
 Route::get('/create', [NavigateController::class, 'showCreatePage'])->name('facility-create');
+Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
 
 

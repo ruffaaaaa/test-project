@@ -6,34 +6,37 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Facilities;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 
 class FacilitiesController extends Controller
 {
-
     // CRUD FACILITES
     public function create(Request $request)
     {
-
         $facilities = new Facilities();
 
-        $facilities-> facilityName = $request -> input('facilityName');
-        $facilities-> image = $request -> input('image');
-        $facilities-> status = $request -> input('status');
+        $facilities->facilityName = $request->input('facilityName');
+        $facilities->status = $request->input('status');
 
-        if($request->hasfile('image'))
-        {
-            $file = $request->file('image');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('uploads/facilities/', $filename);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+
+            // Resize the image to 2048x1365 pixels
+            $image = Image::make($image)->resize(2048, 1365);
+
+            // Save the resized image
+            $image->save(public_path('uploads/facilities/' . $filename));
+
             $facilities->image = $filename;
         }
 
         $facilities->save();
 
         return redirect('/facilities');
-
     }
 
     public function update(Request $request, $facilityID)

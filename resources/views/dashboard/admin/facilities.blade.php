@@ -114,8 +114,7 @@
                                         Delete
                                     </button>
                                 </form>                          
-                                
-
+                        
                                 </td>
                                 
                             </tr>
@@ -143,12 +142,10 @@
                                             <div class="mt-2">
                                                 <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Facility Name</label>
                                                 <input type="text" id="editFacilityName" name="facilityName" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
-                                                <!-- Increase the height by adding the 'h-10' class -->
                                             </div>
                                             <div class="mt-2">
                                                 <label for="editStatus" class="block text-gray-600 text-left font-bold">Status</label>
                                                 <select id="editStatus" name="status" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
-                                                    <!-- Increase the height by adding the 'h-10' class -->
                                                     <option value="Available">Available</option>
                                                     <option value="Unavailable">Unavailable</option>
                                                 </select>
