@@ -57,12 +57,12 @@
             </div>
         </div>
     </div>
-    <div id="form-content" class=" bg-white ml-14 mr-14 rounded-xl">
+    <div id="form-content" class=" bg-white ml-14 mr-14 rounded-3xl">
         <div class="step-content mt-" id="step-1-content">
-            <div class="p-6  bg-white rounded border-green rounded-xl">
-                <div class= "border-solid border-2 border-green-700 m-5 ">
-                    <div class="bg-green-700 p-2 ">
-                        <span class="text-xl font-bold text-white ">Facilities</span>
+            <div class="p-6  bg-white rounded border-green rounded-2xl">
+                <div class= " mt-5 mr-10 ml-10 mb-5 ">
+                    <div class="p-2 ">
+                        <span class="text-2xl font-bold text-black ">FACILITIES</span>
                     </div>
                     <form method="post">
                         @csrf
@@ -81,8 +81,26 @@
             </div>
         </div>
         <div class="step-content hidden" id="step-2-content">
-            <div>
-                <span>HELLO</span>
+            <div class="p-4 mt-5 bg-white rounded border-green rounded-2xl">
+                <div class= " hidden md:block mt-4 mr-10 ml-10 mb-5 ">
+                    <div class="  flex">
+                        <div>
+                            <label class="mb-1 md:mb-0 pr-4" for="inline-full-name">Name of Event</label>
+                        </div>
+                        <div class = "w-[960px]">
+                            <input class=" appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700" type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class= "lg:hidden md:hidden  mt-5 mr-5 ml-5 mb-5 ">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                Name of Event
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="step-content hidden" id="step-3-content">
