@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
-
-
 class FacilitiesController extends Controller
 {
     // CRUD FACILITES

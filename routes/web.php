@@ -8,7 +8,11 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\NavigateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\PersonnelsController;
+use App\Http\Controllers\EquipmentsController;
 use App\Models\Facilities;
+use App\Models\Personnels;
+use App\Models\Equipments;
 
 // AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
@@ -27,10 +31,10 @@ Route::middleware(['auth'])->group(function () {
         $facilities = Facilities::all();
         return view('dashboard.admin.facilities', compact('facilities'));
     })->name('facilities');
-    Route::post('/create', [FacilitiesController::class, 'create'])->name('save');
+    Route::post('/facilitycreate', [FacilitiesController::class, 'create'])->name('facility_save');
+    Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
+    Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
 });
-Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
-Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
 
 
 
@@ -38,9 +42,35 @@ Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy
 Route::get('/', [HomeController::class, 'CarouselFacilities']);
 
 // Navigate
-Route::get('/create', [NavigateController::class, 'showCreatePage'])->name('facility-create');
+Route::get('/facilitycreate', [NavigateController::class, 'showCreatePage'])->name('facility-create');
 Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
-
+Route::get('/personnels', [NavigateController::class, 'showPersonnels'])->name('personnels');
+Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('equipments');;
+Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
+Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
 
 //Reservation
 Route::get('/reservation', [ReservationController::class, 'displayFacilities']);
+
+
+// Facilities
+Route::middleware(['auth'])->group(function () {
+    Route::get('/personnels', function () {
+        $personnels = Personnels::all();
+        return view('dashboard.admin.personnels', compact('personnels'));
+    })->name('personnels');
+    Route::post('/percreate', [PersonnelsController::class, 'create'])->name('personnel_save');
+    // Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
+    // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+});
+
+// Equipments
+Route::middleware(['auth'])->group(function () {
+    Route::get('/equipments', function () {
+        $equipments = Equipments::all();
+        return view('dashboard.admin.equipments', compact('equipments'));
+    })->name('equipments');
+    Route::post('/equipcreate', [EquipmentsController::class, 'create'])->name('equipment_save');
+    // Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
+    // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+});

@@ -18,10 +18,40 @@ class NavigateController extends Controller
         return redirect()->route('login');
     }
 
+    public function showEquipments()
+    {   
+    
+        if (Auth::check()) {
+        return view('dashboard.admin.equipments');
+        }
+        return redirect()->route('login');
+    }
+
+    public function showPersonnels()
+    {   
+    
+        if (Auth::check()) {
+        return view('dashboard.admin.personnels');
+        }
+        return redirect()->route('login');
+    }
+
     public function showCreatePage()
     {
         return view('dashboard.admin.facilities-crud.create'); 
     }
+
+    public function showCreatePersonnel()
+    {
+        return view('dashboard.admin.personnel-crud.create'); 
+    }
+
+    public function showCreateEquipment()
+    {
+        return view('dashboard.admin.equipments-crud.create'); 
+    }
+
+
 
     public function CarouselFacilities()
     {
@@ -35,5 +65,6 @@ class NavigateController extends Controller
 
         return view('reservation');
     }
+    
 
 }

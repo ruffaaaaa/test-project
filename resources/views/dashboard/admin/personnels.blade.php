@@ -28,7 +28,8 @@
                 <div class="p-4">
                     <ul class="space-y-1">
                         <li>
-                        <a href="index1" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                        <a href="index1" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+
                             <span class="icon">
                                 <!-- Replace the SVG code with your desired icon -->
 
@@ -73,7 +74,7 @@
                                 <span class="text ml-3">Facilities</span>
                             </a>
                         </li>
-                            <a href="personnels" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="personnels" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                         <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
@@ -83,14 +84,17 @@
                         </li>
                         </li>
                             <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 31" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" viewBox="0 0 23 31" class="w-5 h-5">
                                         <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z" fill="#292D32"/>
                                     </svg>
+                                </span>
                                 <span class="text ml-3">Equipments</span>
                             </a>
                         </li>
+
                         </li>
                             <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
@@ -122,17 +126,52 @@
             </div>  
         </div>
     </aside>
-    <main class="ml-60 p-8">
+ 
+  <main class="ml-60 p-8 max-h-screen w-auto">
         <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <h2 class="text-2xl font-semibold mb-4">Dashboard</h2>
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <p>Welcome to the Facilities Reservation System Dashboard. You can customize and add your content here.</p>
+        <div class="max-h-screen overflow-y-auto">
+        <div class=" mx-auto">
+            <div class="bg-white rounded-3xl p-8 mb-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class=" mb-3 clearfix">
+                            <a href="percreate" class="btn btn-success pull-right "></i> Add New Support Personnel</a>
+                        </div>
+                    </div>
+                </div>
+            <div>
+        </div>
+        <div class="mb-3">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Support Personnel Name</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($personnels as $personnels)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $personnels->personnelID }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $personnels->personnelName }}</td>
+                            <td>
+                            <!-- <button class="border border-red-500 text-blue-500 px-4 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton">
+                                Edit
+                            </button> -->
+                            </td>   
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>  
         </div>
     </main>
     <script src="/js/index.js"></script>
+    
+   
 </body>
 </html>

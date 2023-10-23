@@ -18,9 +18,9 @@
         <a href="/" class="-mt-8">
             <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
         </a>
-        <h1 class="text-xl font-bold text-green-600 text-black m-2">ADD NEW FACILITY</h1>
+        <h1 class="text-xl font-bold text-green-600 text-black m-2">ADD NEW EQUIPMENT</h1>
         <div class="mx-auto p-4 bg-white rounded-3xl max-w-md"> <!-- Added max-w-md -->
-            <form action="{{ route('facility_save') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('save') }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
             @if(session('success'))
@@ -29,21 +29,8 @@
                 </div>
             @endif
                 <div class="mb-4">
-                    <label for="facilityName" class="block text-gray-700 font-bold mb-2 ">Facility Name</label>
-                    <input type="text" class="form-input w-full border border-solid border-gray-300" id="facilityName" name="facilityName" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
-                    <input type="file" class="form-input w-full border border-solid border-gray-300" id="image" name="image" accept="image/*" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="status" class="block text-gray-700 font-bold mb-2">Status</label>
-                    <select class="form-select w-full" id="status" name="status" required>
-                        <option value="Available">Available</option>
-                        <option value="Not Available">Not Available</option>
-                    </select>
+                    <label for="equipmentName" class="block text-gray-700 font-bold mb-2 ">Equipment Name</label>
+                    <input type="text" class="form-input w-full border border-solid border-gray-300" id="equipmentName" name="equipmentName" required>
                 </div>
 
                 <button type="submit" class="bg-green-600 text-white font-bold py-2 px-4 rounded">Submit</a></button>
