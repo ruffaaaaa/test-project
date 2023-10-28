@@ -158,13 +158,22 @@
                 </div>
                 <div class="mt-5 mx-5 flex">
                     <div class="w-1/2">
-                        <div class="w-full h-10 bg-green-700 mx-auto ">
+                        <!-- Add this within the step-2-content div -->
+                        <div class="w-full h-10 bg-green-700 mx-auto">
                             <div class="w-full h-3.5 flex items-center md:ml-5">
-                                <div class="mt-6 text-white text-[15px] font-bold font-['Inter']">No. of Support Personnel</div>
+                                <div class="mt-6 text-white text-[15px] font-bold font-['Inter']">No. of Regular Personnel</div>
                             </div>
                         </div>
                         <div class="w-full mt-5">
-                            <!-- insert code here for no. of support personnel -->
+                            @foreach ($personnels as $personnel)
+                                <div class="mb-2 flex items-center space-x-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox personnel-checkbox" name="personnels[]" value="{{ $personnel->id }}">
+                                        <span>{{ $personnel->personnelName }}</span>
+                                    </label>
+                                    <input type="text" name="personnel_details[{{ $personnel->id }}]" class="px-3 py-2 border rounded" placeholder="Details">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="w-1/2 ml-5">
@@ -209,75 +218,23 @@
         <button id="next-button" class="bg-green-600 text-white px-7 py-2 rounded focus:outline-none">Next</button>
     </div>
 
+<script src="/js/reservation.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const steps = document.querySelectorAll('.step');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    const stepContent = document.querySelectorAll('.step-content');
-    let currentStep = 0;
-
-    function updateProgressBar() {
-        steps.forEach((step, index) => {
-            if (index < currentStep) {
-                step.classList.add('step-active');
-            } else if (index === currentStep) {
-                step.classList.add('step-active');
+    const personnelCheckboxes = document.querySelectorAll('.personnel-checkbox');
+    
+    personnelCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const detailsInput = this.parentNode.querySelector('input[type="text"]');
+            if (this.checked) {
+                detailsInput.classList.remove('hidden');
             } else {
-                step.classList.remove('step-active');
+                detailsInput.classList.add('hidden');
             }
         });
-
-        stepContent.forEach((content, index) => {
-            if (index === currentStep) {
-                content.classList.remove('hidden');
-            } else {
-                content.classList.add('hidden');
-            }
-        });
-
-        // Check if we are on the last step and change the button text accordingly
-        if (currentStep === steps.length - 1) {
-            nextButton.textContent = 'Submit';
-        } else {
-            nextButton.textContent = 'Next';
-        }
-    }
-
-    prevButton.addEventListener('click', function () {
-        if (currentStep > 0) {
-            currentStep--;
-            updateProgressBar();
-        }
     });
-
-    nextButton.addEventListener('click', function () {
-        if (currentStep < steps.length - 1) {
-            currentStep++;
-            updateProgressBar();
-        }
-    });
-
-    const decrementButton = document.getElementById('decrement');
-    const incrementButton = document.getElementById('increment');
-    const numberInput = document.getElementById('number');
-
-    let currentValue = 0;
-
-    decrementButton.addEventListener('click', () => {
-        currentValue = Math.max(0, currentValue - 1);
-        numberInput.value = currentValue;
-    });
-
-    incrementButton.addEventListener('click', () => {
-        currentValue++;
-        numberInput.value = currentValue;
-    });
-
-});
-
-
 </script>
+
+
 </body>
 </html>

@@ -13,6 +13,7 @@ use App\Http\Controllers\EquipmentsController;
 use App\Models\Facilities;
 use App\Models\Personnels;
 use App\Models\Equipments;
+use App\Models\SupportPersonnel;
 
 // AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
@@ -74,3 +75,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
     // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
 });
+
+
+Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation.form');
+
