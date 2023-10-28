@@ -164,65 +164,7 @@
                             </div>
                         </div>
                         <div class="w-full mt-5">
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Maintenance Crew [Regular Work Hours]</label>
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Maintenance Crew [Overtime]</label>
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Sound/Lights Technician</label>
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Nurse/First Aider</label>
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Security Guards</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
+                            <!-- insert code here for no. of support personnel -->
                         </div>
                     </div>
                     <div class="w-1/2 ml-5">
@@ -232,122 +174,7 @@
                             </div>
                         </div>
                         <div class="w-full mt-5">
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Chairs</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-
-                            <!-- Second Row -->
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Tables</label>
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Sound System</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Microphhones</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">LCD</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Comfort Rooms</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Internet Access</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-                                <div class="clear-both"></div>
-                            </div>
-                            <div class="w-full mb-5">
-                                <div class="w-1/2 float-left">
-                                    <!-- 1/3 Column Content (First Row) -->
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="personnel">Others, please specify</label>
-                                    <!-- Add your content for the 1/3 column, first row here -->
-                                </div>
-
-                                <div class="w-1/2 float-left pl-2">
-                                    <!-- 2/3 Column Content (First Row) -->
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text">
-                                    <!-- Add your content for the 2/3 column, first row here -->
-                                </div>
-                                <div class="clear-both"></div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -377,12 +204,10 @@
             huhu
         </div>
     </div>
-    <div class="mt-4 flex justify-between ml-14 mr-14">
+    <div class="mt-4 flex justify-between ml-14 mr-14 mb-10">
         <button id="prev-button" class="bg-green-600 text-white px-4 py-2 rounded focus:outline-none">Previous</button>
         <button id="next-button" class="bg-green-600 text-white px-7 py-2 rounded focus:outline-none">Next</button>
     </div>
-
-
 
 
 <script>
@@ -411,6 +236,13 @@
                 content.classList.add('hidden');
             }
         });
+
+        // Check if we are on the last step and change the button text accordingly
+        if (currentStep === steps.length - 1) {
+            nextButton.textContent = 'Submit';
+        } else {
+            nextButton.textContent = 'Next';
+        }
     }
 
     prevButton.addEventListener('click', function () {
