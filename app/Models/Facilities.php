@@ -12,5 +12,10 @@ class Facilities extends Model
     protected $table = 'facilities';
     protected $primaryKey = 'facilityID';
     protected $fillable = ['facilityName', 'image', 'status'];
+
+    public function reservationDetails()
+    {
+        return $this->hasMany(ReservationDetails::class, 'facilityID');
+    }
     
 }

@@ -65,6 +65,7 @@ class NavigateController extends Controller
 
         return view('reservation');
     }
+
     
 
 }

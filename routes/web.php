@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PersonnelsController;
 use App\Http\Controllers\EquipmentsController;
+use App\Http\Controllers\ReservationDetailsController;
 use App\Models\Facilities;
 use App\Models\Personnels;
 use App\Models\Equipments;
@@ -49,6 +50,7 @@ Route::get('/personnels', [NavigateController::class, 'showPersonnels'])->name('
 Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('equipments');;
 Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
 Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
+Route::get('/reservation-submit', [NavigateController::class, 'showReservationModal'])->name('reservation-submit');
 
 //Reservation
 Route::get('/reservation', [ReservationController::class, 'displayFacilities']);
@@ -79,3 +81,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation.form');
 
+// routes/web.php
+
+Route::post('/reservation/store', [ReservationDetailsController::class, 'store'])->name('reservation.store');
