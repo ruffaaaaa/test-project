@@ -66,6 +66,12 @@ class NavigateController extends Controller
         return view('reservation');
     }
 
+    public function showAdminCalendarPage(){
+
+        return view('calendar');
+    }
+
+
     
 
 }

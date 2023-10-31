@@ -51,6 +51,8 @@ Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('
 Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
 Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
 Route::get('/reservation-submit', [NavigateController::class, 'showReservationModal'])->name('reservation-submit');
+Route::get('/calendar', [NavigateController::class, 'showAdminCalendarPage'])->name('calendar');
+
 
 //Reservation
 Route::get('/reservation', [ReservationController::class, 'displayFacilities']);
@@ -81,6 +83,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation.form');
 
-// routes/web.php
+// ReservationDetailsController
 
 Route::post('/reservation/store', [ReservationDetailsController::class, 'store'])->name('reservation.store');
