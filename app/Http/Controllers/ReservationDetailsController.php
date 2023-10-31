@@ -12,6 +12,7 @@ class ReservationDetailsController extends Controller
         // Validate the request data as needed
 
         $facilityIds = $request->input('facilityID');
+        $eventname = $request->input('nameofevent');
 
         // Find the last reservation code and extract the numeric part
         $lastReservation = ReservationDetails::latest('reservedetailsID')->first();
@@ -30,6 +31,7 @@ class ReservationDetailsController extends Controller
             ReservationDetails::create([
                 'reservedetailsID' => $nextNumericPart,
                 'facilityID' => $facilityId,
+                'event_name' => $eventname,
             ]);
             $nextNumericPart++; // Increment for the next reservation
         }
