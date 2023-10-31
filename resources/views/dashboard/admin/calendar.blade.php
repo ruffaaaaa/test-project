@@ -128,7 +128,7 @@
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <h2 class="text-2xl font-semibold mb-4">Dashboard</h2>
+        <h2 class="text-2xl font-semibold mb-4">Calendar</h2>
         <div class="bg-white rounded-lg shadow-lg p-6">
             <p>CALENDAR ITO TANGINA</p>
         </div>
