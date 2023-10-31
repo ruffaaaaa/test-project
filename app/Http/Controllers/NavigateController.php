@@ -68,10 +68,7 @@ class NavigateController extends Controller
 
     public function showAdminCalendarPage(){
 
-        return view('calendar');
+        return view('dashboard.admin.calendar');
     }
-
-
-    
 
 }
