@@ -14,6 +14,47 @@
     <link href="/css/custom.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+        table {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 40px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .gray-bg {
+            background-color: #f0f0f0;
+        }
+        .caption-container {
+            background-color: #4CAF50;
+            border-radius: 5px 5px 0 0;
+            padding: 5px;
+            text-align: center;
+            position: relative;
+            font-size: 100px;
+        }
+        #calendar-caption {
+            color: white;
+            position: relative;
+        }
+        .button-container {
+            background-color: #4CAF50;
+            border-radius: 0 0 5px 5px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }#calendar-button {
+            color: white;
+            position: relative;
+        }
+
+    </style>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
     <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60 " id="sidebar">
         <div class="flex flex-col justify-between h-full">
@@ -40,7 +81,7 @@
                         </a>
                         </li>
                         <li>
-                            <a href="" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                     <path d="M18.563 3.04056V0.987196C18.563 0.447529 18.104 0 17.5505 0C16.997 0 16.538 0.447529 16.538 0.987196V2.96159H7.76291V0.987196C7.76291 0.447529 7.3039 0 6.75039 0C6.19689 0 5.73788 0.447529 5.73788 0.987196V3.04056C2.09283 3.36963 0.324313 5.48881 0.0543094 8.63468C0.0273091 9.01639 0.351313 9.3323 0.729318 9.3323H23.5716C23.9631 9.3323 24.2871 9.00323 24.2466 8.63468C23.9766 5.48881 22.208 3.36963 18.563 3.04056Z" fill="#292D32"/>
@@ -52,7 +93,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="calendar" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                            <a href="calendar.blade.ph" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                 <path id="Vector" d="M18.2948 3.18727V1.03483C18.2948 0.469123 17.8425 0 17.297 0C16.7515 0 16.2991 0.469123 16.2991 1.03483V3.10449H7.65092V1.03483C7.65092 0.469123 7.19855 0 6.65305 0C6.10755 0 5.65518 0.469123 5.65518 1.03483V3.18727C2.06284 3.53222 0.319897 5.75365 0.0537984 9.05131C0.0271885 9.45144 0.346507 9.78259 0.719046 9.78259H23.231C23.6168 9.78259 23.9361 9.43764 23.8962 9.05131C23.6301 5.75365 21.8872 3.53222 18.2948 3.18727Z" fill="#FFFFFF"/>
@@ -92,7 +133,7 @@
                             </a>
                         </li>
                         </li>
-                            <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
                                     
@@ -122,17 +163,95 @@
             </div>  
         </div>
     </aside>
-    <main class="ml-60 p-8">
-        <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-            </svg>
-        </button>
-        <h2 class="text-2xl font-semibold mb-4">Calendar</h2>
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <p>CALENDAR ITO TANGINA</p>
-        </div>
-    </main>
+</head>
+<body>
+    <table>
+    <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+        </tbody>
+        <div class="caption-container" id="calendar-caption"></div>
+    </table>
+    <script>
+        const today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        function generateCalendar(year, month) {
+            const calendarCaption = document.getElementById("calendar-caption");
+            calendarCaption.textContent = new Date(year, month, 1).toLocaleString('default', { month: 'long' }) + " " + year;
+
+            const calendarBody = document.getElementById("calendar-body");
+            calendarBody.innerHTML = "";
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+
+            // Determine the day of the week for the first day of the month (0 = Sunday, 1 = Monday, etc.)
+            const startDay = firstDay.getDay();
+
+            let date = new Date(firstDay);
+            
+            // Fill in empty cells until the start day
+            for (let i = 0; i < startDay; i++) {
+                const emptyCell = document.createElement("td");
+                emptyCell.className = "gray-bg";
+                calendarBody.appendChild(emptyCell);
+            }
+
+            while (date <= lastDay) {
+                const cell = document.createElement("td");
+                cell.textContent = date.getDate();
+                if (date.getMonth() !== month) {
+                    cell.className = "gray-bg";
+                }
+                calendarBody.appendChild(cell);
+
+                if (date.getDay() === 6) {
+                    calendarBody.appendChild(document.createElement("tr"));
+                }
+
+                date.setDate(date.getDate() + 1);
+            }
+        }
+
+        function prevMonth() {
+            currentMonth -= 1;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear -= 1;
+            }
+            generateCalendar(currentYear, currentMonth);
+        }
+
+        function nextMonth() {
+            currentMonth += 1;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear += 1;
+            }
+            generateCalendar(currentYear, currentMonth);
+        }
+
+        generateCalendar(currentYear, currentMonth);
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                prevMonth();
+            } else if (event.key === 'ArrowRight') {
+                nextMonth();
+            }
+        });
+    </script>
+    <div class="button-container" id="calendar-buttons">
     <script src="/js/index.js"></script>
 </body>
 </html>
