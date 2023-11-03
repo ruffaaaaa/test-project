@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Facilities;
+use App\Models\SupportPersonnel;
+use App\Models\Personnels;
+use App\Models\Equipments;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -69,6 +72,17 @@ class NavigateController extends Controller
     public function showAdminCalendarPage(){
 
         return view('dashboard.admin.calendar');
+    }
+
+    public function showReservationForm()
+    {
+        $supportPersonnels = SupportPersonnel::all();
+        $personnels = Personnels::all();
+
+        $facilities = Facilities::all();
+        $equipments = Equipments::all();
+
+        return view('reservation', compact('supportPersonnels', 'facilities','personnels','equipments'));
     }
 
 }

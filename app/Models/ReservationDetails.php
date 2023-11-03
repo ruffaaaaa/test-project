@@ -35,5 +35,23 @@ class ReservationDetails extends Model
         return $this->belongsTo(Facility::class, 'facilityID');
     }
 
-   
+    public function no_equipments()
+    {
+        return $this->belongsTo(NoEquipments::class, 'reservedetailsID', 'reservedetailsID');
+    }
+
+    public function selectedFacilities()
+    {
+        return $this->hasMany(SelectedFacilities::class, 'reservationdetailsID', 'reservationdetailsID');
+    }
+
+    public function reservationAttachments()
+    {
+        return $this->hasMany(ReservationAttachments::class, 'reservedetailsID', 'reservedetailsID');
+    }
+    
+    public function reservee()
+    {
+        return $this->belongsTo(Reservee::class, 'reserveeID', 'reservedetailsID');
+    }
 }

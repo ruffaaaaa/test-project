@@ -17,5 +17,10 @@ class Facilities extends Model
     {
         return $this->hasMany(ReservationDetails::class, 'facilityID');
     }
+
+    public function selectedFacilities()
+    {
+        return $this->hasMany(SelectedFacilities::class, 'facilityID', 'facilityID');
+    }
     
 }

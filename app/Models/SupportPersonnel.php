@@ -15,7 +15,7 @@ class SupportPersonnel extends Model
     // Define relationships with other models
     public function supportPersonnel()
     {
-        return $this->belongsTo(SupportPersonnel::class, 'personnelID');
+        return $this->belongsTo(Personnels::class, 'personnelID', 'personnelID');
     }
     
 }

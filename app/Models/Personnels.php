@@ -10,4 +10,9 @@ class Personnels extends Model
     protected $table = 'support_personnels';
     protected $primaryKey = 'personnelID';
     protected $fillable = ['personnelName'];
+
+    public function noPersonnel()
+    {
+        return $this->hasMany(SupportPersonnel::class, 'personnelID', 'personnelID');
+    }
 }

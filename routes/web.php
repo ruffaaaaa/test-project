@@ -43,15 +43,7 @@ Route::middleware(['auth'])->group(function () {
 // Home
 Route::get('/', [HomeController::class, 'CarouselFacilities']);
 
-// Navigate
-Route::get('/facilitycreate', [NavigateController::class, 'showCreatePage'])->name('facility-create');
-Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
-Route::get('/personnels', [NavigateController::class, 'showPersonnels'])->name('personnels');
-Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('equipments');;
-Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
-Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
-Route::get('/reservation-submit', [NavigateController::class, 'showReservationModal'])->name('reservation-submit');
-Route::get('/calendar', [NavigateController::class, 'showAdminCalendarPage'])->name('calendar');
+
 
 
 //Reservation
@@ -65,8 +57,7 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard.admin.personnels', compact('personnels'));
     })->name('personnels');
     Route::post('/percreate', [PersonnelsController::class, 'create'])->name('personnel_save');
-    // Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
-    // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+ 
 });
 
 // Equipments
@@ -80,8 +71,17 @@ Route::middleware(['auth'])->group(function () {
     // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
 });
 
+// Navigate
+Route::get('/facilitycreate', [NavigateController::class, 'showCreatePage'])->name('facility-create');
+Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
+Route::get('/personnels', [NavigateController::class, 'showPersonnels'])->name('personnels');
+Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('equipments');;
+Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
+Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
+Route::get('/reservation-submit', [NavigateController::class, 'showReservationModal'])->name('reservation-submit');
+Route::get('/calendar', [NavigateController::class, 'showAdminCalendarPage'])->name('calendar');
+Route::get('/reservation', [NavigateController::class, 'showReservationForm'])->name('reservation.form');
 
-Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation.form');
 
 // ReservationDetailsController
 
