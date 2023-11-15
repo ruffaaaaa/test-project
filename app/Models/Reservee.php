@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reservee extends Model
 {
     protected $table = 'reservee';
+    protected $keyType = 'string';
     protected $primaryKey = 'reserveeID';
 
     protected $fillable = [
@@ -28,5 +29,8 @@ class Reservee extends Model
         return $this->hasOne(ReservationDetails::class, 'reservedetailsID', 'reserveeID');
     }
 
+    protected $attributes = [
+        'status' => 'Pending',
+    ];
 
 }

@@ -29,7 +29,7 @@
                 <div class="p-4">
                     <ul class="space-y-1">
                         <li>
-                        <a href="index1" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                        <a href="/admin-dashboard" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
 
                             <span class="icon">
                                 <!-- Replace the SVG code with your desired icon -->
@@ -42,7 +42,7 @@
                         </a>
                         </li>
                         <li>
-                            <a href="" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="admin-reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                     <path d="M18.563 3.04056V0.987196C18.563 0.447529 18.104 0 17.5505 0C16.997 0 16.538 0.447529 16.538 0.987196V2.96159H7.76291V0.987196C7.76291 0.447529 7.3039 0 6.75039 0C6.19689 0 5.73788 0.447529 5.73788 0.987196V3.04056C2.09283 3.36963 0.324313 5.48881 0.0543094 8.63468C0.0273091 9.01639 0.351313 9.3323 0.729318 9.3323H23.5716C23.9631 9.3323 24.2871 9.00323 24.2466 8.63468C23.9766 5.48881 22.208 3.36963 18.563 3.04056Z" fill="#292D32"/>
@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="admin-calendar" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                 <path id="Vector" d="M18.2948 3.18727V1.03483C18.2948 0.469123 17.8425 0 17.297 0C16.7515 0 16.2991 0.469123 16.2991 1.03483V3.10449H7.65092V1.03483C7.65092 0.469123 7.19855 0 6.65305 0C6.10755 0 5.65518 0.469123 5.65518 1.03483V3.18727C2.06284 3.53222 0.319897 5.75365 0.0537984 9.05131C0.0271885 9.45144 0.346507 9.78259 0.719046 9.78259H23.231C23.6168 9.78259 23.9361 9.43764 23.8962 9.05131C23.6301 5.75365 21.8872 3.53222 18.2948 3.18727Z" fill="#292D32"/>
@@ -66,7 +66,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="facilities" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                            <a href="admin-facilities" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 27" fill="currentColor" class="w-5 h-5">
                                         <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#FFFFFF"/>
@@ -75,7 +75,7 @@
                                 <span class="text ml-3">Facilities</span>
                             </a>
                         </li>
-                            <a href="personnels" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="admin-personnels" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                         <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
@@ -84,7 +84,7 @@
                             </a>
                         </li>
                         </li>
-                            <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="admin-equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
 
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
@@ -97,7 +97,7 @@
                         </li>
 
                         </li>
-                            <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="admin-settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
                                     
@@ -165,7 +165,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image"  class="h-8 w-15">
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->status }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityStatus }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                     <button class="border border-red-500 text-blue-500 px-4 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton">
                                         Edit

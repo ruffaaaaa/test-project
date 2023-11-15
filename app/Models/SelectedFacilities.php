@@ -17,7 +17,7 @@ class SelectedFacilities extends Model
 
     public function facility()
     {
-        return $this->belongsTo(Facility::class, 'facilityID', 'facilityID');
+        return $this->belongsTo(Facilities::class, 'facilityID', 'facilityID');
     }
     
     public function reservationDetail()

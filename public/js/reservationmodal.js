@@ -3,32 +3,19 @@ function openModal() {
     const eventName = document.getElementById('nameofevent').value.trim();
     const eventStartDate = document.getElementById('event-start-date').value.trim();
     const eventEndDate = document.getElementById('event-end-date').value.trim();
-    const eventStartTime = document.getElementById('event-start-time').value.trim();
-    const eventEndTime = document.getElementById('event-end-time').value.trim();
     const preparationStartDate = document.getElementById('preparation-start-date').value.trim();
     const preparationEndDate = document.getElementById('preparation-end-date').value.trim();
-    const preparationStartTime = document.getElementById('preparation-start-time').value.trim();
-    const preparationEndTime = document.getElementById('preparation-end-time').value.trim();
     const cleanupStartDate = document.getElementById('cleanup-start-date').value.trim();
     const cleanupEndDate = document.getElementById('cleanup-end-date').value.trim();
-    const cleanupStartTime = document.getElementById('cleanup-start-time').value.trim();
-    const cleanupEndTime = document.getElementById('cleanup-end-time').value.trim();
-
     // Check if any of the required fields are empty
     if (
         eventName === "" || 
         eventStartDate === "" || 
         eventEndDate === "" || 
-        eventStartTime === "" || 
-        eventEndTime === "" || 
         preparationStartDate === "" || 
         preparationEndDate === "" || 
-        preparationStartTime === "" || 
-        preparationEndTime === "" || 
         cleanupStartDate === "" || 
-        cleanupEndDate === "" || 
-        cleanupStartTime === "" || 
-        cleanupEndTime === ""
+        cleanupEndDate === ""
     ) {
         // Show an error message or take any other action you prefer
         alert("Please fill in all required fields.");

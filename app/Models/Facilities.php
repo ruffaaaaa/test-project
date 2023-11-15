@@ -11,7 +11,7 @@ class Facilities extends Model
 {
     protected $table = 'facilities';
     protected $primaryKey = 'facilityID';
-    protected $fillable = ['facilityName', 'image', 'status'];
+    protected $fillable = ['facilityName', 'image', 'facilityStatus'];
 
     public function reservationDetails()
     {

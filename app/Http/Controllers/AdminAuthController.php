@@ -13,7 +13,6 @@ class AdminAuthController extends Controller
         $this->middleware('auth')->only(['index1']);
     }
 
-    // Display the login form
     public function DisplayLoginForm()
     {
         return view('auth.login');
@@ -33,15 +32,14 @@ class AdminAuthController extends Controller
 
             switch ($user->role_id) {
                 case 1:
-                    return redirect()->route('index1'); // Redirect to index1 for role_id 1
+                    return redirect()->route('index1'); 
                 case 2:
-                    return redirect()->route('index2'); // Redirect to index2 for role_id 2
+                    return redirect()->route('index2'); 
                 default:
-                    return view('dashboard.default'); // Default view for other roles
+                    return view('dashboard.default'); 
             }
         }
 
-        // Authentication failed
         return back()->withErrors(['email' => 'Invalid login credentials']);
     }
 
@@ -52,15 +50,15 @@ class AdminAuthController extends Controller
 
     public function index2()
     {
-        return view('dashboard.user.index'); // Replace with your desired 
+        return view('dashboard.user.index'); 
     }
 
-    protected $redirectTo = '/dashboard'; // Change '/dashboard' to your desired
+    protected $redirectTo = '/dashboard'; 
 
     public function logout()
     {
-        Auth::logout(); // Log the user out
-        return redirect()->route('login'); // Redirect to the login page or any other desired page
+        Auth::logout(); 
+        return redirect()->route('login'); 
     }
 
     public function insertAdmin(Request $request)

@@ -86,7 +86,7 @@
                         <div class="image-container relative">
                             <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image" class="w-full rounded-2xl h-30 w-15">
                             <div class="overlay absolute top-0 left-0 w-full h-full flex justify-center items-center opacity-0 transition-opacity duration-300 hover:opacity-100">
-                                <p class="text-2xl font-bold text-white">{{ $facility->status }}</p>
+                                <p class="text-2xl font-bold text-white">{{ $facility->facilityStatus }}</p>
                             </div>
                         </div>
                         <p class="text-2xl font-bold text-green-600 text-center">{{ $facility->facilityName }}</p>
@@ -107,6 +107,17 @@
     <footer class = "mt-10">
         <div class="border-t border-solid border-green-600" style="border-top: 30px solid green; display: flex; justify-content: center; align-items: center;">
             <img src="/images/polygon.png" class="-mt-12">
+        </div>
+        <div class="flex flex-col lg:flex-row ml-14 mr-14 mt-6" >
+            <div class="w-full lg:w-1/3 pl-2 pr-2 ">
+                dd
+            </div>
+            <div class="w-full lg:w-1/3 pl-2 pr-2 ">
+                dd
+            </div>
+            <div class="w-full lg:w-1/3 pl-2 pr-2 ">
+                dd
+            </div>
         </div>
     </footer>
 

@@ -17,17 +17,12 @@ class ReservationDetails extends Model
         'event_name',
         'event_start_date',
         'event_end_date',
-        'event_start_time',
-        'event_end_time',
         'max_attendees',
         'preparation_start_date',
-        'preparation_end_date',
-        'preparation_start_time',
-        'preparation_end_time',
-        'cleanup_start_date',
-        'cleanup_end_date',
-        'cleanup_start_time',
-        'cleanup_end_time',
+        'preparation_end_date_time',
+        'cleanup_start_date_time',
+        'cleanup_end_date_time',
+
     ];
 
     public function facility()

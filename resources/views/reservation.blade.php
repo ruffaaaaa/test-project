@@ -74,84 +74,45 @@
                         </div>
                     </div>
                     <div>
-                         <div class="bg-[#5CC273] p-2">
-                                <span class="text-l font-bold text-white pl-4">B2. EVENT DETAILS</span>
-                        </div>
+                         
                         <div class="flex flex-col lg:flex-row">
                             <div class="w-full lg:w-1/2 pt-2 pl-2 pr-2 ">
                                 <div>
-                                    <div class="bg-[#5CC273] text-center rounded-xl">
-                                        <span class="text-sm font-bold text-white">EVENT</span>
+                                    <div class="bg-[#5CC273] p-2">
+                                        <span class="text-l font-bold text-white pl-4">B2. EVENT DETAILS</span>
                                     </div>
                                     <div class="items-center">
-                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Start Date of Event:</label>
-                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-start-date" name="event-start-date" type="date" required>
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Start Date and Time of Event:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-start-date" name="event-start-date" type="datetime-local" required>
                                     </div>
                                     
                                     <div class=" items-center">
-                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">End Date of Event:</label>
-                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-end-date" name="event-end-date" type="date" required>
-                                    </div>
-                                    <div class="items-center">
-                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Start Time of Event:</label>
-                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-start-time" name="event-start-time" type="time" required >
-                                    </div>
-                                    <div class="items-center">
-                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">End Time of Event:</label>
-                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-end-time" name="event-end-time" type="time" required>
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">End Date and Time of Event:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="event-end-date" name="event-end-date" type="datetime-local" required>
                                     </div>
                                     <div class=" items-center">
                                         <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Maximum Expected Number of Attendees:</label>
                                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="max-attendees" name="max-attendees" type="text" required>
                                     </div>
+                                    <div class=" items-center">
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation Start Date and Time:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-start-date" name="preparation-start-date" type="datetime-local" required>
+                                    </div>
+                                    <div class=" items-center">
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation End Date and Time:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-end-date" name="preparation-end-date" type="datetime-local" required>
+                                    </div>
+                                    <div class=" items-center">
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up Start Date and Time:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-start-date" name="cleanup-start-date" type="datetime-local" required>
+                                    </div>
+                                    <div class=" items-center">
+                                        <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up End Date and Time:</label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-end-date" name="cleanup-end-date" type="datetime-local" required>
+                                    </div>
                                     
                                 </div>
                             </div>
-                            <div class="w-full lg:w-1/2 pt-2 pl-2 pr-2 ">
-                                <div class="bg-[#5CC273] text-center rounded-xl">
-                                    <span class="text-sm font-bold text-white">PREPARATION</span>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation Start Date:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-start-date" name="preparation-start-date" type="date" required>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation End Date:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-end-date" name="preparation-end-date" type="date" required>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation Start Time:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-start-time" name="preparation-start-time" type="time" required>
-                                </div>
-                                <div class=" items-center pb-2">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Preparation End Time:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preparation-end-time" name="preparation-end-time" type="time" required>
-                                </div>
-                                <div class="bg-[#5CC273] text-center rounded-xl ">
-                                    <span class="text-sm font-bold text-white">CLEAN-UP</span>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up Start Date:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-start-date" name="cleanup-start-date" type="date" required>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up End Date:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-end-date" name="cleanup-end-date" type="date" required>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up Start Time:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-start-time" name="cleanup-start-time" type="time" required>
-                                </div>
-                                <div class=" items-center">
-                                    <label class=" w-32 text-gray-700 text-sm font-bold mb-2" for="start-date">Clean-up End Time:</label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cleanup-end-time" name="cleanup-end-time" type="time" required>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-5">
-                        <div class="flex flex-col lg:flex-row">
                             <div class="w-full lg:w-1/2 pt-2 pl-2 pr-2 ">
                                 <div class="bg-[#5CC273] p-2">
                                     <span class="text-l font-bold text-white pl-4">B3. FACILITIES & EQUIPMENT</span>
@@ -166,8 +127,6 @@
                                     @endforeach
                                 </div>
 
-                            </div>
-                            <div class="w-full lg:w-1/2 pt-2 pl-2 pr-2 ">
                                 <div class="bg-[#5CC273] p-2">
                                     <span class="text-l font-bold text-white pl-4">B4. SUPPORT PERSONNEL</span>
                                 </div>

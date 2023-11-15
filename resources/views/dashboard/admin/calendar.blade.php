@@ -14,47 +14,6 @@
     <link href="/css/custom.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<style>
-        table {
-            width: 100%;
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 40px;
-            text-align: center;
-        }
-        th {
-            background-color: #f0f0f0;
-        }
-        .gray-bg {
-            background-color: #f0f0f0;
-        }
-        .caption-container {
-            background-color: #4CAF50;
-            border-radius: 5px 5px 0 0;
-            padding: 5px;
-            text-align: center;
-            position: relative;
-            font-size: 100px;
-        }
-        #calendar-caption {
-            color: white;
-            position: relative;
-        }
-        .button-container {
-            background-color: #4CAF50;
-            border-radius: 0 0 5px 5px;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-        }#calendar-button {
-            color: white;
-            position: relative;
-        }
-
-    </style>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
     <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60 " id="sidebar">
         <div class="flex flex-col justify-between h-full">
@@ -69,7 +28,7 @@
                 <div class="p-4">
                     <ul class="space-y-1">
                         <li>
-                        <a href="index1" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                        <a href="/admin-dashboard" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                             <span class="icon">
                                 <!-- Replace the SVG code with your desired icon -->
 
@@ -81,7 +40,7 @@
                         </a>
                         </li>
                         <li>
-                            <a href="reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="admin-reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                     <path d="M18.563 3.04056V0.987196C18.563 0.447529 18.104 0 17.5505 0C16.997 0 16.538 0.447529 16.538 0.987196V2.96159H7.76291V0.987196C7.76291 0.447529 7.3039 0 6.75039 0C6.19689 0 5.73788 0.447529 5.73788 0.987196V3.04056C2.09283 3.36963 0.324313 5.48881 0.0543094 8.63468C0.0273091 9.01639 0.351313 9.3323 0.729318 9.3323H23.5716C23.9631 9.3323 24.2871 9.00323 24.2466 8.63468C23.9766 5.48881 22.208 3.36963 18.563 3.04056Z" fill="#292D32"/>
@@ -93,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="calendar.blade.ph" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                            <a href="admin-calendar" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                 <path id="Vector" d="M18.2948 3.18727V1.03483C18.2948 0.469123 17.8425 0 17.297 0C16.7515 0 16.2991 0.469123 16.2991 1.03483V3.10449H7.65092V1.03483C7.65092 0.469123 7.19855 0 6.65305 0C6.10755 0 5.65518 0.469123 5.65518 1.03483V3.18727C2.06284 3.53222 0.319897 5.75365 0.0537984 9.05131C0.0271885 9.45144 0.346507 9.78259 0.719046 9.78259H23.231C23.6168 9.78259 23.9361 9.43764 23.8962 9.05131C23.6301 5.75365 21.8872 3.53222 18.2948 3.18727Z" fill="#FFFFFF"/>
@@ -105,7 +64,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="facilities" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="admin-facilities" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 27" fill="currentColor" class="w-5 h-5">
                                         <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#292D32"/>
@@ -114,7 +73,7 @@
                                 <span class="text ml-3">Facilities</span>
                             </a>
                         </li>
-                            <a href="personnels" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="admin-personnels" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                         <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
@@ -123,7 +82,7 @@
                             </a>
                         </li>
                         </li>
-                            <a href="equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="admin-equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 31" stroke-width="2" stroke="currentColor" class="w-5 h-5">
@@ -133,7 +92,7 @@
                             </a>
                         </li>
                         </li>
-                            <a href="settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                            <a href="admin-settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
                                     
@@ -145,7 +104,6 @@
                             </a>
                         </li>
                     </ul>
-                    
                 </div>
             </div>
             <div class="p-4">
@@ -163,106 +121,110 @@
             </div>  
         </div>
     </aside>
+    <main class="ml-60 p-8 max-h-screen overflow-auto">
+    <button id="toggleSidebar" class="-ml-12 absolute p-2 bg-green-600 rounded-full text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+        </svg>
+    </button>
+    <div class="flex flex-col lg:flex-row">
+        <div class="w-full lg:w-1/6 mb-5 lg:mb-0 pl-1 pr-1">
+            <div class="min-h-full bg-white p-4 rounded-2xl shadow">
+                <div class="flex items-center justify-center">
+                    <span class="font-bold text-center">FILTER</span>
+                </div>
+                <div class="relative inline-block text-left mt-2 mb-2">
+                    <div>
+                        <span class="bg-[#43C6DB] rounded-full h-3 w-3 inline-block"></span>
+                        <span>Event</span>
+                    </div>
+                    <div>
+                        <span class="bg-[#7FFFD4] rounded-full h-3 w-3 inline-block"></span>
+                        <span>Preparation</span>
+                    </div>
+                    <div>
+                        <span class="bg-pink-500 rounded-full h-3 w-3 inline-block"></span>
+                        <span>Clean-up</span>
+                    </div>
+                </div>
 
-    <main class="ml-60 p-8">
-    <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-            </svg>
-        </button>
-        
-    <table>
-            <thead>
-                <tr>
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                </tr>
-            </thead>
-            <tbody id="calendar-body">
-            </tbody>
-            <div class="caption-container" id="calendar-caption"></div>
+                <div class="relative inline-block text-left mt-2 mb-2">
+                    <label for="scheduleFilter" class="block text-sm font-medium text-gray-700 mb-1">Schedule:</label>
+                    <select id="scheduleFilter" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="">Select</option>
+                        <option value="Event">Event</option>
+                        <option value="Preparation">Preparation</option>
+                        <option value="Cleanup">Clean-up</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4 mt-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 7l3-3 3 3m0 6l-3 3-3-3"></path></svg>
+                    </div>
+                </div>
+                <div class="relative inline-block text-left mt-2 mb-2">
+                    <label for="facilityFilter" class="block text-sm font-medium text-gray-700 mb-1">Facility:</label>
+                    <select id="facilityFilter" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="">Select</option>
+                        @foreach($facilities as $facility)
+                            <option value="{{ $facility->facilityID }}">{{ $facility->facilityName }}</option>
+                        @endforeach
+                    </select>
 
-        </table>
-        <div class="button-container" id="calendar-buttons"></div>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4 mt-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 7l3-3 3 3m0 6l-3 3-3-3"></path></svg>
+                    </div>
+                </div>
+                <div class="relative inline-block text-left mt-2 mb-2">
+                    <label for="statusFilter" class="block text-sm font-medium text-gray-700 mb-1">Status:</label>
+                    <select id="statusFilter" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="">Select</option>
 
-    </main>
+                        <option value="Approved">Approved</option>
+                        <option value="Not Approved">Not Approved</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4 mt-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 7l3-3 3 3m0 6l-3 3-3-3"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        const today = new Date();
-        let currentMonth = today.getMonth();
-        let currentYear = today.getFullYear();
+        <!-- Corrected closing div tag -->
+        <div class="w-full lg:w-6/8 mb-5 lg:mb-0 pl-1 pr-1">
+            <div class="min-h-full bg-white p-4 rounded-2xl shadow">
+                <div class="flex items-center">
+                    <button id="prevMonth" class="p-2 bg-green-500 rounded-full text-white hover:bg-green-900 mr-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="nextMonth" class="p-2 bg-green-500 text-white rounded-full hover:bg-green-900 mr-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <div id="currentMonth" data-year="2023" data-month="11" class="text-2xl font-semibold text-uppercase"></div>
+                </div>
 
-        function generateCalendar(year, month) {
-            const calendarCaption = document.getElementById("calendar-caption");
-            calendarCaption.textContent = new Date(year, month, 1).toLocaleString('default', { month: 'long' }) + " " + year;
+                <div class="mt-2 grid grid-cols-7 gap-2 bg-green-600 py-2 text-white rounded-xl">
+                    <div class="text-center text-sm font-semibold">Sunday</div>
+                    <div class="text-center text-sm font-semibold">Monday</div>
+                    <div class="text-center text-sm font-semibold">Tuesday</div>
+                    <div class="text-center text-sm font-semibold">Wednesday</div>
+                    <div class="text-center text-sm font-semibold">Thursday</div>
+                    <div class="text-center text-sm font-semibold">Friday</div>
+                    <div class="text-center text-sm font-semibold">Saturday</div>
+                </div>
 
-            const calendarBody = document.getElementById("calendar-body");
-            calendarBody.innerHTML = "";
+                <div id="calendar" class="mt-2 grid grid-cols-7 gap-2 w-full text-black">
+                    <!-- Calendar grid goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-
-            // Determine the day of the week for the first day of the month (0 = Sunday, 1 = Monday, etc.)
-            const startDay = firstDay.getDay();
-
-            let date = new Date(firstDay);
-            
-            // Fill in empty cells until the start day
-            for (let i = 0; i < startDay; i++) {
-                const emptyCell = document.createElement("td");
-                emptyCell.className = "gray-bg";
-                calendarBody.appendChild(emptyCell);
-            }
-
-            while (date <= lastDay) {
-                const cell = document.createElement("td");
-                cell.textContent = date.getDate();
-                if (date.getMonth() !== month) {
-                    cell.className = "gray-bg";
-                }
-                calendarBody.appendChild(cell);
-
-                if (date.getDay() === 6) {
-                    calendarBody.appendChild(document.createElement("tr"));
-                }
-
-                date.setDate(date.getDate() + 1);
-            }
-        }
-
-        function prevMonth() {
-            currentMonth -= 1;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear -= 1;
-            }
-            generateCalendar(currentYear, currentMonth);
-        }
-
-        function nextMonth() {
-            currentMonth += 1;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear += 1;
-            }
-            generateCalendar(currentYear, currentMonth);
-        }
-
-        generateCalendar(currentYear, currentMonth);
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowLeft') {
-                prevMonth();
-            } else if (event.key === 'ArrowRight') {
-                nextMonth();
-            }
-        });
-    </script>
-    <div class="button-container" id="calendar-buttons">
     <script src="/js/index.js"></script>
+    <script src="/js/calendar.js"></script>
 </body>
 </html>

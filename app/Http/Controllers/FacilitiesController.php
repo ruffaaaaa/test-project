@@ -11,13 +11,26 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class FacilitiesController extends Controller
 {
+
+    public function CarouselFacilities()
+    {
+           $facilities = Facilities::all(); 
+         return view('index', compact('facilities'));
+    }
+
+    public function showCreateFacilities()
+    {
+        return view('dashboard.admin.facilities-crud.create'); 
+    }
+
+
     // CRUD FACILITES
     public function create(Request $request)
     {
         $facilities = new Facilities();
 
         $facilities->facilityName = $request->input('facilityName');
-        $facilities->status = $request->input('status');
+        $facilities->facilityStatus = $request->input('status');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -34,7 +47,7 @@ class FacilitiesController extends Controller
 
         $facilities->save();
 
-        return redirect('/facilities');
+        return redirect('admin-facilities');
     }
 
     public function update(Request $request, $facilityID)
@@ -46,7 +59,7 @@ class FacilitiesController extends Controller
 
         $facility = Facilities::findOrFail($facilityID);
         $facility->facilityName = $request->input('facilityName');
-        $facility->status = $request->input('status');
+        $facility->facilityStatus = $request->input('status');
         $facility->save();
 
         return redirect()->route('facilities')->with('success', 'Facility updated successfully');
@@ -64,5 +77,7 @@ class FacilitiesController extends Controller
     
         return redirect()->route('facilities')->with('success', 'Facility deleted successfully');
     }
+
+    
 
 }

@@ -5,12 +5,12 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilitiesController;
-use App\Http\Controllers\NavigateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PersonnelsController;
 use App\Http\Controllers\EquipmentsController;
-use App\Http\Controllers\ReservationDetailsController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\SettingsController;
 use App\Models\Facilities;
 use App\Models\Personnels;
 use App\Models\Equipments;
@@ -18,7 +18,7 @@ use App\Models\SupportPersonnel;
 
 // AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
-    Route::get('/index1', [AdminAuthController::class, 'index1'])->name('index1');
+    Route::get('/admin-dashboard', [AdminAuthController::class, 'index1'])->name('index1');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 });
 Route::get('/login', [AdminAuthController::class, 'DisplayLoginForm'])->name('login');
@@ -29,60 +29,65 @@ Route::match(['get', 'post'], '/insert-admin-user', [AdminAuthController::class,
 
 // Facilities
 Route::middleware(['auth'])->group(function () {
-    Route::get('/facilities', function () {
+    Route::get('/admin-facilities', function () {
         $facilities = Facilities::all();
         return view('dashboard.admin.facilities', compact('facilities'));
     })->name('facilities');
     Route::post('/facilitycreate', [FacilitiesController::class, 'create'])->name('facility_save');
     Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
     Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+    Route::get('/facilitycreate', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
+
 });
-
-
-
-// Home
-Route::get('/', [HomeController::class, 'CarouselFacilities']);
+Route::get('/', [FacilitiesController::class, 'CarouselFacilities']);
 
 
 
 
-//Reservation
-Route::get('/reservation', [ReservationController::class, 'displayFacilities']);
 
 
-// Facilities
+
+
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/personnels', function () {
+    Route::get('/admin-personnels', function () {
         $personnels = Personnels::all();
         return view('dashboard.admin.personnels', compact('personnels'));
     })->name('personnels');
     Route::post('/percreate', [PersonnelsController::class, 'create'])->name('personnel_save');
- 
+    Route::delete('/personnels/{personnelID}', [PersonnelsController::class, 'destroy'])->name('personnels.destroy');
+    Route::get('/percreate', [PersonnelsController::class, 'showCreatePersonnel'])->name('personnel-create');
+
 });
 
 // Equipments
 Route::middleware(['auth'])->group(function () {
-    Route::get('/equipments', function () {
+    Route::get('/admin-equipments', function () {
         $equipments = Equipments::all();
         return view('dashboard.admin.equipments', compact('equipments'));
     })->name('equipments');
     Route::post('/equipcreate', [EquipmentsController::class, 'create'])->name('equipment_save');
-    // Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
-    // Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+    Route::delete('/equipments/{equipmentID}', [EquipmentsController::class, 'destroy'])->name('equipments.destroy');
+    Route::get('/equipcreate', [EquipmentsController::class, 'showCreateEquipment'])->name('equipment-create');
+
 });
 
-// Navigate
-Route::get('/facilitycreate', [NavigateController::class, 'showCreatePage'])->name('facility-create');
-Route::get('/reservation', [NavigateController::class, 'showReservationPage'])->name('reservation');
-Route::get('/personnels', [NavigateController::class, 'showPersonnels'])->name('personnels');
-Route::get('/equipments', [NavigateController::class, 'showEquipments'])->name('equipments');;
-Route::get('/percreate', [NavigateController::class, 'showCreatePersonnel'])->name('personnel-create');
-Route::get('/equipcreate', [NavigateController::class, 'showCreateEquipment'])->name('equipment-create');
-Route::get('/reservation-submit', [NavigateController::class, 'showReservationModal'])->name('reservation-submit');
-Route::get('/calendar', [NavigateController::class, 'showAdminCalendarPage'])->name('calendar');
-Route::get('/reservation', [NavigateController::class, 'showReservationForm'])->name('reservation.form');
 
+Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 
 // ReservationDetailsController
+Route::middleware(['auth'])->group(function () {
+    Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents'])->name('calendar');
+    Route::get('/admin-calendar',[CalendarController::class,'facilitiesFilter']);
+    Route::get('/admin-settings', [SettingsController::class,'showSettings']);
 
-Route::post('/reservation/store', [ReservationDetailsController::class, 'store'])->name('reservation.store');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reservee', [ReservationController::class, 'displayReservee']);
+    Route::get('/admin-reservation', [ReservationController::class, 'showModalReservationDetails'])->name('admin-reservation');
+});
+
+Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
+

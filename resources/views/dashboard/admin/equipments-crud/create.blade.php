@@ -20,7 +20,7 @@
         </a>
         <h1 class="text-xl font-bold text-green-600 text-black m-2">ADD NEW EQUIPMENT</h1>
         <div class="mx-auto p-4 bg-white rounded-3xl max-w-md"> <!-- Added max-w-md -->
-            <form action="{{ route('save') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('equipment_save') }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
             @if(session('success'))

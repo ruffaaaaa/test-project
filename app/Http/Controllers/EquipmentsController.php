@@ -8,6 +8,12 @@ use App\Models\Equipments;
 
 class EquipmentsController extends Controller
 {
+    public function showCreateEquipment()
+    {
+        return view('dashboard.admin.equipments-crud.create'); 
+    }
+
+
     public function create(Request $request)
     {
         $equipments = new Equipments();
@@ -16,6 +22,19 @@ class EquipmentsController extends Controller
 
         $equipments->save();
 
-        return redirect('/equipments');
+        return redirect('/admin-equipments');
+    }
+
+    public function destroy($equipmentID)
+    {
+        $equipments = Equipments::find($equipmentID);
+        
+        if (!$equipments) {
+            return redirect()->route('equipments')->with('error', 'Equipment not found');
+        }
+    
+        $equipments->delete();
+    
+        return redirect()->route('equipments')->with('success', 'Equipment deleted successfully');
     }
 }
