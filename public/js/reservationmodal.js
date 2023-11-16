@@ -17,16 +17,13 @@ function openModal() {
         cleanupStartDate === "" || 
         cleanupEndDate === ""
     ) {
-        // Show an error message or take any other action you prefer
         alert("Please fill in all required fields.");
         return;
     }
 
-    // If all required fields are not empty, proceed to open the modal
     const modal = document.getElementById('modal');
     modal.classList.remove('hidden');
 
-    // Your existing code for submitting the form
     event.preventDefault();
     const form = document.querySelector('form');
     const formData = new FormData(form);
@@ -47,36 +44,28 @@ function openModal() {
     });
 }
 
-// Rest of your code
 const equipmentCheckboxes = document.querySelectorAll('.equipment-checkbox');
 equipmentCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', function () {
-        // Find the corresponding input field for this checkbox
         const equipmentInput = this.parentElement.querySelector('.equipment-input');
 
         if (this.checked) {
-            // If the checkbox is checked, show the input field
             equipmentInput.style.display = 'block';
         } else {
-            // If the checkbox is unchecked, hide the input field and clear its value
             equipmentInput.style.display = 'none';
             equipmentInput.value = '';
         }
     });
 });
 
-// Add an event listener to all personnel checkboxes
 const personnelCheckboxes = document.querySelectorAll('.personnel-checkbox');
 personnelCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', function () {
-        // Find the corresponding input field for this checkbox
         const personnelInput = this.parentElement.querySelector('.personnel-input');
 
         if (this.checked) {
-            // If the checkbox is checked, show the input field
             personnelInput.style.display = 'block';
         } else {
-            // If the checkbox is unchecked, hide the input field and clear its value
             personnelInput.style.display = 'none';
             personnelInput.value = '';
         }

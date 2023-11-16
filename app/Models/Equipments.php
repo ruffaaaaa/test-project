@@ -13,6 +13,6 @@ class Equipments extends Model
 
     public function noEquipments()
     {
-        return $this->hasMany(NoEquipment::class, 'equipmentID', 'equipmentID');
+        return $this->hasMany(NoEquipments::class, 'equipmentID', 'equipmentID');
     }
 }

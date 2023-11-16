@@ -27,7 +27,7 @@ class ReservationDetails extends Model
 
     public function facility()
     {
-        return $this->belongsTo(Facility::class, 'facilityID');
+        return $this->belongsTo(Facilities::class, 'facilityID');
     }
 
     public function no_equipments()

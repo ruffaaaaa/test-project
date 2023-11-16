@@ -13,12 +13,9 @@ class NoEquipments extends Model
     protected $fillable = ['equipmentID', 'total_no', 'reservedetailsID'];
 
 
-    // Define relationships if you have any, for example:
-    
-    // A NoEquipment belongs to an Equipment
     public function equipment()
     {
-        return $this->belongsTo(Equipment::class, 'equipmentID', 'equipmentID');
+        return $this->belongsTo(Equipments::class, 'equipmentID', 'equipmentID');
     }
 
     public function reservationDetail()

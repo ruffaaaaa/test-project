@@ -36,10 +36,8 @@ class FacilitiesController extends Controller
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
 
-            // Resize the image to 2048x1365 pixels
             $image = Image::make($image)->resize(2048, 1365);
 
-            // Save the resized image
             $image->save(public_path('uploads/facilities/' . $filename));
 
             $facilities->image = $filename;

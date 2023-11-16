@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Check if we are on the last step and change the button text accordingly
         if (currentStep === steps.length - 1) {
             nextButton.textContent = 'Submit';
         } else {

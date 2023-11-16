@@ -11,7 +11,6 @@
         const isCollapsed = sidebar.classList.contains('collapsed');
         sessionStorage.setItem('sidebarCollapsed', isCollapsed);
 
-        // Toggle the icon based on the sidebar state
         if (isCollapsed) {
             iconPath.setAttribute('d', 'M3.25 10a.75.75 0 01.75-.75H14.388l-4.158-3.96a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08L14.388 10H4.75A.75.75 0 013.25 10z');
         } else {
@@ -21,7 +20,6 @@
 
     toggleButton.addEventListener('click', toggleSidebar);
 
-    // Check the initial sidebar state from sessionStorage
     const storedSidebarState = sessionStorage.getItem('sidebarCollapsed');
 
     if (storedSidebarState === 'true') {
@@ -34,13 +32,11 @@
         iconPath.setAttribute('d', 'M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z');
     }
 
-    // Get the sidebar content element
     const sidebarContent = document.getElementById("sidebar-content");
 
-    // Set the height dynamically based on the available viewport height
     const windowHeight = window.innerHeight;
-    const headerHeight = 100; // Adjust as needed
-    const minHeight = 300; // Minimum height
+    const headerHeight = 100; 
+    const minHeight = 300; 
     const maxHeight = windowHeight - headerHeight;
 
     sidebarContent.style.height = Math.max(minHeight, maxHeight) + "px";
@@ -48,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var modal = document.getElementById('editModal');
     var editButtons = document.querySelectorAll('.editButton');
-    var editForm = document.getElementById('editForm'); // Get the edit form
+    var editForm = document.getElementById('editForm'); 
 
     var editFacilityIDField = document.getElementById('editFacilityID');
     var editFacilityNameField = document.getElementById('editFacilityName');
@@ -106,8 +102,5 @@ document.addEventListener("DOMContentLoaded", function() {
         },
     });
 });
-
-
-
 ////
 

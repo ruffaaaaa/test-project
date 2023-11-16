@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentMonth = parseInt(currentMonthElement.getAttribute('data-month'));
     let selectedFacilityID = '';
     let selectedSchedule = '';
-    let selectedStatus = '';  // Move it here to maintain its value
-
+    let selectedStatus = '';  
     function getStartingDayOfWeek(year, month) {
         return new Date(year, month - 1, 1).getDay();
     }
@@ -123,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 });
                             }
                             break;
+                            
                         default:
-                            // Modify this section to apply the status filter
                             const filteredEvents = (selectedStatus === '')
                                 ? eventsForDay
                                 : filteredEventsForDay;
