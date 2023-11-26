@@ -122,17 +122,34 @@
             </div>  
         </div>
     </aside>
-    <main class="ml-60 p-8">
-        <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
+    <main class="ml-60 p-8 max-h-screen overflow-auto">
+        <button id="toggleSidebar" class="-ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <h2 class="text-2xl font-semibold mb-4">Dashboard</h2>
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <p>Welcome to the Facilities Reservation System Dashboard. You can customize and add your content here.</p>
+        <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
+                <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
+                    <div>
+                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, </span>
+                        <span></span>
+                    </div>
+                    <div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-2/3 lg:mb-0 pl-1 pr-1">
+                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
+                    
+                </div>
+            </div>
         </div>
     </main>
     <script src="/js/index.js"></script>
 </body>
 </html>
+

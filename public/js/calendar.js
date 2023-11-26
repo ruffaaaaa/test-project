@@ -171,24 +171,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const eventDiv = document.createElement('div');
         eventDiv.className = 'event';
         eventDiv.style.backgroundColor = getBackgroundColorForEvent(event.event_name);
-
+    
         const eventText = document.createElement('div');
         eventText.textContent = event.event_name;
         eventText.style.marginTop = '5px';
         eventText.style.fontSize = '10px';
         eventText.style.fontWeight = 'bold';
         eventDiv.appendChild(eventText);
-
+    
+        const facilities = document.createElement('div');
+        facilities.textContent = event.facilityName; // Include facilityName here
+        eventDiv.appendChild(facilities);
+    
         const eventStartDate = new Date(event.event_start_date);
         const eventEndDate = new Date(event.event_end_date);
-
+    
         const eventTimeDiv = document.createElement('div');
         eventTimeDiv.textContent = `${formatTimeTo12Hour(eventStartDate.toLocaleTimeString())} - ${formatTimeTo12Hour(eventEndDate.toLocaleTimeString())}`;
         eventTimeDiv.style.fontSize = '10px';
         eventDiv.appendChild(eventTimeDiv);
-
+    
         return eventDiv;
-    }
+    }    
 
     function createCleanUpDiv(event) {
         const cleanupDiv = document.createElement('div');

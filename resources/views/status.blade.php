@@ -12,47 +12,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link href="/css/custom.css" rel="stylesheet">
-    <style>
-        table {
-            width: 100%;
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 40px;
-            text-align: center;
-        }
-        th {
-            background-color: #f0f0f0;
-        }
-        .gray-bg {
-            background-color: #f0f0f0;
-        }
-        .caption-container {
-            background-color: #4CAF50;
-            border-radius: 5px 5px 0 0;
-            padding: 5px;
-            text-align: center;
-            position: relative;
-            font-size: 100px;
-        }
-        #calendar-caption {
-            color: white;
-            position: relative;
-        }
-        .button-container {
-            background-color: #4CAF50;
-            border-radius: 0 0 5px 5px;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-        }#calendar-button {
-            color: white;
-            position: relative;
-        }
-
-    </style>
 </head>
 <body>
     <table>

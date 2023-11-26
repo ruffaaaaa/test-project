@@ -25,10 +25,12 @@ class CalendarController extends Controller
             'reservation_details.cleanup_start_date_time',
             'reservation_details.cleanup_end_date_time',
             'reservee.status',
-            'selected_facilities.facilityID'
+            'selected_facilities.facilityID',
+            'facilities.facilityName' // Include facilityName column
         )
         ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
         ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
+        ->join('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID') // Join facilities table
         ->whereYear('reservation_details.event_start_date', $year)
         ->whereMonth('reservation_details.event_start_date', $month);
 
