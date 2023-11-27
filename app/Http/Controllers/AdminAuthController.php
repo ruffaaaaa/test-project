@@ -52,23 +52,13 @@ class AdminAuthController extends Controller
         return view('dashboard.user.index'); 
     }
 
-    public function welcomeAdmin()
-    {
-        session_start();
-        if (isset($_SESSION['aname'])) {
-            $admin = User::where('username', $_SESSION['aname'])->first();
-            return view('dashboard.user.index', compact('user'));
-        } else {
-            return "Welcome, Guest";
-        }
-    }
+    
 
     protected $redirectTo = '/dashboard'; 
 
     public function logout()
     {
         Auth::logout(); 
-        session_destroy();
         return redirect()->route('login');
     }
 
@@ -83,4 +73,13 @@ class AdminAuthController extends Controller
 
         return 'Admin user created successfully';
     }
+
+
+    public function welcomeAdmin(Request $request)
+    {
+        $user = Auth::User();
+
+        return view('dashboard.user.index', ['user' => $user]);
+    }
+
 }

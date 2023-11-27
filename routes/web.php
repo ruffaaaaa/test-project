@@ -20,11 +20,18 @@ use App\Models\SupportPersonnel;
 Route::middleware(['auth', 'no-cache'])->group(function () {
     Route::get('/admin-dashboard', [AdminAuthController::class, 'index1'])->name('index1');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+    Route::get('/lla-dashboard', [AdminAuthController::class, 'index2'])->name('index2');
+    Route::get('/lla-dashboard', [AdminAuthController::class, 'welcomeAdmin']);
+
+
 });
 Route::get('/login', [AdminAuthController::class, 'DisplayLoginForm'])->name('login');
+
 Route::post('/login', [AdminAuthController::class, 'login']);
-Route::get('/lla-dashboard', [AdminAuthController::class, 'index2'])->name('index2');
+
+
 Route::match(['get', 'post'], '/insert-admin-user', [AdminAuthController::class, 'insertAdmin']);
+
 
 
 // Facilities

@@ -110,14 +110,15 @@
         <div class="flex flex-col lg:flex-row">
             <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
-                    <div class="welcome-message">
-                        @if(isset($admin))
-                            <p class="text-2xl font-bold text-green-600 text-center">{{ $admin->aname }}</p>
-                        @else
-                            <p class="text-2xl font-bold text-green-600 text-center">Welcome Admin!</p>
-                        @endif
-                        <br></br>
-                    </div>
+                <div class="welcome-message">
+                    <div>
+                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, <br class="ml-4"> {{ $user->aname }} </span>
+                        
+                        <span></span>
+                    </div>        
+                </div>
+
+
                     <div id="notif" class="h-[540px] bg-white p-4 rounded-2xl">
                         <p>Testing</p>
                         <div>
