@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
 class AdminAuthController extends Controller
 {
     public function __construct()
@@ -53,12 +52,24 @@ class AdminAuthController extends Controller
         return view('dashboard.user.index'); 
     }
 
+    public function welcomeAdmin()
+    {
+        session_start();
+        if (isset($_SESSION['aname'])) {
+            $admin = User::where('username', $_SESSION['aname'])->first();
+            return view('dashboard.user.index', compact('user'));
+        } else {
+            return "Welcome, Guest";
+        }
+    }
+
     protected $redirectTo = '/dashboard'; 
 
     public function logout()
     {
         Auth::logout(); 
-        return redirect()->route('login'); 
+        session_destroy();
+        return redirect()->route('login');
     }
 
     public function insertAdmin(Request $request)

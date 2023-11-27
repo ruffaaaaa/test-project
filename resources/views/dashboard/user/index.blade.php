@@ -96,7 +96,7 @@
                                 <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd" />
                             </svg>
                         </span>
-                    </button> <span class="text font-bold text-sm ml-2">Logout</span>
+                    </button> <span class="text font-bold text-sm ml-2">Logout</span>   
                 </form>
             </div>  
         </div>
@@ -110,11 +110,16 @@
         <div class="flex flex-col lg:flex-row">
             <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
-                    <div>
-                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, </span>
-                        <span></span>
+                    <div class="welcome-message">
+                        @if(isset($admin))
+                            <p class="text-2xl font-bold text-green-600 text-center">{{ $admin->aname }}</p>
+                        @else
+                            <p class="text-2xl font-bold text-green-600 text-center">Welcome Admin!</p>
+                        @endif
+                        <br></br>
                     </div>
-                    <div>
+                    <div id="notif" class="h-[540px] bg-white p-4 rounded-2xl">
+                        <p>Testing</p>
                         <div>
                         </div>
                     </div>
