@@ -13,9 +13,10 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
-    <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60 " id="sidebar">
+<aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60 " id="sidebar">
         <div class="flex flex-col justify-between h-full">
             <div class="flex-grow">
                 <div class="px-4 py-6 text-center border-b">
@@ -28,16 +29,20 @@
                 <div class="p-4">
                     <ul class="space-y-1">
                         <li>
-                        <a href="/admin-dashboard" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                        <a href="/lla-dashboard" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+
                             <span class="icon">
+                                <!-- Replace the SVG code with your desired icon -->
+
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                     <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
                                 </svg>      
+
                             <span class="text ml-3">Dashboard</span>
                         </a>
                         </li>
                         <li>
-                            <a href="admin-reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="lla-reservation" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                     <path d="M18.563 3.04056V0.987196C18.563 0.447529 18.104 0 17.5505 0C16.997 0 16.538 0.447529 16.538 0.987196V2.96159H7.76291V0.987196C7.76291 0.447529 7.3039 0 6.75039 0C6.19689 0 5.73788 0.447529 5.73788 0.987196V3.04056C2.09283 3.36963 0.324313 5.48881 0.0543094 8.63468C0.0273091 9.01639 0.351313 9.3323 0.729318 9.3323H23.5716C23.9631 9.3323 24.2871 9.00323 24.2466 8.63468C23.9766 5.48881 22.208 3.36963 18.563 3.04056Z" fill="#292D32"/>
@@ -49,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="admin-calendar" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="lla-calendar" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                 <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" class="w-5 h-5">
                                 <path id="Vector" d="M18.2948 3.18727V1.03483C18.2948 0.469123 17.8425 0 17.297 0C16.7515 0 16.2991 0.469123 16.2991 1.03483V3.10449H7.65092V1.03483C7.65092 0.469123 7.19855 0 6.65305 0C6.10755 0 5.65518 0.469123 5.65518 1.03483V3.18727C2.06284 3.53222 0.319897 5.75365 0.0537984 9.05131C0.0271885 9.45144 0.346507 9.78259 0.719046 9.78259H23.231C23.6168 9.78259 23.9361 9.43764 23.8962 9.05131C23.6301 5.75365 21.8872 3.53222 18.2948 3.18727Z" fill="#292D32"/>
@@ -61,35 +66,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="admin-facilities" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                            <a href="lla-facilities" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 27" fill="currentColor" class="w-5 h-5">
-                                        <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#292D32"/>
+                                        <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#FFFFFF"/>
                                     </svg>
                                 </span>
                                 <span class="text ml-3">Facilities</span>
                             </a>
                         </li>
-                            <a href="admin-personnels" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
-                                <span class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                        <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
-                                    </svg>
-                                <span class="text ml-3">Personnels</span>
-                            </a>
-                        </li>
-                        </li>
-                            <a href="admin-equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
-                                <span class="icon">
-                                    <!-- Replace the SVG code with your desired icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 31" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                        <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z" fill="#292D32"/>
-                                    </svg>
-                                <span class="text ml-3">Equipments</span>
-                            </a>
-                        </li>
-                        </li>
-                            <a href="admin-settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
+                    
+                        <li>
+                            <a href="lla-settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                 <span class="icon">
                                     <!-- Replace the SVG code with your desired icon -->
                                     
@@ -119,34 +107,106 @@
             </div>  
         </div>
     </aside>
-    <main class="ml-60 p-8 max-h-screen overflow-auto">
-        <button id="toggleSidebar" class="-ml-12 absolute p-2 bg-green-600 rounded-full text-white">
+ 
+ 
+    <main class="ml-60 p-8 max-h-screen w-auto">
+        <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <div class="flex flex-col lg:flex-row">
-            <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
-                <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
-                    <div>
-                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, </span>
-                        <span></span>
+        <div class="max-h-screen overflow-y-auto">
+            <div class=" mx-auto">
+                <div class="bg-white rounded-3xl p-8 mb-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class=" mb-3 clearfix">
+                                <a href="facilitycreate" class="btn btn-success pull-right "></i> Add New Facility</a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div>
+                <div>
+                <div class="mb-3">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Facility Name</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($facilities as $facility)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityID }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityName }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image"  class="h-8 w-15">
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityStatus }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                    <button class="border border-red-500 text-blue-500 px-4 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton">
+                                        Edit
+                                    </button>
+                                    <form method="POST" action="{{ route('facilities.destroy', $facility->facilityID) }}" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
+                                            Delete
+                                        </button>
+                                    </form>                          
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+                        <div class="flex items-center justify-center min-h-screen">
+                            <div class="transition-opacity">
+                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                            </div>
+                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <div class="sm:flex sm:items-start">
+                                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                            <a href="/" class="-mt-8">
+                                                <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                                            </a>
+                                            <h3 class="text-lg leading-6 font-medium text-gray-900">Facility</h3>
+                                            <form id="editForm" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" id="editFacilityID" name="facilityID">
+                                                <div class="mt-2">
+                                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Facility Name</label>
+                                                    <input type="text" id="editFacilityName" name="facilityName" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
+                                                </div>
+                                                <div class="mt-2">
+                                                    <label for="editStatus" class="block text-gray-600 text-left font-bold">Status</label>
+                                                    <select id="editStatus" name="status" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
+                                                        <option value="Available">Available</option>
+                                                        <option value="Unavailable">Unavailable</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                    <button type="submit" form="editForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Update</button>
+                                    <button id="closeModal" class=" inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="w-full lg:w-2/3 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
-                    
-                </div>
-            </div>
-        </div>
+            </div>  
+        </div>  
     </main>
-    <script src="/js/index.js"></script>
+    <script src='js/index.js'></script>
+    <script src='js/modal.js'></script>
 </body>
 </html>
-

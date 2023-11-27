@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
-
-
     public function showReservationForm()
     {
         $supportPersonnels = SupportPersonnel::all();
@@ -164,6 +162,24 @@ class ReservationController extends Controller
                 ->get();
     
             return view('dashboard.admin.adminreservation', compact('reservationDetails'));
+        }
+    
+        return redirect()->route('login');
+    }
+
+    public function showModalReservationDetailsLLA()
+    {
+        if (Auth::check()) {
+            $reservationDetails = DB::table('reservee')
+                ->join('reservation_details', 'reservee.reservedetailsID', '=', 'reservation_details.reservedetailsID')
+                ->join('selected_facilities', 'selected_facilities.reservedetailsID', '=', 'reservation_details.reservedetailsID')
+                ->join('facilities', 'facilities.facilityID', '=', 'selected_facilities.facilityID')
+                ->select('reservee.*', 'reservation_details.*', 'selected_facilities.*', 'facilities.*')
+                ->distinct('reservee.reserveeID') // Use DISTINCT to get unique reserveeID
+
+                ->get();
+    
+            return view('dashboard.user.adminreservation', compact('reservationDetails'));
         }
     
         return redirect()->route('login');

@@ -23,7 +23,7 @@ Route::middleware(['auth', 'no-cache'])->group(function () {
 });
 Route::get('/login', [AdminAuthController::class, 'DisplayLoginForm'])->name('login');
 Route::post('/login', [AdminAuthController::class, 'login']);
-Route::get('/index2', [AdminAuthController::class, 'index2'])->name('index2');
+Route::get('/lla-dashboard', [AdminAuthController::class, 'index2'])->name('index2');
 Route::match(['get', 'post'], '/insert-admin-user', [AdminAuthController::class, 'insertAdmin']);
 
 
@@ -39,11 +39,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/facilitycreate', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
 
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/lla-facilities', function () {
+        $facilities = Facilities::all();
+        return view('dashboard.user.facilities', compact('facilities'));
+    })->name('facilities');
+    Route::post('/facilitycreate', [FacilitiesController::class, 'create'])->name('facility_save');
+    Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
+    Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
+    Route::get('/facilitycreate', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
+
+});
 Route::get('/', [FacilitiesController::class, 'CarouselFacilities']);
-
-
-
-
 
 
 
@@ -78,8 +86,12 @@ Route::post('/reservation/store', [ReservationController::class, 'store'])->name
 // ReservationDetailsController
 Route::middleware(['auth'])->group(function () {
     Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents'])->name('calendar');
-    Route::get('/admin-calendar',[CalendarController::class,'facilitiesFilter']);
+    Route::get('/lla-calendar',[CalendarController::class,'facilitiesFilter']);
+    Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforLLA']);
+    Route::get('/lla-calendar',[CalendarController::class,'facilitiesFilterforLLA']);
     Route::get('/admin-settings', [SettingsController::class,'showSettings']);
+    Route::get('/lla-settings', [SettingsController::class,'showSettingsforLLA']);
+
 
 });
 
@@ -87,7 +99,10 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/reservee', [ReservationController::class, 'displayReservee']);
     Route::get('/admin-reservation', [ReservationController::class, 'showModalReservationDetails'])->name('admin-reservation');
+
 });
+
+Route::get('/lla-reservation', [ReservationController::class, 'showModalReservationDetailsLLA'])->name('lla-reservation');;
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
 

@@ -14,4 +14,10 @@ class SettingsController extends Controller
         }
         return redirect()->route('login');
     }
+    public function showSettingsforLLA(){
+        if (Auth::check()) {
+        return view('dashboard.user.settings');
+        }
+        return redirect()->route('login');
+    }
 }
