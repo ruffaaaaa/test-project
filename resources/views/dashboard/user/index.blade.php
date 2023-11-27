@@ -112,24 +112,20 @@
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
                 <div class="welcome-message">
                     <div>
-                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, <br class="ml-4"> {{ $user->aname }} </span>
-                        
-                        <span></span>
+                        <span class="text-4xl font-bold text-green-600 ml-4 mt-8">Welcome {{ $user->aname }}! </span>     
+                        <br></br>
+                        <br></br>
                     </div>        
-                </div>
-
-
-                    <div id="notif" class="h-[540px] bg-white p-4 rounded-2xl">
-                        <p>Testing</p>
-                        <div>
+                    </div>
+                            <div id="NotifsHeader" class="bg-yellow-500 p-4 rounded-2xl text-center font-bold mb-2">
+                                <p>UPCOMING RESERVATIONS</p>
+                            <div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-2/3 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
-                    
+                        <div id="NotifsBody" class="h-[400px] bg-yellow-500 p-4 rounded-2xl text-left font-bold">
+                            <p>List blablabla</p>
+                        <div>
+                    </div>
                 </div>
             </div>
         </div>

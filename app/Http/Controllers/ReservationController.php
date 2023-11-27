@@ -184,4 +184,27 @@ class ReservationController extends Controller
     
         return redirect()->route('login');
     }
+
+    public function notifsLLA($year, $month, $selectedFacilityID = null)
+    {
+        $eventsQuery = ReservationDetails::select(
+            'reservation_details.event_name',
+            'reservation_details.event_start_date',
+        )
+        ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
+        ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
+        ->join('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID') // Join facilities table
+        ->whereYear('reservation_details.event_start_date', $year)
+        ->whereMonth('reservation_details.event_start_date', $month);
+
+        if ($selectedFacilityID !== null) {
+            $eventsQuery->where('selected_facilities.facilityID', $selectedFacilityID);
+        }
+
+        $events = $eventsQuery->get();
+
+        return response()->json($events);
+    }
 }
+
+
