@@ -119,13 +119,12 @@
                             <button class="inline-flex items-center space-x-1  pt-2 pb-2 border-b-2 border-t-2 border-black-100 w-[230px]">
                             <svg width="38" height="38" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="&#240;&#159;&#166;&#134; icon &#34;person&#34;">
-                            <g id="Group">
+                            <g id="Group">                            
                             <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#231F20"/>
                             <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#231F20"/>
                             </g>
                             </g>
                             </svg>
-
                             <span>PROFILE</span>
                         </button>
                     </div>
@@ -139,21 +138,28 @@
 
                             <span>ADMIN MANAGEMENT</span>
                         </button>
-                    </div>
-                    
+                    </div>                  
                 </div>
             </div>
-            <div class="w-full lg:w-6/8 mb-5 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
+            <div class="w-full lg:w-6/8 mb-5 lg:mb-0 pl-1 pr-1 flex">
+            <!-- Container One -->
+                <div class="w-1/2 bg-white p-4">
+                    <p class="font-bold m-3">Name‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎:</p>
+                    <p class="font-bold m-3">Username‎ ‎ ‎:</p>
+                    <p class="font-bold m-3">Email‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ :</p>
+                    <p class="font-bold m-3">Password‎ ‎ ‎‎ ‎‎:</p>
+                </div>
+
+            <!-- Container Two -->
+                <div class="w-1/2 bg-white p-4">
+                    <p class="font-bold m-3">Name here</p>
+                    <p class="font-bold m-3">Username here</p>
+                    <p class="font-bold m-3">User here</p>
+                    <p class="font-bold m-3">*****</p>
                 </div>
             </div>
-        </div>
-      
+        </div> 
     </main>
-
     <script src="/js/index.js"></script>
-    
-
-   
 </body>
 </html>

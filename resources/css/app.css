@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#NotifsHeader {
+    background-color: #C7F3D5;
+}
+
+#NotifsBody {
+    background-color: #C7F3D5;
+}
+
+#Notifs {
+    background-color: #FFFFFF;
+}

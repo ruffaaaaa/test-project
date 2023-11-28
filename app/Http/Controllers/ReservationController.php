@@ -202,8 +202,7 @@ class ReservationController extends Controller
         }
 
         $events = $eventsQuery->get();
-
-        return response()->json($events);
+        return view('index2', ['notifs' => $events]);
     }
 }
 
