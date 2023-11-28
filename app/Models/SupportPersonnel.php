@@ -17,5 +17,9 @@ class SupportPersonnel extends Model
     {
         return $this->belongsTo(Personnels::class, 'personnelID', 'personnelID');
     }
+    public function reservationDetail()
+    {
+        return $this->belongsTo(ReservationDetails::class, 'reservedetailsID', 'reservedetailsID');
+    }
     
 }

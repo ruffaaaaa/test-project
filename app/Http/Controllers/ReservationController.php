@@ -119,6 +119,7 @@ class ReservationController extends Controller
         foreach ($personnelCheckboxes as $personnelId => $checked) {
             if ($checked) {
                 $personnelNoRequired = $personnelDetails[$personnelId]; 
+        
                 SupportPersonnel::create([
                     'personnelID' => $personnelId,
                     'total_no' => $personnelNoRequired,
@@ -127,7 +128,6 @@ class ReservationController extends Controller
             }
         }
         
-      
         ReservationAttachments::create([
             'reservedetailsID' => $nextNumericPart,
             'file' => $attachmentFilenameString,
@@ -183,5 +183,18 @@ class ReservationController extends Controller
         }
     
         return redirect()->route('login');
+    }
+
+    public function update(Request $request, $reserveeID)
+    {
+        $request->validate([
+            'status' => 'required|string|max:255',
+        ]);
+
+        $facility = Reservee::findOrFail($reserveeID);
+        $facility->status = $request->input('status');
+        $facility->save();
+
+        return redirect()->route('admin.adminreservation')->with('success', 'Facility updated successfully');
     }
 }

@@ -19,18 +19,15 @@ class CalendarController extends Controller
             'reservation_details.event_name',
             'reservation_details.event_start_date',
             'reservation_details.event_end_date',
-            // 'reservation_details.event_end_time',
             'reservation_details.preparation_start_date',
             'reservation_details.preparation_end_date_time',
             'reservation_details.cleanup_start_date_time',
             'reservation_details.cleanup_end_date_time',
             'reservee.status',
-            'selected_facilities.facilityID',
-            'facilities.facilityName' // Include facilityName column
+            'selected_facilities.facilityID'
         )
         ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
         ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
-        ->join('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID') // Join facilities table
         ->whereYear('reservation_details.event_start_date', $year)
         ->whereMonth('reservation_details.event_start_date', $month);
 
@@ -50,45 +47,6 @@ class CalendarController extends Controller
 
         return view('dashboard.admin.calendar', ['facilities' => $facilities]);
     }
-
-    public function getEventsforLLA($year, $month, $selectedFacilityID = null)
-    {
-        $eventsQuery = ReservationDetails::select(
-            'reservation_details.event_name',
-            'reservation_details.event_start_date',
-            'reservation_details.event_end_date',
-            // 'reservation_details.event_end_time',
-            'reservation_details.preparation_start_date',
-            'reservation_details.preparation_end_date_time',
-            'reservation_details.cleanup_start_date_time',
-            'reservation_details.cleanup_end_date_time',
-            'reservee.status',
-            'selected_facilities.facilityID',
-            'facilities.facilityName' // Include facilityName column
-        )
-        ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
-        ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
-        ->join('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID') // Join facilities table
-        ->whereYear('reservation_details.event_start_date', $year)
-        ->whereMonth('reservation_details.event_start_date', $month);
-
-        if ($selectedFacilityID !== null) {
-            $eventsQuery->where('selected_facilities.facilityID', $selectedFacilityID);
-        }
-
-        $events = $eventsQuery->get();
-
-        return response()->json($events);
-    }
-
-    
-    public function facilitiesFilterforLLA()
-    {
-        $facilities = Facilities::all();
-
-        return view('dashboard.user.calendar', ['facilities' => $facilities]);
-    }
-
 
 
     

@@ -27,6 +27,7 @@ class FacilitiesController extends Controller
     // CRUD FACILITES
     public function create(Request $request)
     {
+        // Validate the incoming request data
         $facilities = new Facilities();
 
         $facilities->facilityName = $request->input('facilityName');
@@ -45,7 +46,7 @@ class FacilitiesController extends Controller
 
         $facilities->save();
 
-        return redirect('admin-facilities');
+        return redirect()->route('admin.facilities')->with('success', 'Facility added successfully');
     }
 
     public function update(Request $request, $facilityID)
@@ -60,7 +61,7 @@ class FacilitiesController extends Controller
         $facility->facilityStatus = $request->input('status');
         $facility->save();
 
-        return redirect()->route('facilities')->with('success', 'Facility updated successfully');
+        return redirect()->route('admin.facilities')->with('success', 'Facility updated successfully');
     }
 
     public function destroy($facilityID)
@@ -68,12 +69,12 @@ class FacilitiesController extends Controller
         $facility = Facilities::find($facilityID);
         
         if (!$facility) {
-            return redirect()->route('facilities')->with('error', 'Facility not found');
+            return redirect()->route('admin.facilities')->with('error', 'Facility not found');
         }
     
         $facility->delete();
     
-        return redirect()->route('facilities')->with('success', 'Facility deleted successfully');
+        return redirect()->route('admin.facilities')->with('success', 'Facility deleted successfully');
     }
 
     

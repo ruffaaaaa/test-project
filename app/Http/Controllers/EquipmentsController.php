@@ -22,7 +22,7 @@ class EquipmentsController extends Controller
 
         $equipments->save();
 
-        return redirect('/admin-equipments');
+        return redirect()->route('equipments')->with('success', 'Equipment deleted successfully');
     }
 
     public function destroy($equipmentID)

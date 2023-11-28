@@ -138,7 +138,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class=" mb-3 clearfix">
-                            <a href="equipcreate" class="btn btn-success pull-right "></i> Add New Equipment</a>
+                        <button type="button" class="bg-green-700 mb-3 text-white font-bold py-2 px-4 rounded" id="openModalBtn">
+                            Add Equipment
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -173,11 +175,41 @@
                     @endforeach
                 </tbody>
             </table>  
-        </div>   
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="addModal">
+            <div class="transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 w-full">
+                            <a href="/" class="-mt-5">
+                                <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                            </a>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Add Equipment</h3>
+                            <form id="addForm" action="{{ route('equipment_save') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-4">
+                                    <label for="personnelName" class="block text-gray-700 font-bold mb-2 text-left">Equipment Name</label>
+                                    <input type="text" class="form-input w-full border border-solid border-gray-300" id="equipmentName" name="equipmentName" required>
+
+                                </div>
+                                <!-- Other input fields or form elements can go here -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit" form="addForm" class="inline-flex justify-center w-full border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Submit</button>
+                    <button id="closeModalBtn" class="inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                </div>
+            </div>
+        </div> 
     </main>
 
     <script src="/js/index.js"></script>
-    
+    <script src='js/modal.js'></script>
 
    
 </body>

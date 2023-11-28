@@ -152,7 +152,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center text-sm">{{ $detailsGroup->first()->status }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <button class="border border-red-500 text-blue-500 px-3 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton"
+                                <button class="border border-red-500 text-blue-500 px-3 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 viewButton"
                                     onclick="openModal('{{ $reserveeID }}', '{{ $detailsGroup->first()->reserveeName }}', '{{ $detailsGroup->first()->person_in_charge_event }}', '{{ $detailsGroup->first()->contact_details }}',
                                     '{{ $detailsGroup->first()->unit_department_company }}', '{{ $detailsGroup->first()->date_of_filing }}', '{{ $detailsGroup->first()->endorsed_by }}', '{{ $detailsGroup->first()->status }}',
                                     '{{ implode(', ', $detailsGroup->pluck('facilityName')->toArray()) }}', '{{$detailsGroup->first()->event_start_date}}','{{$detailsGroup->first()->event_end_date}}',
@@ -242,78 +242,59 @@
                         <td><span id="cleanupTime"></span></td>
                     </tr>
                 </table>
+
+                <button onclick="window.print()">Print this page</button>
+
+            </div>
+        </div>
+
+        <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                <a href="/" class="-mt-8">
+                                    <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                                </a>
+                                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Update Reservation Status</h3>
+                                <form id="editForm" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mt-2">
+                                        <label for="editReserveeID" class="block text-gray-600 text-left font-bold ">Reservation Code:</label>
+                                        <input type="text" id="editReserveeID" name="reserveeID" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
+                                    </div>
+                                    
+                                    <div class="mt-2">
+                                        <label for="editStatus" class="block text-gray-600 text-left font-bold">Status</label>
+                                        <select id="editStatus" name="status" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
+                                            <option value="Approved">Approved</option>
+                                            <option value="Not Approved">Not Approved</option>
+                                            <option value="Pending">Pending</option>
+
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="submit" form="editForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Update</button>
+                        <button id="closeModal" class=" inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="/js/index.js"></script>
-    <script>
-    function openModal(reserveeID, reserveeName, person_in_charge_event, contact_details, unit_department_company, date_of_filing, endorsed_by, status, facilityNames, event_start_date, event_end_date,
-    preparation_start_date, preparation_end_date_time, cleanup_start_date_time, cleanup_end_date_time) {
-    // Get the modal element
-    const modal = document.getElementById('myModal');
+    <script src="/js/reservationdetails.js"></script>
+    <script src='js/modal.js'></script>
 
-    // Set the modal content with the received data
-    document.getElementById('reserveeID').innerText = reserveeID;
-    document.getElementById('reserveeName').innerText = reserveeName;
-    document.getElementById('person').innerText = person_in_charge_event;
-    document.getElementById('contact').innerText = contact_details;
-    document.getElementById('unit').innerText = unit_department_company;
-    document.getElementById('date').innerText = date_of_filing;
-    document.getElementById('endorsed').innerText = endorsed_by;
-    document.getElementById('status').innerText = status;
-
-    document.getElementById('facilityNames').innerText = facilityNames;
-
-    // Format the event start date and time
-    const formattedStartDate = new Date(event_start_date);
-    const startDateString = formattedStartDate.toLocaleDateString('en-US');
-    const startTimeString = formattedStartDate.toLocaleTimeString('en-US');
-
-    // Format the event end date and time
-    const formattedEndDate = new Date(event_end_date);
-    const endDateString = formattedEndDate.toLocaleDateString('en-US');
-    const endTimeString = formattedEndDate.toLocaleTimeString('en-US');
-
-    // Set the modal content for start and end dates
-    document.getElementById('eventDate').innerText = `${startDateString} - ${endDateString}`;
-    document.getElementById('eventTime').innerText = `${startTimeString} - ${endTimeString}`;
-    
-    const pformattedStartDate = new Date(preparation_start_date);
-    const pstartDateString = pformattedStartDate.toLocaleDateString('en-US');
-    const pstartTimeString = pformattedStartDate.toLocaleTimeString('en-US');
-
-    // Format the event end date and time
-    const pformattedEndDate = new Date(preparation_end_date_time);
-    const pendDateString = pformattedEndDate.toLocaleDateString('en-US');
-    const pendTimeString = pformattedEndDate.toLocaleTimeString('en-US');
-
-    // Set the modal content for start and end dates
-    document.getElementById('preparationDate').innerText = `${pstartDateString} - ${pendDateString}`;
-    document.getElementById('preparationTime').innerText = `${pstartTimeString} - ${pendTimeString}`;
-
-    const cformattedStartDate = new Date(cleanup_start_date_time);
-    const cstartDateString = cformattedStartDate.toLocaleDateString('en-US');
-    const cstartTimeString = cformattedStartDate.toLocaleTimeString('en-US');
-
-    // Format the event end date and time
-    const cformattedEndDate = new Date(cleanup_end_date_time);
-    const cendDateString = cformattedEndDate.toLocaleDateString('en-US');
-    const cendTimeString = cformattedEndDate.toLocaleTimeString('en-US');
-
-    // Set the modal content for start and end dates
-    document.getElementById('cleanupDate').innerText = `${cstartDateString} - ${cendDateString}`;
-    document.getElementById('cleanupTime').innerText = `${cstartTimeString} - ${cendTimeString}`;
-
-    modal.style.display = 'block';
-}
-
-function closeModal() {
-    const modal = document.getElementById('myModal');
-
-    modal.style.display = 'none';
-}
-
-</script>
   
 
 </body>

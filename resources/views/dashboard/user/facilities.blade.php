@@ -109,6 +109,7 @@
     </aside>
  
  
+    
     <main class="ml-60 p-8 max-h-screen w-auto">
         <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
@@ -120,10 +121,10 @@
                 <div class="bg-white rounded-3xl p-8 mb-5">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class=" mb-3 clearfix">
-                                <a href="facilitycreate" class="btn btn-success pull-right "></i> Add New Facility</a>
-                            </div>
-                        </div>
+                        <button type="button" class="bg-green-700 mb-3 text-white font-bold py-2 px-4 rounded" id="openModalBtn">
+                            Add Facility
+                        </button>
+                        
                     </div>
                 <div>
                 <div class="mb-3">
@@ -162,6 +163,53 @@
                             @endforeach
                         </tbody>
                     </table>
+
+
+                    <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="exampleModal">
+                        <div class="transition-opacity">
+                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                        </div>
+                        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                <div class="sm:flex sm:items-start">
+                                    <div class="mt-3 text-center sm:mt-0 w-full">
+                                        <a href="/" class="-mt-5">
+                                            <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                                        </a>
+                                        <h3 class="text-lg leading-6 font-medium text-gray-900">Add Facility</h3>
+                                        <form id="addForm" action="{{ route('facility.save') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                        
+                                            <div class="mb-2">
+                                                <label for="facilityName" class="block text-gray-700 font-bold  text-left ">Facility Name</label>
+                                                <input type="text" class="form-input w-full border border-solid border-gray-300" id="facilityName" name="facilityName" required>
+                                            </div>
+
+                                            <div class="mb-2">
+                                                <label for="image" class="block text-gray-700 font-bold  text-left ">Image</label>
+                                                <input type="file" class="form-input w-full border border-solid border-gray-300" id="image" name="image" accept="image/*" required>
+                                            </div>
+
+                                            <div class="mb-2">
+                                                <label for="status" class="block text-gray-700 font-bold  text-left ">Status</label>
+                                                <select class="form-select w-full" id="status" name="status" required>
+                                                    <option value="Available">Available</option>
+                                                    <option value="Not Available">Not Available</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                <button type="submit" form="addForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Submit</button>
+                                <button id="closeModalBtn" class="inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
                     <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
                         <div class="flex items-center justify-center min-h-screen">
                             <div class="transition-opacity">
@@ -175,7 +223,7 @@
                                             <a href="/" class="-mt-8">
                                                 <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
                                             </a>
-                                            <h3 class="text-lg leading-6 font-medium text-gray-900">Facility</h3>
+                                            <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Facility</h3>
                                             <form id="editForm" method="POST">
                                                 @csrf
                                                 @method('PUT')

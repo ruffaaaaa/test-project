@@ -20,7 +20,8 @@ class PersonnelsController extends Controller
 
         $personnels->save();
 
-        return redirect('/personnels');
+        return redirect()->route('personnels')->with('success', 'Personnel add successfully');
+
     }
 
     public function destroy($personnelID)
