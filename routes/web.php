@@ -105,3 +105,5 @@ Route::get('/lla-reservation', [ReservationController::class, 'showModalReservat
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
 
+Route::get('/notifsLLA/{year}/{month}/{selectedFacilityID?}', [ReservationController::class, 'notifsLLA']);
+

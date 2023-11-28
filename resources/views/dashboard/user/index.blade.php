@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
@@ -112,24 +113,26 @@
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
                 <div class="welcome-message">
                     <div>
-                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, <br class="ml-4"> {{ $user->aname }} </span>
-                        
-                        <span></span>
+                        <span class="text-4xl font-bold text-green-600 ml-4 mt-8">Welcome {{ $user->aname }}! </span>     
+                        <br></br>
+                        <br></br>
                     </div>        
-                </div>
-
-
-                    <div id="notif" class="h-[540px] bg-white p-4 rounded-2xl">
-                        <p>Testing</p>
-                        <div>
+                    </div>
+                            <div id="NotifsHeader" class="p-4 rounded-2xl text-center font-bold mb-2">
+                                <p>LATEST RESERVATIONS</p>
+                            <div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-2/3 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
-                    
+                        <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left font-bold">
+                                <ul>
+                                    <div id="Notifs" class="h-[auto] p-4 rounded-2xl text-left font-bold">
+                                        @foreach(isset($events) ? $events : [] as $event)
+                                            <li>{{ event_name }}</li>
+                                        @endforeach
+                                    </div>
+                                </ul>   
+                        <div>
+                    </div>
                 </div>
             </div>
         </div>
