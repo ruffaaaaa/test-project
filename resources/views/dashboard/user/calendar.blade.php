@@ -13,6 +13,27 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+    /* CSS Styles for the Calendar */
+    .calendar {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .calendar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+</style>
 </head>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
     <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60 " id="sidebar">
@@ -184,7 +205,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
-                    <div id="currentMonth" data-year="2023" data-month="11" class="text-2xl font-semibold text-uppercase"></div>
+                    <div id="currentMonth" class="text-2xl font-semibold text-uppercase"></div>
                 </div>
 
                 <div class="mt-2 grid grid-cols-7 gap-2 bg-green-600 py-2 text-white rounded-xl">
@@ -197,11 +218,11 @@
                     <div class="text-center text-sm font-semibold">Saturday</div>
                 </div>
 
-                <div id="calendar" class="mt-2 grid grid-cols-7 gap-2 w-full text-black">
+                <div class="calendar-grid mt-2" id="calendar"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </div
 </main>
 
     <script src="/js/index.js"></script>

@@ -18,6 +18,7 @@ use App\Models\SupportPersonnel;
 
 // AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
+    Route::get('/', [AdminAuthController::class, 'index2'])->name('index1');
     Route::get('/admin-dashboard', [AdminAuthController::class, 'HelloAdmin'])->name('index1');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     Route::get('/lla-dashboard', [AdminAuthController::class, 'welcomeAdmin'])->name('index2');
