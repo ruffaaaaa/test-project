@@ -82,4 +82,11 @@ class AdminAuthController extends Controller
         return view('dashboard.user.index', ['user' => $user]);
     }
 
+    public function HelloAdmin(Request $request)
+    {
+        $user = Auth::User();
+
+        return view('dashboard.admin.index', ['user' => $user]);
+    }
+
 }

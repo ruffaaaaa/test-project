@@ -128,20 +128,28 @@
         <div class="flex flex-col lg:flex-row">
             <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
+                <div class="welcome-message">
                     <div>
-                        <span class="text-4xl font-bold ml-4 mt-8">Welcome, </span>
-                        <span></span>
+                        <span class="text-4xl font-bold text-green-600 ml-4 mt-8">Welcome {{ $user->aname }}! </span>     
+                        <br></br>
+                        <br></br>
+                    </div>        
                     </div>
-                    <div>
-                        <div>
+                            <div id="NotifsHeader" class="p-4 rounded-2xl text-center font-bold mb-2">
+                                <p>LATEST RESERVATIONS</p>
+                            <div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-2/3 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
-                    
+                        <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left font-bold">
+                                <ul>
+                                    <div id="Notifs" class="h-[auto] p-4 rounded-2xl text-left font-bold">
+                                        @foreach(isset($events) ? $events : [] as $event)
+                                            <li>{{ event_name }}</li>
+                                        @endforeach
+                                    </div>
+                                </ul>   
+                        <div>
+                    </div>
                 </div>
             </div>
         </div>

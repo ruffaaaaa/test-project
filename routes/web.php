@@ -18,7 +18,7 @@ use App\Models\SupportPersonnel;
 
 // AdminAUTH
 Route::middleware(['auth', 'no-cache'])->group(function () {
-    Route::get('/admin-dashboard', [AdminAuthController::class, 'index1'])->name('index1');
+    Route::get('/admin-dashboard', [AdminAuthController::class, 'HelloAdmin'])->name('index1');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     Route::get('/lla-dashboard', [AdminAuthController::class, 'welcomeAdmin'])->name('index2');
 });
@@ -94,6 +94,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents']);
     Route::get('/admin-calendar',[CalendarController::class,'facilitiesFilter']);
+    Route::get('/lla-calendar',[CalendarController::class,'LLAfacilitiesFilter']);
+
     
 Route::middleware(['auth'])->group(function () {
     Route::get('/reservee', [ReservationController::class, 'displayReservee']);

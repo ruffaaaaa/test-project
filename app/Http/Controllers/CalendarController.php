@@ -48,6 +48,17 @@ class CalendarController extends Controller
         return view('dashboard.admin.calendar', ['facilities' => $facilities]);
     }
 
+    public function LLAfacilitiesFilter()
+    {
+        $facilities = Facilities::all();
+
+        return view('dashboard.user.calendar', ['facilities' => $facilities]);
+    }
+
+
+
+    
+
 
     
 }
