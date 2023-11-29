@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     
         const url = `/events/${currentYear}/${currentMonth}/${selectedFacilityID}`;
+        
     
         fetch(url)
             .then((response) => response.json())
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
                 for (let day = 1; day <= lastDay; day++) {
                     const dayElement = document.createElement('div');
+                    
                     dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
                     dayElement.textContent = day;
 
@@ -72,9 +74,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     const eventsForDay = data.filter((event) => {
                         const eventStart = new Date(event.event_start_date);
                         const eventEnd = new Date(event.event_end_date);
-                        return eventStart.getDate() <= day && day <= eventEnd.getDate();
+                    
+                        // Check if the event spans multiple months
+                        const isSpanningMonths = (
+                            (eventStart.getMonth() < currentMonth - 1 && eventEnd.getMonth() >= currentMonth - 1) ||
+                            (eventStart.getMonth() === currentMonth - 1 && eventEnd.getMonth() > currentMonth - 1)
+                        );
+                    
+                        if (isSpanningMonths) {
+                            return (
+                                eventStart.getFullYear() === currentYear &&
+                                ((eventStart.getMonth() === currentMonth - 1 && day >= eventStart.getDate()) ||
+                                (eventEnd.getMonth() === currentMonth - 1 && day <= eventEnd.getDate()))
+                            );
+                        }
+                    
+                        // For events that are within the current month
+                        return (
+                            eventStart.getFullYear() === currentYear &&
+                            eventStart.getMonth() === currentMonth - 1 &&
+                            eventEnd.getMonth() === currentMonth - 1 &&
+                            day >= eventStart.getDate() && day <= eventEnd.getDate()
+                        );
                     });
-    
+                    
+                    
                     const preparationsForDay = data.filter((event) => {
                         const preparationStart = new Date(event.preparation_start_date);
                         const preparationEnd = new Date(event.preparation_end_date_time);
@@ -245,13 +269,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function changeMonth(increment) {
         currentMonth += increment;
-        if (currentMonth > 11) {
-            currentMonth = 0;
+        if (currentMonth > 12) {
+            currentMonth = 1;
             currentYear++;
-        } else if (currentMonth < 0) {
-            currentMonth = 11;
+        } else if (currentMonth < 1) {
+            currentMonth = 12;
             currentYear--;
         }
+        
         updateCalendar();
     }
 

@@ -163,7 +163,7 @@
                                 <button class="border border-red-500 text-green-500 px-3 py-1 rounded hover:border-red-600 hover:bg-green-500 hover:text-white ml-2 editButton">
                                     Update
                                 </button>
-                                <button class="border border-red-500 text-red-500 px-3 py-1 rounded hover:border-red-600 hover:bg-red-500 hover:text-white ml-2 editButton">
+                                <button class="border border-red-500 text-red-500 px-3 py-1 rounded hover:border-red-600 hover:bg-red-500 hover:text-white ml-2 delete">
                                     Delete
                                 </button>
                                                        
