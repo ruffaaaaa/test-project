@@ -203,7 +203,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
-                    <div id="currentMonth" data-year="2023" data-month="11" class="text-2xl font-semibold text-uppercase"></div>
+                    <div id="currentMonth"></div>
                 </div>
 
                 <div class="mt-2 grid grid-cols-7 gap-2 bg-green-600 py-2 text-white rounded-xl">
@@ -216,12 +216,13 @@
                     <div class="text-center text-sm font-semibold">Saturday</div>
                 </div>
 
-                <div id="calendar" class="mt-2 grid grid-cols-7 gap-2 w-full text-black">
+                <div id="calendarBody" class="mt-2 grid grid-cols-7 gap-2 w-full text-black">
                     <!-- Calendar grid goes here -->
                 </div>
             </div>
         </div>
-    </div>
+
+                
 </main>
 
     <script src="/js/index.js"></script>
