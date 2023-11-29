@@ -61,42 +61,41 @@ document.addEventListener('DOMContentLoaded', function () {
                     emptyDay.className = 'border border-gray-300 p-2 rounded-xl';
                     calendarElement.appendChild(emptyDay);
                 }
-    
-                const lastDay = new Date(currentYear, currentMonth, 0).getDate();
-    
-                for (let day = 1; day <= lastDay; day++) {
-                    const dayElement = document.createElement('div');
-                    
-                    dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
-                    dayElement.textContent = day;
 
+                    const lastDay = new Date(currentYear, currentMonth, 0).getDate();
     
-                    const eventsForDay = data.filter((event) => {
-                        const eventStart = new Date(event.event_start_date);
-                        const eventEnd = new Date(event.event_end_date);
-                    
-                        // Check if the event spans multiple months
-                        const isSpanningMonths = (
-                            (eventStart.getMonth() < currentMonth - 1 && eventEnd.getMonth() >= currentMonth - 1) ||
-                            (eventStart.getMonth() === currentMonth - 1 && eventEnd.getMonth() > currentMonth - 1)
-                        );
-                    
-                        if (isSpanningMonths) {
-                            return (
-                                eventStart.getFullYear() === currentYear &&
-                                ((eventStart.getMonth() === currentMonth - 1 && day >= eventStart.getDate()) ||
-                                (eventEnd.getMonth() === currentMonth - 1 && day <= eventEnd.getDate()))
-                            );
-                        }
-                    
-                        // For events that are within the current month
-                        return (
-                            eventStart.getFullYear() === currentYear &&
-                            eventStart.getMonth() === currentMonth - 1 &&
-                            eventEnd.getMonth() === currentMonth - 1 &&
-                            day >= eventStart.getDate() && day <= eventEnd.getDate()
-                        );
-                    });
+                    /*for (let day = 1; day <= lastDay; day++) {
+                        const dayElement = document.createElement('div');
+                        dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
+                        dayElement.textContent = day;
+        
+                        const eventsForDay = data.filter((event) => {
+                            const eventStart = new Date(event.event_start_date);
+                            const eventEnd = new Date(event.event_end_date);
+                            return eventStart.getDate() <= day && day <= eventEnd.getDate();
+                        });*/
+    
+                        for (let day = 1; day <= lastDay; day++) {
+                            const dayElement = document.createElement('div');
+                            dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
+                            dayElement.textContent = day;
+                        
+                            const currentDate = new Date(currentYear, currentMonth, day).getDate();
+                        
+                            const eventsForDay = data.filter((event) => {
+                                const eventStart = new Date(event.event_start_date);
+                                const eventEnd = new Date(event.event_end_date);
+                                
+                                if (currentDate >= eventStart.getDate() && currentDate <= eventEnd.getDate()) {
+                                    if (eventEnd.getDate() - eventStart.getDate() === 1) {
+                                        dayElement.textContent = day;
+                                    } else {
+                                        dayElement.textContent = day;
+                                    }
+                                    return true;
+                                }
+                                return eventStart.getDate() <= day && day <= eventEnd.getDate();
+                            });
                     
                     
                     const preparationsForDay = data.filter((event) => {

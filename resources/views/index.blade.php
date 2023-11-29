@@ -11,6 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link href="/css/custom.css" rel="stylesheet">
 </head>
 
@@ -55,7 +56,7 @@
                     <div>
                         <div class=" bottom-0 left-0 right-0 p-4 flex flex-col items-center mt-6">
                         <a href="reservation" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full mb-2 sm:block">RESERVATION</a>
-                        <a href="#" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full">CHECK STATUS</a>
+                        <button class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out w-full openBtn">CHECK STATUS</button>
                         </div>
                     </div>
                 </div>   
@@ -67,7 +68,7 @@
                     <div class="bg-white p-3 md:p-5 rounded-full md:w-96 md:m-auto md:mt-4">
                         <div class="flex flex-col md:flex-row md:space-x-4 justify-center">
                             <a href="reservation" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">RESERVATION</a>
-                            <a href="#" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">CHECK STATUS</a>
+                            <button id="checkStatusBtn" class="bg-white-500 hover:bg-green-600 text-black hover:text-white font-semibold py-2 px-3 md:py-2 md:px-4 rounded-full transition duration-300 ease-in-out mt-2 md:mt-0">CHECK STATUS</button>
                         </div>
                     </div>
                 </div>
@@ -95,14 +96,38 @@
             </div>
         </div>
     </section>
-
-    
     <!-- <section class = "-mt-1">
         <div class="flex flex-col items-center">
             <span class="text-xl md:text-2xl mt-3 text-green-600 font-bold">CALENDAR</span>
         </div>
     </section> -->
 
+    <div class="hidden fixed inset-0 flex items-center justify-center overflow-auto z-50 w-90" id="statusModal">
+        <div class="transition-opacity">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 h-[280px]">
+                <div class="sm:flex sm:items-start">
+                    <div class="mt-3 text-center sm:mt-0 w-full">
+                        <a href="/" class="-mt-5">
+                            <img src="/images/lsu-logo 2.png"  class=" mx-auto w-[50px] h-[75px] mt-2" />
+                        </a>
+                        <form class="mt-10" id="statusForm">   
+                            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                            <div class="relative">
+                                <input type="search" id="default-search" class="block w-full p-4 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Reservation Code" required>
+                                <button type="button" onclick="getStatusFromDatabase()" class="text-white absolute end-2.5 bottom-2.5 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 ">Search</button>
+                            </div>
+                            <div id="iconDisplay" class="text-4xl mt-3"></div>
+                            <p id="statusDisplay" class="text-2xl mt-5 font-bold text-green-700 uppercase "></p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            
 
     <footer class = "mt-10">
         <div class="border-t border-solid border-green-600" style="border-top: 30px solid green; display: flex; justify-content: center; align-items: center;">
@@ -121,9 +146,10 @@
         </div>
     </footer>
 
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 'auto', 
+<script>
+    // Your existing Swiper initialization code
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto', 
             spaceBetween: 10,
             pagination: {
                 el: '.swiper-pagination',
@@ -143,6 +169,45 @@
                 },
             },
         });
-    </script>
+    
+
+        function toggleStatusModal() {
+            var modal = document.getElementById('statusModal');
+            modal.classList.toggle('hidden');
+        }
+
+        document.getElementById('checkStatusBtn').addEventListener('click', function () {
+            toggleStatusModal();
+        });
+
+        document.getElementById('closeStatusModalBtn').addEventListener('click', function () {
+            toggleStatusModal();
+        });
+
+        function getStatusFromDatabase() {
+            var reserveeID = document.getElementById('default-search').value;
+
+            fetch(`/get-status/${reserveeID}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('statusDisplay').innerText = data.status;
+                })
+                .catch(error => {
+                    console.error('Error:', error.message);
+                    document.getElementById('statusDisplay').innerText = 'Error fetching status. Please try again.';
+                });
+        }
+
+
+</script>
+
+
+
+
 </body>
 </html>

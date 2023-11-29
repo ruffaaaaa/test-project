@@ -80,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/get-status/{reserveeID}', [ReservationController::class, 'getStatusFromDatabase']);
+
 
 // ReservationDetailsController
 Route::middleware(['auth'])->group(function () {

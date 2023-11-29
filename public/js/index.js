@@ -79,28 +79,15 @@ document.addEventListener("DOMContentLoaded", function() {
     modal.classList.add('hidden');
     });
 
-    //Carousel
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 'auto', 
-        spaceBetween: 10,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
+   
+});
 
-            640: {
-                slidesPerView: 1,
-            },
-        
-            768: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-        },
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('openModalBtn').addEventListener('click', function () {
+        document.getElementById('openModal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModalBtn').addEventListener('click', function () {
+        document.getElementById('openModal').classList.add('hidden');
     });
 });
-////
-

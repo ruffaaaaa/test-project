@@ -197,6 +197,19 @@ class ReservationController extends Controller
 
         return redirect()->route('admin.adminreservation')->with('success', 'Facility updated successfully');
     }
+
+    
+    public function getStatusFromDatabase(Request $request, $reserveeID)
+    {
+        $reservation = Reservee::find($reserveeID);
+    
+        if ($reservation) {
+            $status = $reservation->status;
+            return response()->json(['status' => $status]);
+        } else {
+            return response()->json(['status' => 'No reservation found'], 404);
+        }
+    }
 }
 
 
