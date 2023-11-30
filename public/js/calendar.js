@@ -1,305 +1,158 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Display current month and year
+function displayCurrentMonthAndYear(year, month) {
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const formattedMonth = `${year} ${monthNames[month]}`;
     const currentMonthElement = document.getElementById('currentMonth');
-    const prevMonthButton = document.getElementById('prevMonth');
-    const nextMonthButton = document.getElementById('nextMonth');
-    const calendarElement = document.getElementById('calendarBody');
-    const statusFilter = document.getElementById('statusFilter');
-    const facilityFilter = document.getElementById('facilityFilter');
-    const scheduleFilter = document.getElementById('scheduleFilter');
-    let currentYear = new Date().getFullYear();
-    let currentMonth = new Date().getMonth() +1;
-    let selectedFacilityID = '';
-    let selectedSchedule = '';
-    let selectedStatus = '';  
-    function getStartingDayOfWeek(year, month) {
-        return new Date(year, month - 1, 1).getDay();
-    }
+    currentMonthElement.textContent = formattedMonth;
+}
 
-    function getRandomLightColor() {
-        const letters = '89ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 8)];
+// Fetch events and preparation dates from the database
+async function fetchEventsAndPreparationsFromDatabase() {
+    try {
+        const response = await fetch('/api/schedule'); // Adjust the endpoint as per your backend setup
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
         }
-        return color;
+        const data = await response.json();
+        return {
+            events: data.events,
+            preparations: data.preparations,
+            cleanups: data.cleanups
+        };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {
+            events: [],
+            preparations: [],
+            cleanups: []
+        };
     }
+}
 
-    function formatTimeTo12Hour(time) {
-        const timeParts = time.split(':');
-        const hours = parseInt(timeParts[0]);
-        const minutes = parseInt(timeParts[1]);
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        const formattedHours = hours % 12 || 12;
-        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-        return `${formattedHours}:${formattedMinutes} ${ampm}`;
-    }
+// Generate calendar based on fetched data
+async function displayCalendarForYearMonth(year, month) {
+    const { events, preparations, cleanups } = await fetchEventsAndPreparationsFromDatabase();
+    generateCalendar(year, month, events, preparations, cleanups);
+    displayCurrentMonthAndYear(year, month);
+}
 
-    function getBackgroundColorForEvent(event) {
-        return '#43C6DB';
-    }
+// ... (previous code remains unchanged)
 
-    
+function generateCalendar(year, month, events, preparations, cleanups) {
+    const calendarElement = document.getElementById('calendar');
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
 
-    function updateCalendar() {
-        currentMonthElement.textContent = new Date(currentYear, currentMonth - 1, 1).toLocaleString('en-US', {
-            month: 'long',
-            year: 'numeric',
-        });
-    
-        const url = `/events/${currentYear}/${currentMonth}/${selectedFacilityID}`;
-        
-    
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                calendarElement.innerHTML = '';
-    
-                const startingDayOfWeek = getStartingDayOfWeek(currentYear, currentMonth);
-    
-                for (let i = 0; i < startingDayOfWeek; i++) {
-                    const emptyDay = document.createElement('div');
-                    emptyDay.className = 'border border-gray-300 p-2 rounded-xl';
-                    calendarElement.appendChild(emptyDay);
-                }
+    let date = 1;
+    let calendarHTML = '';
 
-                    const lastDay = new Date(currentYear, currentMonth, 0).getDate();
-    
-                    /*for (let day = 1; day <= lastDay; day++) {
-                        const dayElement = document.createElement('div');
-                        dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
-                        dayElement.textContent = day;
-        
-                        const eventsForDay = data.filter((event) => {
-                            const eventStart = new Date(event.event_start_date);
-                            const eventEnd = new Date(event.event_end_date);
-                            return eventStart.getDate() <= day && day <= eventEnd.getDate();
-                        });*/
-    
-                        for (let day = 1; day <= lastDay; day++) {
-                            const dayElement = document.createElement('div');
-                            dayElement.className = 'border border-gray-300 p-2 rounded-xl cursor-pointer';
-                            dayElement.textContent = day;
-                        
-                            const currentDate = new Date(currentYear, currentMonth, day).getDate();
-                        
-                            const eventsForDay = data.filter((event) => {
-                                const eventStart = new Date(event.event_start_date);
-                                const eventEnd = new Date(event.event_end_date);
-                                
-                                if (currentDate >= eventStart.getDate() && currentDate <= eventEnd.getDate()) {
-                                    if (eventEnd.getDate() - eventStart.getDate() === 1) {
-                                        dayElement.textContent = day;
-                                    } else {
-                                        dayElement.textContent = day;
-                                    }
-                                    return true;
-                                }
-                                return eventStart.getDate() <= day && day <= eventEnd.getDate();
-                            });
-                    
-                    
-                    const preparationsForDay = data.filter((event) => {
-                        const preparationStart = new Date(event.preparation_start_date);
-                        const preparationEnd = new Date(event.preparation_end_date_time);
-                        return preparationStart.getDate() <= day && day <= preparationEnd.getDate();
-                    });
-    
-                    const cleanupForDay = data.filter((event) => {
-                        const cleanupStart = new Date(event.cleanup_start_date_time);
-                        const cleanupEnd = new Date(event.cleanup_end_date_time);
-                        return cleanupStart.getDate() <= day && day <= cleanupEnd.getDate();
-                    });
-    
-                    selectedStatus = statusFilter.value;
-                    const filteredEventsForDay = eventsForDay.filter((event) => {
-                        return selectedStatus === '' || event.status === selectedStatus;
-                    });
-    
-                    const filteredPreparationsForDay = preparationsForDay.filter((event) => {
-                        return selectedStatus === '' || event.status === selectedStatus;
-                    });
-    
-                    const filteredCleanupForDay = cleanupForDay.filter((event) => {
-                        return selectedStatus === '' || event.status === selectedStatus;
-                    });
-    
-                    switch (selectedSchedule) {
-                        case 'Event':
-                            if (filteredEventsForDay.length > 0) {
-                                filteredEventsForDay.forEach((event) => {
-                                    const eventDiv = createEventDiv(event);
-                                    dayElement.appendChild(eventDiv);
-                                });
-                            }
-                            break;
-                        case 'Preparation':
-                            if (filteredPreparationsForDay.length > 0) {
-                                filteredPreparationsForDay.forEach((event) => {
-                                    const preparationDiv = createPreparationDiv(event);
-                                    dayElement.appendChild(preparationDiv);
-                                });
-                            }
-                            break;
-                        case 'Cleanup':
-                            if (filteredCleanupForDay.length > 0) {
-                                filteredCleanupForDay.forEach((event) => {
-                                    const cleanupDiv = createCleanUpDiv(event);
-                                    dayElement.appendChild(cleanupDiv);
-                                });
-                            }
-                            break;
-                            
-                        default:
-                            const filteredEvents = (selectedStatus === '')
-                                ? eventsForDay
-                                : filteredEventsForDay;
-    
-                            if (filteredEvents.length > 0) {
-                                filteredEvents.forEach((event) => {
-                                    const eventDiv = createEventDiv(event);
-                                    dayElement.appendChild(eventDiv);
-                                });
-                            }
-    
-                            const filteredPreparations = (selectedStatus === '')
-                                ? preparationsForDay
-                                : filteredPreparationsForDay;
-    
-                            if (filteredPreparations.length > 0) {
-                                filteredPreparations.forEach((event) => {
-                                    const preparationDiv = createPreparationDiv(event);
-                                    dayElement.appendChild(preparationDiv);
-                                });
-                            }
-    
-                            const filteredCleanup = (selectedStatus === '')
-                                ? cleanupForDay
-                                : filteredCleanupForDay;
-    
-                            if (filteredCleanup.length > 0) {
-                                filteredCleanup.forEach((event) => {
-                                    const cleanupDiv = createCleanUpDiv(event);
-                                    dayElement.appendChild(cleanupDiv);
-                                });
-                            }
-                    }
-    
-                    calendarElement.appendChild(dayElement);
-                }
-            })
-            .catch((error) => {
-                console.error('Error fetching event data:', error);
-            });
-    }
-    
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDayOfMonth) {
+                calendarHTML += '<div></div>';
+            } else if (date > daysInMonth) {
+                break;
+            } else {
+                const currentDate = new Date(year, month, date);
+                const currentDateStr = currentDate.toISOString().split('T')[0];
 
-    function createEventDiv(event) {
-        const eventDiv = document.createElement('div');
-        eventDiv.className = 'event';
-        eventDiv.style.backgroundColor = getBackgroundColorForEvent(event.event_name);
-    
-        const eventText = document.createElement('div');
-        eventText.textContent = event.event_name;
-        eventText.style.marginTop = '5px';
-        eventText.style.fontSize = '10px';
-        eventText.style.fontWeight = 'bold';
-        eventDiv.appendChild(eventText);
-    
-        const facilities = document.createElement('div');
-        facilities.textContent = event.facilityName; // Include facilityName here
-        eventDiv.appendChild(facilities);
-    
-        const eventStartDate = new Date(event.event_start_date);
-        const eventEndDate = new Date(event.event_end_date);
-    
-        const eventTimeDiv = document.createElement('div');
-        eventTimeDiv.textContent = `${formatTimeTo12Hour(eventStartDate.toLocaleTimeString())} - ${formatTimeTo12Hour(eventEndDate.toLocaleTimeString())}`;
-        eventTimeDiv.style.fontSize = '10px';
-        eventDiv.appendChild(eventTimeDiv);
-    
-        return eventDiv;
-    }    
+                let classes = 'text-left';
+                let dateText = date.toString();
+                let containerHTML = '';
 
-    function createCleanUpDiv(event) {
-        const cleanupDiv = document.createElement('div');
-        cleanupDiv.className = 'cleanup';
-        cleanupDiv.style.backgroundColor = 'pink';
-        cleanupDiv.style.marginBottom = '5px';
+                const eventsForDate = events.filter(event => {
+                    const start = new Date(event.event_start_date).toISOString().split('T')[0];
+                    const end = new Date(event.event_end_date).toISOString().split('T')[0];
+                    return currentDateStr >= start && currentDateStr <= end;
+                });
 
-        const cleanupStart = new Date(event.cleanup_start_date_time);
-        const cleanupEnd = new Date(event.cleanup_end_date_time);
+                const prepsForDate = preparations.filter(prep => {
+                    const start = new Date(prep.preparation_start_date).toISOString().split('T')[0];
+                    const end = new Date(prep.preparation_end_date_time).toISOString().split('T')[0];
+                    return currentDateStr === start || currentDateStr === end || (currentDateStr > start && currentDateStr < end);
+                });
+                
+                const cleanupsForDate = cleanups.filter(clean => {
+                    const start = new Date(clean.cleanup_start_date_time).toISOString().split('T')[0];
+                    const end = new Date(clean.cleanup_end_date_time).toISOString().split('T')[0];
+                    return currentDateStr === start || currentDateStr === end || (currentDateStr > start && currentDateStr < end);
+                });
 
-        const eventNameDiv = document.createElement('div');
-        eventNameDiv.textContent = event.event_name;
-        eventNameDiv.style.fontSize = '10px';
-        eventNameDiv.style.fontWeight = 'bold';
-        cleanupDiv.appendChild(eventNameDiv);
+                containerHTML += '<div class="p-1 rounded mb-1">';
 
-        const cleanupTimeDiv = document.createElement('div');
-        cleanupTimeDiv.textContent = `${formatTimeTo12Hour(cleanupStart.toLocaleTimeString())} - ${formatTimeTo12Hour(cleanupEnd.toLocaleTimeString())}`;
-        cleanupTimeDiv.style.fontSize = '10px';
-        cleanupDiv.appendChild(cleanupTimeDiv);
+                eventsForDate.forEach(event => {
+                    containerHTML += `<p style="background-color: #43C6DB; font-size: 10px;  margin-top: 5px"><b>${event.event_name}</b><br> ${new Date(event.event_start_date).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })} to ${new Date(event.event_end_date).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })}</p>`;
+                });
 
-        return cleanupDiv;
-    }
+                prepsForDate.forEach(prep => {
+                    containerHTML += `<p style="background-color: #7FFFD4; font-size: 10px;  margin-top: 5px"><b>${prep.event_name}</b> <br>${new Date(prep.preparation_start_date).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })} to ${new Date(prep.preparation_end_date_time).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })}</p>`;
+                });
 
-    function createPreparationDiv(event) {
-        const preparationDiv = document.createElement('div');
-        preparationDiv.className = 'preparation';
-        preparationDiv.style.backgroundColor = '#7FFFD4';
-        preparationDiv.style.marginBottom = '5px';
+                cleanupsForDate.forEach(clean => {
+                    containerHTML += `<p style="background-color: pink;font-size: 10px; margin-top: 5px"><b>${clean.event_name}</b> <br> ${new Date(clean.cleanup_start_date_time).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })} to ${new Date(clean.cleanup_end_date_time).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    })}</p>`;
+                });
 
-        const preparationStart = new Date(event.preparation_start_date);
-        const preparationEnd = new Date(event.preparation_end_date_time);
-
-        const eventNameDiv = document.createElement('div');
-        eventNameDiv.textContent = event.event_name;
-        eventNameDiv.style.fontSize = '10px';
-        eventNameDiv.style.fontWeight = 'bold';
-        preparationDiv.appendChild(eventNameDiv);
-
-        const preparationTimeDiv = document.createElement('div');
-        preparationTimeDiv.textContent = `${formatTimeTo12Hour(preparationStart.toLocaleTimeString())} - ${formatTimeTo12Hour(preparationEnd.toLocaleTimeString())}`;
-        preparationTimeDiv.style.fontSize = '10px';
-        preparationDiv.appendChild(preparationTimeDiv);
-
-        return preparationDiv;
-    }
-
-    function changeMonth(increment) {
-        currentMonth += increment;
-        if (currentMonth > 12) {
-            currentMonth = 1;
-            currentYear++;
-        } else if (currentMonth < 1) {
-            currentMonth = 12;
-            currentYear--;
+                containerHTML += `</div>`;
+                date++;
+                calendarHTML += `<div class="${classes} border border-gray-400 p-1 rounded">${dateText}${containerHTML}</div>`;
+            }
         }
-        
-        updateCalendar();
     }
 
-    nextMonthButton.addEventListener('click', function () {
-        changeMonth(1);
-    });
+    calendarElement.innerHTML = calendarHTML;
+}
 
-    prevMonthButton.addEventListener('click', function () {
-        changeMonth(-1);
-    });
 
-    statusFilter.addEventListener('change', function () {
-        updateCalendar();
-    });
+// ... (rest of the code remains unchanged)
 
-    facilityFilter.addEventListener('change', function () {
-        selectedFacilityID = facilityFilter.value;
-        updateCalendar();
-    });
-
-    scheduleFilter.addEventListener('change', function () {
-        selectedSchedule = scheduleFilter.value;
-        updateCalendar();
-    });
-
-    updateCalendar();
+// Initialization code
+document.getElementById('prevMonth').addEventListener('click', function () {
+    if (month === 0) {
+        year--;
+        month = 11;
+    } else {
+        month--;
+    }
+    displayCalendarForYearMonth(year, month);
 });
+
+document.getElementById('nextMonth').addEventListener('click', function () {
+    if (month === 11) {
+        year++;
+        month = 0;
+    } else {
+        month++;
+    }
+    displayCalendarForYearMonth(year, month);
+});
+
+let [year, month] = [2023, 10]; // Month is zero-based (0-January, 1-February, etc.)
+displayCalendarForYearMonth(year, month);

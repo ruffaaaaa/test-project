@@ -13,24 +13,25 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <style>
-        /* Define styles for the grid layout */
-.calendar-grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(3, 1fr); /* Set number of columns for the months */
-}
+    .calendar {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+    }
 
-.month-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columns for the days */
-    gap: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
+    .calendar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 
-/* Additional styling for days, events, etc. can be added here */
-
-    </style>
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+</style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="relative bg-green-50 overflow-hidden max-h-screen">
@@ -146,7 +147,7 @@
             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
         </svg>
     </button>
-    <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col lg:flex-row">
         <div class="w-full lg:w-1/6 mb-5 lg:mb-0 pl-1 pr-1">
             <div class="min-h-full bg-white p-4 rounded-2xl shadow">
                 <div class="flex items-center justify-center">
@@ -208,7 +209,6 @@
             </div>
         </div>
 
-        <!-- Corrected closing div tag -->
         <div class="w-full lg:w-6/8 mb-5 lg:mb-0 pl-1 pr-1">
             <div class="min-h-full bg-white p-4 rounded-2xl shadow">
                 <div class="flex items-center">
@@ -222,7 +222,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
-                    <div id="currentMonth"></div>
+                    <div id="currentMonth" class="text-2xl font-semibold text-uppercase"></div>
                 </div>
 
                 <div class="mt-2 grid grid-cols-7 gap-2 bg-green-600 py-2 text-white rounded-xl">
@@ -235,13 +235,11 @@
                     <div class="text-center text-sm font-semibold">Saturday</div>
                 </div>
 
-                <div id="calendarBody" class="mt-2 grid grid-cols-7 gap-2 w-full text-black">
-                    <!-- Calendar grid goes here -->
+                <div class="calendar-grid mt-2" id="calendar"></div>
                 </div>
             </div>
         </div>
-
-                
+    </div
 </main>
 
     <script src="/js/index.js"></script>

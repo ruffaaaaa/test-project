@@ -163,7 +163,7 @@
                     </table>
 
 
-                    <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="exampleModal">
+                    <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="addModal">
                         <div class="transition-opacity">
                                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                         </div>
@@ -205,7 +205,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     
                     <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
