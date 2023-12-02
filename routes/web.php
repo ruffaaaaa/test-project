@@ -112,3 +112,26 @@ Route::get('/reservation', [ReservationController::class, 'showReservationForm']
 
 Route::get('/notifsLLA/{year}/{month}/{selectedFacilityID?}', [ReservationController::class, 'notifsLLA']);
 
+
+Route::get('/memory-usage', function () {
+    $memoryUsage = round(memory_get_peak_usage(true) / 1024 / 1024, 2); // Peak memory usage in MB
+
+    return view('memory-usage', ['memoryUsage' => $memoryUsage]);
+});
+
+Route::get('/hard-drive', function () {
+    $directory = storage_path('app/public'); // Replace with your directory path
+
+    $size = 0;
+    $files = File::allFiles($directory);
+
+    foreach ($files as $file) {
+        $size += $file->getSize();
+    }
+
+    $usedSpaceInMB = round($size / 1024 / 1024, 2); // Convert to MB
+
+    return view('disk-space', [
+        'usedSpace' => $usedSpaceInMB,
+    ]);
+});
