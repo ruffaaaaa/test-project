@@ -26,8 +26,9 @@ class Reservee extends Model
     
     public function reservationDetails()
     {
-        return $this->hasOne(ReservationDetails::class, 'reservedetailsID', 'reserveeID');
+        return $this->hasMany(ReservationDetails::class, 'reserveeID', 'reserveeID');
     }
+    
 
     protected $attributes = [
         'status' => 'Pending',

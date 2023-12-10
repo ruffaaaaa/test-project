@@ -65,10 +65,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-facilities" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                                <a href="admin-facilities" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 27" fill="currentColor" class="w-5 h-5">
-                                            <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#FFFFFF"/>
+                                            <path d="M26.4045 8.5105L16.704 0.889061C15.2062 -0.294051 12.7845 -0.294051 11.3008 0.875304L1.60023 8.5105C0.508396 9.36345 -0.191498 11.1656 0.0464656 12.5138L1.90818 23.4644C2.24413 25.4179 4.14784 27 6.16354 27H21.8412C23.8429 27 25.7606 25.4042 26.0965 23.4644L27.9582 12.5138C28.1822 11.1656 27.4823 9.36345 26.4045 8.5105ZM14.0024 18.3193C12.0707 18.3193 10.5029 16.7785 10.5029 14.88C10.5029 12.9815 12.0707 11.4407 14.0024 11.4407C15.9341 11.4407 17.5018 12.9815 17.5018 14.88C17.5018 16.7785 15.9341 18.3193 14.0024 18.3193Z" fill="#292D32"/>
                                         </svg>
                                     </span>
                                     <span class="text ml-3">Facilities</span>
@@ -83,19 +83,20 @@
                                 </a>
                             </li>
                             </li>
-                                <a href="admin-equipments" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
+                                <a href="admin-equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
                                     <span class="icon">
                                         <!-- Replace the SVG code with your desired icon -->
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" viewBox="0 0 23 31" class="w-5 h-5">
-                                            <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z"  fill="#292D32" />
+                                            <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z" fill="#292D32"/>
                                         </svg>
                                     </span>
                                     <span class="text ml-3">Equipments</span>
                                 </a>
                             </li>
+
                             <li>
                             <div class="relative">
-                                <button onclick="toggleSettings()" class="flex hover:bg-green-300 rounded-xl font-bold text-sm text-gray-900 py-2 px-4 w-100 focus:outline-none">
+                                <button onclick="toggleSettings()" class="flex bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4 w-100 focus:outline-none">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                             <path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
@@ -105,20 +106,20 @@
                                 </button>
                                 <div id="settingsDropdown" class="absolute hidden bg-white shadow-lg py-2 mt-2 w-100 rounded-xl">
 
-                                    <a href="admin-profile" class=" hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                    <a href="admin-profile" class="hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
                                         <span class="icon">
                                             <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="&#240;&#159;&#166;&#134; icon &#34;person&#34;">
                                                 <g id="Group">                            
-                                                <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#231F20"/>
-                                                <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#231F20"/>
+                                                <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#292D32"/>
+                                                <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#292D32"/>
                                                 </g>
                                                 </g>
                                             </svg>
                                         </span>
                                         <span class="text ml-3">Profile</span>
                                     </a>
-                                    <a href="admin-management" class=" hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                    <a href="admin-management" class="text-black bg-green-300 hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4 ">
                                         <span class="icon">
                                             <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M35.8752 10.7099H34.1668V8.92489C34.1668 8.45148 33.9868 7.99746 33.6665 7.66271C33.3461 7.32795 32.9116 7.13989 32.4585 7.13989C32.0054 7.13989 31.5709 7.32795 31.2505 7.66271C30.9301 7.99746 30.7502 8.45148 30.7502 8.92489V10.7099H29.0418C28.5888 10.7099 28.1542 10.898 27.8339 11.2327C27.5135 11.5675 27.3335 12.0215 27.3335 12.4949C27.3335 12.9683 27.5135 13.4223 27.8339 13.7571C28.1542 14.0918 28.5888 14.2799 29.0418 14.2799H30.7502V16.0649C30.7502 16.5383 30.9301 16.9923 31.2505 17.3271C31.5709 17.6618 32.0054 17.8499 32.4585 17.8499C32.9116 17.8499 33.3461 17.6618 33.6665 17.3271C33.9868 16.9923 34.1668 16.5383 34.1668 16.0649V14.2799H35.8752C36.3282 14.2799 36.7628 14.0918 37.0831 13.7571C37.4035 13.4223 37.5835 12.9683 37.5835 12.4949C37.5835 12.0215 37.4035 11.5675 37.0831 11.2327C36.7628 10.898 36.3282 10.7099 35.8752 10.7099Z" fill="#231F20"/>
@@ -146,185 +147,184 @@
                                 </svg>
                             </span>
                         </button> <span class="text font-bold text-sm ml-2">Logout</span>
-                        
                     </form>
                 </div>  
             </div>
         </aside>
  
- 
-    <main class="ml-60 p-8 max-h-screen w-auto">
+        <main class="ml-60 p-8 max-h-screen w-auto">
         <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
+
         <div class="max-h-screen overflow-y-auto">
             <div class=" mx-auto">
                 <div class="bg-white rounded-3xl p-8 mb-5">
                     <div class="row">
                         <div class="col-md-12">
-                        <button type="button" class="bg-green-700 mb-3 text-white font-bold py-2 px-4 rounded" id="openModalBtn">
-                            Add Facility
-                        </button>
-                        
+                            <button type="button" class="bg-green-700 mb-3 text-white font-bold py-2 px-4 rounded" id="openModalBtn">
+                                Add Admin
+                            </button>
+                        </div>
                     </div>
                 <div>
-                <div class="mb-3">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Facility Name</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($facilities as $facility)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityID }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityName }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        <img src="{{ asset('uploads/facilities/' . $facility->image) }}" alt="Facility Image"  class="h-8 w-15">
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">{{ $facility->facilityStatus }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                                    <button class="border border-red-500 text-blue-500 px-4 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton">
-                                        Edit
+            </div>
+            <div class="mb-3">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Username</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($usersWithRoles as $user)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $user->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $user->aname }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $user->username }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $user->email }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">{{ $user->role->name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                <button class="border border-red-500 text-green-500 px-3 py-1 rounded hover:border-red-600 hover:bg-green-500 hover:text-white ml-2 editButton">
+                                    Update
+                                </button> 
+                                <form method="POST" action="{{ route('admin.destroy', $user->id) }}" class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
+                                        Delete
                                     </button>
-                                    <form method="POST" action="{{ route('facilities.destroy', $facility->facilityID) }}" class="inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
-                                            Delete
-                                        </button>
-                                    </form>                          
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-
-                    <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="addModal">
-                        <div class="transition-opacity">
-                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                        </div>
-                        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
-                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <div class="sm:flex sm:items-start">
-                                    <div class="mt-3 text-center sm:mt-0 w-full">
-                                        <a href="/" class="-mt-5">
-                                            <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
-                                        </a>
-                                        <h3 class="text-lg leading-6 font-medium text-gray-900">Add Facility</h3>
-                                        <form id="addForm" action="{{ route('facility.save') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                        
-                                            <div class="mb-2">
-                                                <label for="facilityName" class="block text-gray-700 font-bold  text-left ">Facility Name</label>
-                                                <input type="text" class="form-input w-full border border-solid border-gray-300" id="facilityName" name="facilityName" required>
-                                            </div>
-
-                                            <div class="mb-2">
-                                                <label for="image" class="block text-gray-700 font-bold  text-left ">Image</label>
-                                                <input type="file" class="form-input w-full border border-solid border-gray-300" id="image" name="image" accept="image/*" required>
-                                            </div>
-
-                                            <div class="mb-2">
-                                                <label for="status" class="block text-gray-700 font-bold  text-left ">Status</label>
-                                                <select class="form-select w-full" id="status" name="status" required>
-                                                    <option value="Available">Available</option>
-                                                    <option value="Not Available">Not Available</option>
-                                                </select>
-                                            </div>
-                                        </form>
-                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>  
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center overflow-auto z-50 hidden" id="addModal">
+            <div class="transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 w-full">
+                            <a href="/" class="-mt-5">
+                                <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                            </a>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 text-center mt-2">Add New Admin</h3>
+                            <form id="addForm" action="{{ route('admin.save') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mt-2">
+                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Name</label>
+                                    <input type="text" id="editFacilityName" name="name" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10 " required>
                                 </div>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                <button type="submit" form="addForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Submit</button>
-                                <button id="closeModalBtn" class="inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
-                        <div class="flex items-center justify-center min-h-screen">
-                            <div class="transition-opacity">
-                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                            </div>
-                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
-                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                    <div class="sm:flex sm:items-start">
-                                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                                            <a href="/" class="-mt-8">
-                                                <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
-                                            </a>
-                                            <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Facility</h3>
-                                            <form id="editForm" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" id="editFacilityID" name="facilityID">
-                                                <div class="mt-2">
-                                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Facility Name</label>
-                                                    <input type="text" id="editFacilityName" name="facilityName" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
-                                                </div>
-                                                <div class="mt-2">
-                                                    <label for="editStatus" class="block text-gray-600 text-left font-bold">Status</label>
-                                                    <select id="editStatus" name="status" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
-                                                        <option value="Available">Available</option>
-                                                        <option value="Unavailable">Unavailable</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <div class="mt-2">
+                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Username</label>
+                                    <input type="text" id="editFacilityName" name="username" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10" required>
                                 </div>
-                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                    <button type="submit" form="editForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Update</button>
-                                    <button id="closeModal" class=" inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                                <div class="mt-2">
+                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Email</label>
+                                    <input type="text" id="editFacilityName" name="email" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10" required>
                                 </div>
-                            </div>
+                                <div class="mt-2">
+                                    <label for="editFacilityName" class="block text-gray-600 text-left font-bold ">Password</label>
+                                    <input type="password" id="editFacilityName" name="password" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10" required>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="editStatus" class="block text-gray-600 text-left font-bold">Role</label>
+                                    <select id="editStatus" name="role" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10" required>
+                                        <option value="1">Super Administrator</option>
+                                        <option value="2">Low-Level Administrator</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>  
-        </div>  
-    </main>
-    <script src='js/index.js'></script>
-    <script src='js/modal.js'></script>
-    <script>
-    const dropdown = document.querySelector('.relative');
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit" form="addForm" class="inline-flex justify-center w-full border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Submit</button>
+                    <button id="closeModalBtn" class="inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                </div>
+            </div>
+        </div>
 
-        dropdown.addEventListener('click', function () {
-            const dropdownMenu = this.querySelector('.absolute');
-            dropdownMenu.classList.toggle('hidden');
-        });
-        function toggleSettings() {
-        var dropdown = document.getElementById('settingsDropdown');
-        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-            dropdown.style.display = 'block';
-            localStorage.setItem('settingsDropdownState', 'open');
-        } else {
-            dropdown.style.display = 'none';
-            localStorage.setItem('settingsDropdownState', 'closed');
-        }
-    }
+        <div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                <a href="/" class="-mt-8">
+                                    <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
+                                </a>
+                                <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">Update Admin Access</h3>
+                                <form id="editForm" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" id="editID" name="ID">
+                                    <div class="mt-2">
+                                        <label for="editStatus" class="block text-gray-600 text-left font-bold">Role</label>
+                                        <select id="editStatus" name="role" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 h-10">
+                                            <option value="1">Super Administrator</option>
+                                            <option value="2">Low-Level Administrator</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="submit" form="editForm" class="inline-flex justify-center w-full  border rounded-md border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">Update</button>
+                        <button id="closeModal" class=" inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+        <script src="/js/index.js"></script>
+        <script src='js/modal.js'></script>
+        <script src='js/managementmodal.js'></script>
 
-    window.onload = function() {
-        var dropdownState = localStorage.getItem('settingsDropdownState');
-        var dropdown = document.getElementById('settingsDropdown');
-        if (dropdownState === 'open') {
-            dropdown.style.display = 'block';
-        } else {
-            dropdown.style.display = 'none';
-        }
-    };
+        <script>
+            const dropdown = document.querySelector('.relative');
+            dropdown.addEventListener('click', function () {
+                const dropdownMenu = this.querySelector('.absolute');
+                dropdownMenu.classList.toggle('hidden');
+            });
+            function toggleSettings() {
+            var dropdown = document.getElementById('settingsDropdown');
+            if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                dropdown.style.display = 'block';
+                localStorage.setItem('settingsDropdownState', 'open')
+            } else {
+                dropdown.style.display = 'none';
+                localStorage.setItem('settingsDropdownState', 'closed');
+            }
+            }
+
+            window.onload = function() {
+            var dropdownState = localStorage.getItem('settingsDropdownState');
+            var dropdown = document.getElementById('settingsDropdown');
+            if (dropdownState === 'open') {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+            };    
+            
+            
     </script>
 </body>
 </html>

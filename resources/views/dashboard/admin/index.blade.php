@@ -113,7 +113,7 @@
                                         </span>
                                         <span class="text ml-3">Profile</span>
                                     </a>
-                                    <a href="lla-facilities" class=" hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                    <a href="admin-management" class=" hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
                                         <span class="icon">
                                             <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M35.8752 10.7099H34.1668V8.92489C34.1668 8.45148 33.9868 7.99746 33.6665 7.66271C33.3461 7.32795 32.9116 7.13989 32.4585 7.13989C32.0054 7.13989 31.5709 7.32795 31.2505 7.66271C30.9301 7.99746 30.7502 8.45148 30.7502 8.92489V10.7099H29.0418C28.5888 10.7099 28.1542 10.898 27.8339 11.2327C27.5135 11.5675 27.3335 12.0215 27.3335 12.4949C27.3335 12.9683 27.5135 13.4223 27.8339 13.7571C28.1542 14.0918 28.5888 14.2799 29.0418 14.2799H30.7502V16.0649C30.7502 16.5383 30.9301 16.9923 31.2505 17.3271C31.5709 17.6618 32.0054 17.8499 32.4585 17.8499C32.9116 17.8499 33.3461 17.6618 33.6665 17.3271C33.9868 16.9923 34.1668 16.5383 34.1668 16.0649V14.2799H35.8752C36.3282 14.2799 36.7628 14.0918 37.0831 13.7571C37.4035 13.4223 37.5835 12.9683 37.5835 12.4949C37.5835 12.0215 37.4035 11.5675 37.0831 11.2327C36.7628 10.898 36.3282 10.7099 35.8752 10.7099Z" fill="#231F20"/>
@@ -151,7 +151,7 @@
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col lg:flex-row h-full">
             <div class="w-full lg:w-3/3 lg:mb-0 pl-1 pr-1">
                 <div class="h-[680px] bg-white p-4 rounded-2xl shadow">
                 <div class="welcome-message">
@@ -166,15 +166,25 @@
                             <div>
                         </div>
                     </div>
-                        <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left font-bold">
-                                <ul>
-                                    <div id="Notifs" class="h-[auto] p-4 rounded-2xl text-left font-bold">
-                                        @foreach(isset($events) ? $events : [] as $event)
-                                            <li>{{ event_name }}</li>
-                                        @endforeach
-                                    </div>
-                                </ul>   
-                        <div>
+                    <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left  overflow-y-auto">
+                        <ul class="list-none">
+                            @foreach($reservations as $reservation)
+                                <li class="mb-4">
+                                    <p class="font-bold">Event Name: {{ $reservation->event_name }}</p>
+                                    <p>Date: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('M d, Y') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('M d, Y') }}</p>
+                                    <p>Time: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('h:i A') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('h:i A') }}</p>
+
+                                @if ($reservation->reservee)
+                                    <p>Reservee Name: {{ $reservation->reservee->reserveeName }}</p>
+                                    <p>Contact Details: {{ $reservation->reservee->contact_details }}</p>
+                                    <p>Status: {{ $reservation->reservee->status }}</p>
+
+                                @else
+                                    <p>No reservee details found.</p>
+                                @endif  
+                                </li>
+                            @endforeach
+                        </ul>   
                     </div>
                 </div>
             </div>

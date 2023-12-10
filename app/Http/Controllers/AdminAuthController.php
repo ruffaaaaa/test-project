@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\ReservationDetails;
+use App\Models\Reservee;
+
+
 
 class AdminAuthController extends Controller
 {
@@ -81,12 +85,19 @@ class AdminAuthController extends Controller
 
         return view('dashboard.user.index', ['user' => $user]);
     }
-
     public function HelloAdmin(Request $request)
     {
-        $user = Auth::User();
+        $user = Auth::user();
+    
+        // Perform an inner join between ReservationDetails and Reservee
+        $reservations = ReservationDetails::join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
+            ->select('reservation_details.*', 'reservee.*')
+            ->orderBy('reservation_details.reservedetailsID', 'desc') // Assuming 'created_at' is the timestamp column
 
-        return view('dashboard.admin.index', ['user' => $user]);
+            ->get();
+    
+        return view('dashboard.admin.index', ['user' => $user, 'reservations' => $reservations]);
     }
+    
 
 }

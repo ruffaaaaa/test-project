@@ -157,7 +157,7 @@ class ReservationController extends Controller
                 ->join('selected_facilities', 'selected_facilities.reservedetailsID', '=', 'reservation_details.reservedetailsID')
                 ->join('facilities', 'facilities.facilityID', '=', 'selected_facilities.facilityID')
                 ->select('reservee.*', 'reservation_details.*', 'selected_facilities.*', 'facilities.*')
-                ->distinct('reservee.reserveeID') // Use DISTINCT to get unique reserveeID
+                ->distinct('reservee.reserveeID')
 
                 ->get();
     
@@ -175,8 +175,7 @@ class ReservationController extends Controller
                 ->join('selected_facilities', 'selected_facilities.reservedetailsID', '=', 'reservation_details.reservedetailsID')
                 ->join('facilities', 'facilities.facilityID', '=', 'selected_facilities.facilityID')
                 ->select('reservee.*', 'reservation_details.*', 'selected_facilities.*', 'facilities.*')
-                ->distinct('reservee.reserveeID') // Use DISTINCT to get unique reserveeID
-
+                ->distinct('reservee.reserveeID') 
                 ->get();
     
             return view('dashboard.user.adminreservation', compact('reservationDetails'));
@@ -219,7 +218,6 @@ class ReservationController extends Controller
             return redirect()->route('admin-reservation')->with('error', 'Reservation not found');
         }
 
-        // $reservation is found, proceed with deletion
         $reservation->delete();
 
         return redirect()->route('admin-reservation')->with('success', 'Reservation deleted successfully');

@@ -154,5 +154,7 @@ document.getElementById('nextMonth').addEventListener('click', function () {
     displayCalendarForYearMonth(year, month);
 });
 
-let [year, month] = [2023, 10]; // Month is zero-based (0-January, 1-February, etc.)
+const currentDate = new Date();
+let [year, month] = [currentDate.getFullYear(), currentDate.getMonth()]; // Month is zero-based (0-January, 1-February, etc.)
 displayCalendarForYearMonth(year, month);
+

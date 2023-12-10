@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+
+
+
     // JavaScript to trigger the modal
     document.getElementById('openModalBtn').addEventListener('click', function () {
         document.getElementById('addModal').classList.remove('hidden'); // Show the modal

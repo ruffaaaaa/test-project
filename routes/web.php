@@ -20,13 +20,19 @@ use App\Models\SupportPersonnel;
 Route::middleware(['auth', 'no-cache'])->group(function () {
     Route::get('/', [AdminAuthController::class, 'index2'])->name('index1');
     Route::get('/admin-dashboard', [AdminAuthController::class, 'HelloAdmin'])->name('index1');
+    Route::get('/admin-dashboard-reservation', [ReservationController::class, 'showAllReservations']);
+
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     Route::get('/lla-dashboard', [AdminAuthController::class, 'welcomeAdmin'])->name('index2');
     Route::get('/lla-profile', [SettingsController::class, 'profile']);
     Route::get('/admin-profile', [SettingsController::class, 'saprofile']);
-
-
+    Route::get('/admin-management', [SettingsController::class, 'adminmanagement'])->name('admin.management');
+    Route::post('/management/save', [SettingsController::class, 'create'])->name('admin.save');
+    Route::delete('/management/{id}', [SettingsController::class, 'destroy'])->name('admin.destroy');
+    Route::put('/admin-management/{id}', [SettingsController::class, 'update'])->name('update.management');
 });
+
+
 
     Route::put('/lla-profile/update', [SettingsController::class, 'updateProfile'])->name('llaprofile.update');
     Route::put('/lla-profile/updatePassword', [SettingsController::class, 'updatePassword'])->name('llaprofile.password');
@@ -94,10 +100,7 @@ Route::get('/get-status/{reserveeID}', [ReservationController::class, 'getStatus
 // ReservationDetailsController
 Route::middleware(['auth'])->group(function () {
     
-    // Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforLLA']);
-    // Route::get('/lla-calendar',[CalendarController::class,'facilitiesFilterforLLA']);
     Route::get('/admin-settings', [SettingsController::class,'showSettings']);
-    // Route::get('/lla-profile', [SettingsController::class,'showProfileforLLA']);
 });
 
 Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents']);
@@ -144,3 +147,6 @@ Route::get('/hard-drive', function () {
         'usedSpace' => $usedSpaceInMB,
     ]);
 });
+
+
+

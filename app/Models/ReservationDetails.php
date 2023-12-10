@@ -47,6 +47,7 @@ class ReservationDetails extends Model
     
     public function reservee()
     {
-        return $this->belongsTo(Reservee::class, 'reserveeID', 'reservedetailsID');
+        return $this->belongsTo(Reservee::class, 'reserveeID', 'reserveeID');
     }
+    
 }

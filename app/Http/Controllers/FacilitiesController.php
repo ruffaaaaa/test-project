@@ -27,7 +27,6 @@ class FacilitiesController extends Controller
     // CRUD FACILITES
     public function create(Request $request)
     {
-        // Validate the incoming request data
         $facilities = new Facilities();
 
         $facilities->facilityName = $request->input('facilityName');
