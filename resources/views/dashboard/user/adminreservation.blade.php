@@ -29,10 +29,7 @@
                     <ul class="space-y-1">
                         <li>
                         <a href="/lla-dashboard" class="flex  hover:bg-green-300  rounded-xl font-bold text-sm text-gray-900 py-2 px-4">
-
                             <span class="icon">
-                                <!-- Replace the SVG code with your desired icon -->
-
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                     <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
                                 </svg>      
@@ -75,16 +72,34 @@
                             </a>
                         </li>
                         <li>
-                            <a href="lla-settings" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
-                                <span class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                    <path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                    </svg>
-                                <span class="text ml-3">Settings</span>
-                            </a>
+                            <div class="relative">
+                                <button onclick="toggleSettings()" class="flex hover:bg-green-300 rounded-xl font-bold text-sm text-gray-900 py-2 px-4 w-100 focus:outline-none">
+                                    <span class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                            <path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                    <span class="text ml-3">Settings</span>
+                                </button>
+                                <div id="settingsDropdown" class="absolute hidden bg-white shadow-lg py-2 mt-2 w-100 rounded-xl">
+
+                                    <a href="lla-profile" class=" text-black hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                        <span class="icon">
+                                            <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;person&#34;">
+                                                <g id="Group">                            
+                                                <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#231F20"/>
+                                                <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#231F20"/>
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <span class="text ml-3">Profile</span>
+                                    </a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                    
                 </div>
             </div>
             <div class="p-4">
@@ -108,7 +123,7 @@
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="bg-white rounded-lg shadow-md p-6">
             <div class="mb-3">
                 
                 <table class="min-w-full divide-y divide-gray-200">
@@ -146,10 +161,13 @@
                                 <button class="border border-red-500 text-green-500 px-3 py-1 rounded hover:border-red-600 hover:bg-green-500 hover:text-white ml-2 editButton">
                                     Update
                                 </button>
-                                <button class="border border-red-500 text-red-500 px-3 py-1 rounded hover:border-red-600 hover:bg-red-500 hover:text-white ml-2 delete">
-                                    Delete
-                                </button>
-                                                       
+                                <form method="POST" action="{{ route('reservation.destroy', $detailsGroup->first()->reservedetailsID) }}" class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
+                                        Delete
+                                    </button>
+                                </form>             
                                 </td>
                             </tr>
                             @endforeach
@@ -277,5 +295,33 @@
     <script src="/js/index.js"></script>
     <script src="/js/reservationdetails.js"></script>
     <script src='js/modal.js'></script>
+    <script>
+    const dropdown = document.querySelector('.relative');
+
+        dropdown.addEventListener('click', function () {
+            const dropdownMenu = this.querySelector('.absolute');
+            dropdownMenu.classList.toggle('hidden');
+        });
+        function toggleSettings() {
+        var dropdown = document.getElementById('settingsDropdown');
+        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'block';
+            localStorage.setItem('settingsDropdownState', 'open');
+        } else {
+            dropdown.style.display = 'none';
+            localStorage.setItem('settingsDropdownState', 'closed');
+        }
+    }
+
+    window.onload = function() {
+        var dropdownState = localStorage.getItem('settingsDropdownState');
+        var dropdown = document.getElementById('settingsDropdown');
+        if (dropdownState === 'open') {
+            dropdown.style.display = 'block';
+        } else {
+            dropdown.style.display = 'none';
+        }
+    };
+    </script>
 </body>
 </html>

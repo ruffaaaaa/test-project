@@ -211,6 +211,21 @@ class ReservationController extends Controller
         }
     }
 
+    public function destroy($reservedetailsID)
+    {
+        $reservation = ReservationDetails::find($reservedetailsID);
+        
+        if (!$reservation) {
+            return redirect()->route('admin-reservation')->with('error', 'Reservation not found');
+        }
+
+        // $reservation is found, proceed with deletion
+        $reservation->delete();
+
+        return redirect()->route('admin-reservation')->with('success', 'Reservation deleted successfully');
+    }
+
+
     
 }
 

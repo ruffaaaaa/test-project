@@ -94,18 +94,44 @@
                                 </a>
                             </li>
 
-                            </li>
-                                <a href="admin-settings" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
+                            <li>
+                            <div class="relative">
+                                <button onclick="toggleSettings()" class="flex bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4 w-100 focus:outline-none">
                                     <span class="icon">
-                                        <!-- Replace the SVG code with your desired icon -->
-                                        
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                        <path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                            <path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                                         </svg>
-
+                                    </span>
                                     <span class="text ml-3">Settings</span>
-                                </a>
-                            </li>
+                                </button>
+                                <div id="settingsDropdown" class="absolute hidden bg-white shadow-lg py-2 mt-2 w-100 rounded-xl">
+
+                                    <a href="admin-profile" class=" text-black bg-green-300 hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                        <span class="icon">
+                                            <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;person&#34;">
+                                                <g id="Group">                            
+                                                <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#292D32"/>
+                                                <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#292D32"/>
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <span class="text ml-3">Profile</span>
+                                    </a>
+                                    <a href="lla-facilities" class=" hover:bg-green-300 flex font-bold text-sm text-gray-900 py-2 px-4">
+                                        <span class="icon">
+                                            <svg width="20" height="20" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M35.8752 10.7099H34.1668V8.92489C34.1668 8.45148 33.9868 7.99746 33.6665 7.66271C33.3461 7.32795 32.9116 7.13989 32.4585 7.13989C32.0054 7.13989 31.5709 7.32795 31.2505 7.66271C30.9301 7.99746 30.7502 8.45148 30.7502 8.92489V10.7099H29.0418C28.5888 10.7099 28.1542 10.898 27.8339 11.2327C27.5135 11.5675 27.3335 12.0215 27.3335 12.4949C27.3335 12.9683 27.5135 13.4223 27.8339 13.7571C28.1542 14.0918 28.5888 14.2799 29.0418 14.2799H30.7502V16.0649C30.7502 16.5383 30.9301 16.9923 31.2505 17.3271C31.5709 17.6618 32.0054 17.8499 32.4585 17.8499C32.9116 17.8499 33.3461 17.6618 33.6665 17.3271C33.9868 16.9923 34.1668 16.5383 34.1668 16.0649V14.2799H35.8752C36.3282 14.2799 36.7628 14.0918 37.0831 13.7571C37.4035 13.4223 37.5835 12.9683 37.5835 12.4949C37.5835 12.0215 37.4035 11.5675 37.0831 11.2327C36.7628 10.898 36.3282 10.7099 35.8752 10.7099Z" fill="#231F20"/>
+                                                <path d="M17.0833 19.635C18.4348 19.635 19.756 19.2162 20.8797 18.4317C22.0035 17.6471 22.8793 16.532 23.3965 15.2273C23.9137 13.9227 24.049 12.4871 23.7854 11.102C23.5217 9.71701 22.8709 8.44479 21.9152 7.44624C20.9596 6.44769 19.742 5.76768 18.4165 5.49218C17.0909 5.21668 15.717 5.35807 14.4683 5.89848C13.2197 6.43889 12.1525 7.35404 11.4016 8.52821C10.6508 9.70238 10.25 11.0828 10.25 12.495C10.25 14.3886 10.9699 16.2047 12.2514 17.5437C13.5329 18.8827 15.271 19.635 17.0833 19.635Z" fill="#231F20"/>
+                                                <path d="M27.3333 37.4851C27.7864 37.4851 28.2209 37.297 28.5413 36.9623C28.8617 36.6275 29.0417 36.1735 29.0417 35.7001C29.0417 32.3862 27.7818 29.208 25.5392 26.8648C23.2965 24.5215 20.2549 23.2051 17.0833 23.2051C13.9118 23.2051 10.8701 24.5215 8.62751 26.8648C6.38489 29.208 5.125 32.3862 5.125 35.7001C5.125 36.1735 5.30498 36.6275 5.62536 36.9623C5.94573 37.297 6.38026 37.4851 6.83333 37.4851" fill="#231F20"/>
+                                            </svg>
+                                        </span>
+                                        <span class="text ml-3">Admin Management</span>
+                                    </a>     
+                                </div>
+                            </div>
+                        </li>
                         </ul>
                         
                     </div>
@@ -126,54 +152,113 @@
             </div>
         </aside>
  
-    <main class="ml-60 p-8 max-h-screen w-auto">
+        <main class="ml-60 p-8 max-h-screen w-auto">
         <button id="toggleSidebar" class=" -ml-12 absolute p-2 bg-green-600 rounded-full text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
             </svg>
         </button>
-        <div class="flex flex-col lg:flex-row">
-            <div class="w-full lg:w-2/6 mb-5 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
-                    <div class="p-2">
-                            <button class="inline-flex items-center space-x-1  pt-2 pb-2 border-b-2 border-t-2 border-black-100 w-[230px]">
-                            <svg width="38" height="38" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="&#240;&#159;&#166;&#134; icon &#34;person&#34;">
-                            <g id="Group">
-                            <path id="Vector" d="M19.0001 17.875C20.2527 17.875 21.4772 17.4938 22.5187 16.7796C23.5602 16.0653 24.372 15.0502 24.8513 13.8624C25.3307 12.6747 25.4561 11.3678 25.2117 10.1069C24.9673 8.84604 24.3642 7.68785 23.4784 6.77881C22.5927 5.86977 21.4642 5.2507 20.2357 4.9999C19.0071 4.74909 17.7337 4.87782 16.5764 5.36979C15.4192 5.86176 14.43 6.69488 13.7341 7.7638C13.0382 8.83272 12.6667 10.0894 12.6667 11.375C12.6667 13.0989 13.334 14.7522 14.5217 15.9712C15.7095 17.1902 17.3204 17.875 19.0001 17.875Z" fill="#231F20"/>
-                            <path id="Vector_2" d="M28.5001 34.125C28.92 34.125 29.3227 33.9538 29.6197 33.6491C29.9166 33.3443 30.0834 32.931 30.0834 32.5C30.0834 29.4832 28.9157 26.5899 26.8372 24.4567C24.7587 22.3234 21.9396 21.125 19.0001 21.125C16.0606 21.125 13.2415 22.3234 11.163 24.4567C9.08445 26.5899 7.91675 29.4832 7.91675 32.5C7.91675 32.931 8.08356 33.3443 8.3805 33.6491C8.67743 33.9538 9.08016 34.125 9.50008 34.125H28.5001Z" fill="#231F20"/>
-                            </g>
-                            </g>
-                            </svg>
-
-                            <span>PROFILE</span>
-                        </button>
+        <div class="bg-white rounded-lg shadow-md p-12">
+            <div class="font-bold text-green-700 text-2xl border-b-2 border-green-600">ADMIN PROFILE</div>
+                <div class="p-2 grid grid-cols-4 gap-4">
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=".5" stroke="#737373" class="w-30 h-30">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>      
                     </div>
-                    <div class="p-2">
-                        <button class="inline-flex items-center space-x-1  pt-2 pb-2 border-b-2 border-t-2 border-black-100 w-[230px]">
-                            <svg width="38" height="38" viewBox="0 0 36 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M35.8752 10.7099H34.1668V8.92489C34.1668 8.45148 33.9868 7.99746 33.6665 7.66271C33.3461 7.32795 32.9116 7.13989 32.4585 7.13989C32.0054 7.13989 31.5709 7.32795 31.2505 7.66271C30.9301 7.99746 30.7502 8.45148 30.7502 8.92489V10.7099H29.0418C28.5888 10.7099 28.1542 10.898 27.8339 11.2327C27.5135 11.5675 27.3335 12.0215 27.3335 12.4949C27.3335 12.9683 27.5135 13.4223 27.8339 13.7571C28.1542 14.0918 28.5888 14.2799 29.0418 14.2799H30.7502V16.0649C30.7502 16.5383 30.9301 16.9923 31.2505 17.3271C31.5709 17.6618 32.0054 17.8499 32.4585 17.8499C32.9116 17.8499 33.3461 17.6618 33.6665 17.3271C33.9868 16.9923 34.1668 16.5383 34.1668 16.0649V14.2799H35.8752C36.3282 14.2799 36.7628 14.0918 37.0831 13.7571C37.4035 13.4223 37.5835 12.9683 37.5835 12.4949C37.5835 12.0215 37.4035 11.5675 37.0831 11.2327C36.7628 10.898 36.3282 10.7099 35.8752 10.7099Z" fill="#231F20"/>
-                            <path d="M17.0833 19.635C18.4348 19.635 19.756 19.2162 20.8797 18.4317C22.0035 17.6471 22.8793 16.532 23.3965 15.2273C23.9137 13.9227 24.049 12.4871 23.7854 11.102C23.5217 9.71701 22.8709 8.44479 21.9152 7.44624C20.9596 6.44769 19.742 5.76768 18.4165 5.49218C17.0909 5.21668 15.717 5.35807 14.4683 5.89848C13.2197 6.43889 12.1525 7.35404 11.4016 8.52821C10.6508 9.70238 10.25 11.0828 10.25 12.495C10.25 14.3886 10.9699 16.2047 12.2514 17.5437C13.5329 18.8827 15.271 19.635 17.0833 19.635Z" fill="#231F20"/>
-                            <path d="M27.3333 37.4851C27.7864 37.4851 28.2209 37.297 28.5413 36.9623C28.8617 36.6275 29.0417 36.1735 29.0417 35.7001C29.0417 32.3862 27.7818 29.208 25.5392 26.8648C23.2965 24.5215 20.2549 23.2051 17.0833 23.2051C13.9118 23.2051 10.8701 24.5215 8.62751 26.8648C6.38489 29.208 5.125 32.3862 5.125 35.7001C5.125 36.1735 5.30498 36.6275 5.62536 36.9623C5.94573 37.297 6.38026 37.4851 6.83333 37.4851" fill="#231F20"/>
-                            </svg>
 
-                            <span>ADMIN MANAGEMENT</span>
-                        </button>
+                    <div class="col-span-3">
+                        <form action="{{ route('llaprofile.update') }}" method="POST">
+                            @csrf
+                            @method('PUT')
+
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mt-2" for="name">Name</label>
+                                <input type="text" name="aname" value="{{ $user->aname }}" class="border rounded px-2 py-2 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mt-2" for="email">Email</label>
+                                <input type="text" name="email" value="{{ $user->email }}" class="border rounded px-2 py-2 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mt-2" for="username">Username</label>
+                                <input type="text" name="username" value="{{ $user->username }}" class="border rounded px-2 py-2 w-full">
+                            </div>
+
+                            <button id="openModal" type="button" class="border text-green-600 text-sm font-bold py-1 px-2 rounded mt-2">
+                                Change Password
+                            </button>       
+                            <div>
+                                <button type="submit" class="border text-white bg-green-600 text-sm font-bold py-2 px-4 rounded mt-10">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    
-                </div>
-            </div>
-            <div class="w-full lg:w-6/8 mb-5 lg:mb-0 pl-1 pr-1">
-                <div class="min-h-full bg-white p-4 rounded-2xl shadow">
                 </div>
             </div>
         </div>
-      
+
+        <div id="passwordModal" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+            <div class="bg-white p-8 rounded-lg w-1/3">
+                <!-- Modal content -->
+                <h2 class="text-lg font-bold mb-4">Change Password</h2>
+                <!-- Your password change form content here -->
+                <form action="{{ route('llaprofile.password') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <input type="password" name="password"  class="border rounded px-2 py-2 w-full">
+
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="border text-white bg-green-600 text-sm font-bold py-2 px-4 rounded ">
+                            Save
+                        </button>
+                        <button id="closeModal" type="button"  class=" ml-2 border text-green-600  text-sm font-bold py-2 px-4 rounded ">
+                            Close
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>  
     </main>
-
     <script src="/js/index.js"></script>
-    
+    <script>
+        const dropdown = document.querySelector('.relative');
+        dropdown.addEventListener('click', function () {
+            const dropdownMenu = this.querySelector('.absolute');
+            dropdownMenu.classList.toggle('hidden');
+        });
+        function toggleSettings() {
+        var dropdown = document.getElementById('settingsDropdown');
+        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'block';
+            localStorage.setItem('settingsDropdownState', 'open');
+        } else {
+            dropdown.style.display = 'none';
+            localStorage.setItem('settingsDropdownState', 'closed');
+        }
+        }
 
-   
+        window.onload = function() {
+        var dropdownState = localStorage.getItem('settingsDropdownState');
+        var dropdown = document.getElementById('settingsDropdown');
+        if (dropdownState === 'open') {
+            dropdown.style.display = 'block';
+        } else {
+            dropdown.style.display = 'none';
+        }
+        };
+        const openModalButton = document.getElementById('openModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const modal = document.getElementById('passwordModal');
+
+        openModalButton.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        });
+
+        closeModalButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>

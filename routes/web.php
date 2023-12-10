@@ -22,7 +22,14 @@ Route::middleware(['auth', 'no-cache'])->group(function () {
     Route::get('/admin-dashboard', [AdminAuthController::class, 'HelloAdmin'])->name('index1');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     Route::get('/lla-dashboard', [AdminAuthController::class, 'welcomeAdmin'])->name('index2');
+    Route::get('/lla-profile', [SettingsController::class, 'profile']);
+    Route::get('/admin-profile', [SettingsController::class, 'saprofile']);
+
+
 });
+
+    Route::put('/lla-profile/update', [SettingsController::class, 'updateProfile'])->name('llaprofile.update');
+    Route::put('/lla-profile/updatePassword', [SettingsController::class, 'updatePassword'])->name('llaprofile.password');
 Route::get('/login', [AdminAuthController::class, 'DisplayLoginForm'])->name('login');
 
 Route::post('/login', [AdminAuthController::class, 'login']);
@@ -90,7 +97,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforLLA']);
     // Route::get('/lla-calendar',[CalendarController::class,'facilitiesFilterforLLA']);
     Route::get('/admin-settings', [SettingsController::class,'showSettings']);
-    Route::get('/lla-settings', [SettingsController::class,'showSettingsforLLA']);
+    // Route::get('/lla-profile', [SettingsController::class,'showProfileforLLA']);
 });
 
 Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents']);
@@ -109,6 +116,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/lla-reservation', [ReservationController::class, 'showModalReservationDetailsLLA'])->name('lla-reservation');;
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
+Route::delete('/admin-reservation/{reservedetailsID}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+
 
 Route::get('/notifsLLA/{year}/{month}/{selectedFacilityID?}', [ReservationController::class, 'notifsLLA']);
 
