@@ -89,10 +89,9 @@ class AdminAuthController extends Controller
     {
         $user = Auth::user();
     
-        // Perform an inner join between ReservationDetails and Reservee
         $reservations = ReservationDetails::join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
             ->select('reservation_details.*', 'reservee.*')
-            ->orderBy('reservation_details.reservedetailsID', 'desc') // Assuming 'created_at' is the timestamp column
+            ->orderBy('reservation_details.reservedetailsID', 'desc')
 
             ->get();
     

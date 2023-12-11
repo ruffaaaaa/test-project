@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('active')->default(true);
-            $table->unsignedBigInteger('role_id'); // Add role_id column
+            $table->unsignedBigInteger('role_id');
             $table->timestamps();
         });
     }

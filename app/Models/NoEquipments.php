@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class NoEquipments extends Model
 {
-    protected $table = 'no_equipment'; // Specify the table name
+    protected $table = 'no_equipment';
 
-    protected $primaryKey = 'no_equipmentID'; // Specify the primary key 
+    protected $primaryKey = 'no_equipmentID';
     protected $fillable = ['equipmentID', 'total_no', 'reservedetailsID'];
 
 

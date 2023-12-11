@@ -13,12 +13,12 @@ return new class extends Migration
 {
     Schema::create('no_equipment', function (Blueprint $table) {
         $table->increments('no_equipmentID');
-        $table->string('equipmentID'); // Define equipmentID as VARCHAR
+        $table->string('equipmentID');
         $table->integer('total_no');
-        $table->string('reservedetailsID'); // Define reservedetailsID as VARCHAR
+        $table->string('reservedetailsID');
         $table->timestamps();
         
-        // Add a foreign key constraint to connect it with the 'reservation_details' table
+    
         $table->foreign('reservedetailsID')
             ->references('reservedetailsID')
             ->on('reservation_details');

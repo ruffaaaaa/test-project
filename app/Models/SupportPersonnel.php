@@ -12,7 +12,6 @@ class SupportPersonnel extends Model
     protected $primaryKey = 'no_support_personnelID';
     protected $fillable = ['personnelID', 'total_no', 'reservedetailsID'];
 
-    // Define relationships with other models
     public function supportPersonnel()
     {
         return $this->belongsTo(Personnels::class, 'personnelID', 'personnelID');

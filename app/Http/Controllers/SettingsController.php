@@ -31,7 +31,7 @@ class SettingsController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $user = User::findOrFail(auth()->user()->id); // Assuming you're using authentication
+        $user = User::findOrFail(auth()->user()->id);
         $user->aname = $request->input('aname');
         $user->email = $request->input('email');
         $user->username = $request->input('username');
