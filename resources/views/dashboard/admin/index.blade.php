@@ -166,23 +166,27 @@
                             <div>
                         </div>
                     </div>
-                    <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left  overflow-y-auto">
+                    <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left overflow-y-auto">
                         <ul class="list-none">
                             @foreach($reservations as $reservation)
-                                <li class="mb-4">
-                                    <p class="font-bold">Event Name: {{ $reservation->event_name }}</p>
-                                    <p>Date: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('M d, Y') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('M d, Y') }}</p>
-                                    <p>Time: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('h:i A') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('h:i A') }}</p>
+                                @if ($reservation->reservee && $reservation->reservee->status === 'Pending')
+                                    <li class="mb-4">
+                                        <p class="font-bold">Event Name: {{ $reservation->event_name }}</p>
+                                        @if ($reservation->facilityName)
+                                            <p>Facility Name: {{ $reservation->facilityName }}</p>
+                                        @else
+                                            <p>Facility Name: Not Found</p>
+                                        @endif
+                                        <p>Date: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('M d, Y') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('M d, Y') }}</p>
+                                        <p>Time: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('h:i A') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('h:i A') }}</p>
 
-                                @if ($reservation->reservee)
-                                    <p>Reservee Name: {{ $reservation->reservee->reserveeName }}</p>
-                                    <p>Contact Details: {{ $reservation->reservee->contact_details }}</p>
-                                    <p>Status: {{ $reservation->reservee->status }}</p>
+                                        <p>Reservee Name: {{ $reservation->reservee->reserveeName }}</p>
+                                        <p>Contact Details: {{ $reservation->reservee->contact_details }}</p>
+                                        <p>Status: {{ $reservation->reservee->status }}</p>
 
-                                @else
-                                    <p>No reservee details found.</p>
-                                @endif  
-                                </li>
+                                        
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>   
                     </div>

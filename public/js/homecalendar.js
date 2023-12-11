@@ -274,3 +274,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCalendar();
 });
+
+
+function openModal() {
+    document.getElementById('calendarModal').classList.remove('hidden');
+  }
+
+  // Function to hide the modal
+  function closeModal() {
+    document.getElementById('calendarModal').classList.add('hidden');
+  }
+
+  // Event listener for clicking the calendar button
+  document.getElementById('calendarButton').addEventListener('click', openModal);
+  
+
+  // Event listener for clicking the close button inside the modal
+  document.getElementById('closeModal').addEventListener('click', closeModal);

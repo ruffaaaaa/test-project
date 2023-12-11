@@ -140,15 +140,26 @@
                             <div>
                         </div>
                     </div>
-                        <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left font-bold">
-                            <ul>
-                                <div id="Notifs" class="h-[auto] p-4 rounded-2xl text-left font-bold">
-                                    @foreach(isset($events) ? $events : [] as $event)
-                                        <li>{{ event_name }}</li>
-                                    @endforeach
-                                </div>
-                            </ul>   
-                        <div>
+                    <div id="NotifsBody" class="h-[400px] p-4 rounded-2xl text-left  overflow-y-auto">
+                        <ul class="list-none">
+                            @foreach($reservations as $reservation)
+                                <li class="mb-4">
+                                    <p class="font-bold">Event Name: {{ $reservation->event_name }}</p>
+                                    <p>Date: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('M d, Y') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('M d, Y') }}</p>
+                                    <p>Time: {{ \Carbon\Carbon::parse($reservation->event_start_date)->format('h:i A') }} - {{ \Carbon\Carbon::parse($reservation->event_end_date)->format('h:i A') }}</p>
+
+                                @if ($reservation->reservee)
+                                    <p>Reservee Name: {{ $reservation->reservee->reserveeName }}</p>
+                                    <p>Contact Details: {{ $reservation->reservee->contact_details }}</p>
+                                    <p>Status: {{ $reservation->reservee->status }}</p>
+
+                                @else
+                                    <p>No reservee details found.</p>
+                                @endif  
+                                </li>
+                            @endforeach
+                        </ul>   
+                    </div>
                     </div>
                 </div>
             </div>

@@ -168,3 +168,25 @@ main.collapsed {
     font-weight: bold;
     cursor: pointer;
 }
+
+
+.calendar {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+

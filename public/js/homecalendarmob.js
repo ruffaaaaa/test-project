@@ -274,3 +274,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCalendar();
 });
+
+
+function openModalMob() {
+    document.getElementById('calendarModalMob').classList.remove('hidden');
+  }
+
+  function closeModalMob() {
+    document.getElementById('calendarModalMob').classList.add('hidden');
+  }
+
+  document.getElementById('calendarButtonMob').addEventListener('click', openModalMob);
+
+
+  document.getElementById('closeModalMob').addEventListener('click', closeModalMob);

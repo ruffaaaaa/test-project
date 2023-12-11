@@ -24,10 +24,15 @@ class CalendarController extends Controller
             'reservation_details.cleanup_start_date_time',
             'reservation_details.cleanup_end_date_time',
             'reservee.status',
-            'selected_facilities.facilityID'
+            'selected_facilities.facilityID',
+            'facilities.facilityName'
+            
+            
         )
         ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
         ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
+        ->leftJoin('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID')
+
         ->whereYear('reservation_details.event_start_date', $year)
         ->whereMonth('reservation_details.event_start_date', $month);
 
@@ -54,6 +59,36 @@ class CalendarController extends Controller
 
         return view('dashboard.user.calendar', ['facilities' => $facilities]);
     }
+
+    public function getEventsforHome($year, $month, $selectedFacilityID = null)
+    {
+        $eventsQuery = ReservationDetails::select(
+            'reservation_details.event_name',
+            'reservation_details.event_start_date',
+            'reservation_details.event_end_date',
+            'reservation_details.preparation_start_date',
+            'reservation_details.preparation_end_date_time',
+            'reservation_details.cleanup_start_date_time',
+            'reservation_details.cleanup_end_date_time',
+            'reservee.status',
+            'selected_facilities.facilityID'
+            
+            
+        )
+        ->join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
+        ->join('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
+        ->whereYear('reservation_details.event_start_date', $year)
+        ->whereMonth('reservation_details.event_start_date', $month);
+
+        if ($selectedFacilityID !== null) {
+            $eventsQuery->where('selected_facilities.facilityID', $selectedFacilityID);
+        }
+
+        $events = $eventsQuery->get();
+
+        return response()->json($events);
+    }
+
 
 
 

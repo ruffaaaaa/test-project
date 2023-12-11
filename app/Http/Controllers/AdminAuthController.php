@@ -81,12 +81,6 @@ class AdminAuthController extends Controller
 
     public function welcomeAdmin(Request $request)
     {
-        $user = Auth::User();
-
-        return view('dashboard.user.index', ['user' => $user]);
-    }
-    public function HelloAdmin(Request $request)
-    {
         $user = Auth::user();
     
         $reservations = ReservationDetails::join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
@@ -95,8 +89,27 @@ class AdminAuthController extends Controller
 
             ->get();
     
+        return view('dashboard.user.index', ['user' => $user, 'reservations' => $reservations]);
+    }
+    public function HelloAdmin(Request $request)
+    {
+        $user = Auth::user();
+    
+        $reservations = ReservationDetails::join('reservee', 'reservation_details.reservedetailsID', '=', 'reservee.reservedetailsID')
+            ->leftJoin('selected_facilities', 'reservation_details.reservedetailsID', '=', 'selected_facilities.reservedetailsID')
+            ->leftJoin('facilities', 'selected_facilities.facilityID', '=', 'facilities.facilityID')
+            ->select(
+                'reservation_details.*',
+                'reservee.*',
+                'selected_facilities.*',
+                'facilities.*'
+            )
+            ->orderBy('reservation_details.reservedetailsID', 'desc')
+            ->get();
+    
         return view('dashboard.admin.index', ['user' => $user, 'reservations' => $reservations]);
     }
+    
     
 
 }

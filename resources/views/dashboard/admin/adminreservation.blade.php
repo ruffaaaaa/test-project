@@ -192,10 +192,15 @@
                                 <button class="border border-red-500 text-green-500 px-3 py-1 rounded hover:border-red-600 hover:bg-green-500 hover:text-white ml-2 editButton">
                                     Update
                                 </button>
-                                <button class="border border-red-500 text-red-500 px-3 py-1 rounded hover:border-red-600 hover:bg-red-500 hover:text-white ml-2 delete">
-                                    Delete
-                                </button>
-                                                       
+                                <form method="POST" action="{{ route('reservation.destroy', $detailsGroup->first()->reservedetailsID) }}" class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
+                                        Delete
+                                    </button>
+                                </form>
+
+                              
                                 </td>
                             </tr>
                             @endforeach

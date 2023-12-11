@@ -60,11 +60,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/lla-facilities', function () {
         $facilities = Facilities::all();
         return view('dashboard.user.facilities', compact('facilities'));
-    })->name('facilities');
-    Route::post('/facilitycreate', [FacilitiesController::class, 'create'])->name('facility_save');
-    Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'update'])->name('facilities.update');
-    Route::delete('/facilities/{facilityID}', [FacilitiesController::class, 'destroy'])->name('facilities.destroy');
-    Route::get('/facilitycreate', [FacilitiesController::class, 'showCreateFacilities'])->name('facility-create');
+    })->name('lla.facilities');
+    Route::post('/llafacilities/save', [FacilitiesController::class, 'llacreate'])->name('llafacility.save');
+    Route::put('/facilities/{facilityID}', [FacilitiesController::class, 'llaupdate'])->name('llafacilities.update');
+    Route::delete('/llafacilities/{facilityID}', [FacilitiesController::class, 'lladestroy'])->name('llafacilities.destroy');
+    Route::get('/facilitycreate', [FacilitiesController::class, 'showCreateFacilities'])->name('llafacility-create');
 
 });
 Route::get('/', [FacilitiesController::class, 'CarouselFacilities']);
@@ -104,13 +104,17 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents']);
+Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforHome']);
+
     Route::get('/admin-calendar',[CalendarController::class,'facilitiesFilter']);
     Route::get('/lla-calendar',[CalendarController::class,'LLAfacilitiesFilter']);
+    Route::delete('/admin-reservation/{reservedetailsID}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
 
     
 Route::middleware(['auth'])->group(function () {
     Route::get('/reservee', [ReservationController::class, 'displayReservee']);
     Route::get('/admin-reservation', [ReservationController::class, 'showModalReservationDetails'])->name('admin-reservation');
+    
     Route::put('/admin-reservation/{reserveeID}', [ReservationController::class, 'update'])->name('update.reservee');
 
 
@@ -119,7 +123,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/lla-reservation', [ReservationController::class, 'showModalReservationDetailsLLA'])->name('lla-reservation');;
 
 Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
-Route::delete('/admin-reservation/{reservedetailsID}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+Route::delete('/lla-reservation/{reservedetailsID}', [ReservationController::class, 'lladestroy'])->name('llareservation.destroy');
+
 
 
 Route::get('/notifsLLA/{year}/{month}/{selectedFacilityID?}', [ReservationController::class, 'notifsLLA']);

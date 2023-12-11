@@ -248,7 +248,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
-                    <div id="currentMonth" class="text-2xl font-semibold text-uppercase"></div>
+                    <div id="currentMonth" data-year="2023" data-month="12" class="text-2xl font-semibold text-uppercase"></div>
                 </div>
 
                 <div class="mt-2 grid grid-cols-7 gap-2 bg-green-600 py-2 text-white rounded-xl">

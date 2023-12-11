@@ -202,7 +202,7 @@
             </div>
         </div>
         <div class="m-2 flex justify-between ">
-            <button id="back-button" class="bg-green-600 text-white px-8 py-2 rounded focus:outline-none">Back</button>
+            <a href="/" id="back-button" class="bg-green-600 text-white px-8 py-2 rounded focus:outline-none">Back</a>
             <button type="submit" id="submit-button" class="bg-green-600 text-white px-6 py-2 rounded focus:outline-none" onclick="openModal()">Submit</button>
         </div>
     </form>

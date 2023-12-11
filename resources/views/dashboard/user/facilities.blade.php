@@ -164,7 +164,7 @@
                                     <button class="border border-red-500 text-blue-500 px-4 py-1 rounded hover:border-red-600 hover:bg-blue-500 hover:text-white ml-2 editButton">
                                         Edit
                                     </button>
-                                    <form method="POST" action="{{ route('facilities.destroy', $facility->facilityID) }}" class="inline-block">
+                                    <form method="POST" action="{{ route('llafacilities.destroy', $facility->facilityID) }}" class="inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-500 hover:text-white ml-2">
@@ -190,7 +190,7 @@
                                             <img src="/images/lsu-logo 2.png"  class=" mx-auto w-10 h-30" />
                                         </a>
                                         <h3 class="text-lg leading-6 font-medium text-gray-900">Add Facility</h3>
-                                        <form id="addForm" action="{{ route('facility.save') }}" method="POST" enctype="multipart/form-data">
+                                        <form id="addForm" action="{{ route('llafacility.save') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                         
                                             <div class="mb-2">

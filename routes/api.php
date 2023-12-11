@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\ReservationDetails;
+use App\Http\Controllers\CalendarController;
+
 
 
 /*
@@ -42,3 +44,7 @@ Route::get('/schedule', function () {
 
     return response()->json(['events' => $events, 'preparations' => $preparations, 'cleanups' => $cleanups]);
 });
+
+
+Route::get('/facility/{facilityID}',  [CalendarController::class, 'getFacilityName']);
+

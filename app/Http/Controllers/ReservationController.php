@@ -223,6 +223,19 @@ class ReservationController extends Controller
         return redirect()->route('admin-reservation')->with('success', 'Reservation deleted successfully');
     }
 
+    public function lladestroy($reservedetailsID)
+    {
+        $reservation = ReservationDetails::find($reservedetailsID);
+        
+        if (!$reservation) {
+            return redirect()->route('lla-reservation')->with('error', 'Reservation not found');
+        }
+
+        $reservation->delete();
+
+        return redirect()->route('lla-reservation')->with('success', 'Reservation deleted successfully');
+    }
+
 
     
 }
