@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const statusFilter = document.getElementById('statusFilter');
     const facilityFilter = document.getElementById('facilityFilter');
     const scheduleFilter = document.getElementById('scheduleFilter');
-    let currentYear = parseInt(currentMonthElement.getAttribute('data-year'));
-    let currentMonth = parseInt(currentMonthElement.getAttribute('data-month'));
+    const currentDate = new Date();
+    let currentYear = currentDate.getFullYear();
+    let currentMonth = currentDate.getMonth() + 1; 
     let selectedFacilityID = '';
     let selectedSchedule = '';
     let selectedStatus = '';  
@@ -178,6 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
         eventText.style.fontSize = '10px';
         eventText.style.fontWeight = 'bold';
         eventDiv.appendChild(eventText);
+
+        const eventfacilities = document.createElement('div');
+        eventfacilities.textContent = event.facilityName;
+        eventfacilities.style.fontSize = '10px';
+        eventDiv.appendChild(eventfacilities);
     
         const eventStartDate = new Date(event.event_start_date);
         const eventEndDate = new Date(event.event_end_date);
@@ -199,11 +205,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const cleanupStart = new Date(event.cleanup_start_date_time);
         const cleanupEnd = new Date(event.cleanup_end_date_time);
 
+       
+
         const eventNameDiv = document.createElement('div');
         eventNameDiv.textContent = event.event_name;
         eventNameDiv.style.fontSize = '10px';
         eventNameDiv.style.fontWeight = 'bold';
         cleanupDiv.appendChild(eventNameDiv);
+
+        const createfacilities = document.createElement('div');
+        createfacilities.textContent = event.facilityName;
+        createfacilities.style.fontSize = '10px';
+        cleanupDiv.appendChild(createfacilities);
 
         const cleanupTimeDiv = document.createElement('div');
         cleanupTimeDiv.textContent = `${formatTimeTo12Hour(cleanupStart.toLocaleTimeString())} - ${formatTimeTo12Hour(cleanupEnd.toLocaleTimeString())}`;
@@ -227,6 +240,11 @@ document.addEventListener('DOMContentLoaded', function () {
         eventNameDiv.style.fontSize = '10px';
         eventNameDiv.style.fontWeight = 'bold';
         preparationDiv.appendChild(eventNameDiv);
+
+        const prepfacilities = document.createElement('div');
+        prepfacilities.textContent = event.facilityName;
+        prepfacilities.style.fontSize = '10px';
+        preparationDiv.appendChild(prepfacilities);
 
         const preparationTimeDiv = document.createElement('div');
         preparationTimeDiv.textContent = `${formatTimeTo12Hour(preparationStart.toLocaleTimeString())} - ${formatTimeTo12Hour(preparationEnd.toLocaleTimeString())}`;

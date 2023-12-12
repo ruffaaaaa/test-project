@@ -86,7 +86,6 @@
                             <a href="admin-equipments" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
 
                                 <span class="icon">
-                                    <!-- Replace the SVG code with your desired icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" viewBox="0 0 23 31" class="w-5 h-5">
                                         <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z" fill="#292D32"/>
                                     </svg>
@@ -216,8 +215,8 @@
                             <form id="addForm" action="{{ route('personnel_save') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4">
-                                    <label for="equipmentName" class="block text-gray-700 font-bold mb-2 ">Equipment Name</label>
-                                    <input type="text" class="form-input w-full border border-solid border-gray-300" id="equipmentName" name="equipmentName" required>
+                                    <label for="personnelName" class="block text-gray-700 font-bold mb-2 ">Name</label>
+                                    <input type="text" class="form-input w-full border border-solid border-gray-300" id="equipmentName" name="personnelName" required>
                                 </div>      
 
                                 <!-- Other input fields or form elements can go here -->

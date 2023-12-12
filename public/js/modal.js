@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     var modal = document.getElementById('editModal');
     var editButtons = document.querySelectorAll('.editButton');
-    var editForm = document.getElementById('editForm'); // Get the edit form
+    var editForm = document.getElementById('editForm'); 
 
     var editFacilityIDField = document.getElementById('editFacilityID');
     var editFacilityNameField = document.getElementById('editFacilityName');
@@ -40,14 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-    // JavaScript to trigger the modal
     document.getElementById('openModalBtn').addEventListener('click', function () {
-        document.getElementById('addModal').classList.remove('hidden'); // Show the modal
+        document.getElementById('addModal').classList.remove('hidden'); 
     });
 
-    // Close modal when close button is clicked
+
     document.getElementById('closeModalBtn').addEventListener('click', function () {
-        document.getElementById('addModal').classList.add('hidden'); // Hide the modal
+        document.getElementById('addModal').classList.add('hidden'); 
     });

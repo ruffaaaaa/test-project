@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var status = row.querySelector('td:nth-child(4)').textContent.trim();
 
             editReserveeIDField.value = reserveeID;
-            editReserveeIDField.disabled = true; // Disable the input field
+            editReserveeIDField.disabled = true; 
 
 
             editForm.setAttribute('action', '/admin-reservation/' + reserveeID);
@@ -99,23 +99,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     editForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
 
         var formData = new FormData(editForm);
         var url = editForm.getAttribute('action');
 
         fetch(url, {
-            method: 'POST', // Change this to 'PUT' if you're submitting data to a route that handles PUT requests
+            method: 'POST', 
             body: formData
         })
-        .then(response => {
-            // Handle the response as needed (e.g., show success message, close modal, etc.)
-            modal.classList.add('hidden'); // Close the modal after successful submission
-            location.reload(); // Refresh the page (optional)
+        .then(response => { 
+            modal.classList.add('hidden'); 
+            location.reload();
         })
         .catch(error => {
             console.error('Error:', error);
-            // Handle errors if any
         });
     });
 

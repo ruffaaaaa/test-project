@@ -21,7 +21,6 @@
                     <div class="px-4 py-6 text-center border-b">
                         <img src="/images/lsu-logo 2.png" alt="Logo" class="mx-auto h-10 mb-1">
                         <h1 class=" text-l font-bold leading-none text-green-600 text">
-                            <!-- Display this text when not collapsed -->
                             <span class="collapsed:hidden">FACILITIES RESERVATION SYSTEM</span>
                         </h1>
                     </div>
@@ -29,10 +28,7 @@
                         <ul class="space-y-1">
                             <li>
                             <a href="/admin-dashboard" class="flex items-center hover:bg-green-300 rounded-xl font-bold text-sm text-black py-2 px-4">
-
                                 <span class="icon">
-                                    <!-- Replace the SVG code with your desired icon -->
-
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                         <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
                                     </svg>      
@@ -85,7 +81,6 @@
                             </li>
                                 <a href="admin-equipments" class="flex items-center bg-green-600 rounded-xl font-bold text-sm text-white py-2 px-4">
                                     <span class="icon">
-                                        <!-- Replace the SVG code with your desired icon -->
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" viewBox="0 0 23 31" class="w-5 h-5">
                                             <path d="M16.1748 0H6.82522C1.85434 0 0 1.77697 0 6.54046V24.4595C0 29.223 1.85434 31 6.82522 31H16.1748C21.1457 31 23 29.223 23 24.4595V6.54046C23 1.77697 21.1457 0 16.1748 0ZM11.5 6.54046C12.7933 6.54046 13.8374 7.54094 13.8374 8.78034C13.8374 10.0197 12.7933 11.0202 11.5 11.0202C10.2066 11.0202 9.16256 10.0197 9.16256 8.78034C9.16256 7.54094 10.2066 6.54046 11.5 6.54046ZM11.5 24.4595C8.91324 24.4595 6.82522 22.4586 6.82522 19.9798C6.82522 17.501 8.91324 15.5 11.5 15.5C14.0867 15.5 16.1748 17.501 16.1748 19.9798C16.1748 22.4586 14.0867 24.4595 11.5 24.4595Z" fill="#FFFFFF"/>
                                         </svg>

@@ -104,7 +104,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEvents']);
-Route::get('/events/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforHome']);
+// Route::get('/llaevents/{year}/{month}/{selectedFacilityID?}', [CalendarController::class, 'getEventsforHome']);
 
     Route::get('/admin-calendar',[CalendarController::class,'facilitiesFilter']);
     Route::get('/lla-calendar',[CalendarController::class,'LLAfacilitiesFilter']);

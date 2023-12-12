@@ -149,7 +149,7 @@
                             <span class="text-l font-bold text-white pl-4">B5. ATTACHMENTS</span>
                         </div>
                         <div class="flex pt-5">
-                            <input type="file" id="attachments" name="attachments[]" multiple class="hidden">
+                            <input type="file" id="attachments" name="attachments[]" multiple class="hidden" onchange="displayFiles()">
                             <label for="attachments" class="inline-block bg-green-100 text-green-700 rounded-full w-10 h-10 text-center cursor-pointer m-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 m-auto mt-2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
@@ -158,6 +158,7 @@
                             <div id="fileList" class="text-black" style="margin: 15px;"></div>
                         </div>
                     </div>
+
 
                     <div class="mt-5">
                         <div class="bg-[#5CC273] p-2">

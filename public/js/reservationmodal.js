@@ -1,5 +1,4 @@
 function openModal() {
-    // Get the values of all the input fields and trim them to remove leading/trailing spaces
     const eventName = document.getElementById('nameofevent').value.trim();
     const eventStartDate = document.getElementById('event-start-date').value.trim();
     const eventEndDate = document.getElementById('event-end-date').value.trim();
@@ -7,7 +6,6 @@ function openModal() {
     const preparationEndDate = document.getElementById('preparation-end-date').value.trim();
     const cleanupStartDate = document.getElementById('cleanup-start-date').value.trim();
     const cleanupEndDate = document.getElementById('cleanup-end-date').value.trim();
-    // Check if any of the required fields are empty
     if (
         eventName === "" || 
         eventStartDate === "" || 
@@ -71,12 +69,52 @@ personnelCheckboxes.forEach(checkbox => {
         }
     });
 });
+const eventStartDate = document.getElementById('event-start-date');
+const eventEndDate = document.getElementById('event-end-date');
+const preparationStartDate = document.getElementById('preparation-start-date');
+const preparationEndDate = document.getElementById('preparation-end-date');
+const cleanupStartDate = document.getElementById('cleanup-start-date');
+const cleanupEndDate = document.getElementById('cleanup-end-date');
 
-const fileInput = document.getElementById("attachments");
-const fileList = document.getElementById("fileList");
+eventEndDate.addEventListener('change', function() {
+    const selectedStartDate = new Date(eventStartDate.value);
+    const selectedEndDate = new Date(eventEndDate.value);
 
-fileInput.addEventListener("change", function() {
-    const fileNames = Array.from(fileInput.files).map(file => file.name);
-    fileList.textContent = fileNames.join(", ");
+    preparationStartDate.max = selectedStartDate.toISOString().slice(0, 16);
+    preparationEndDate.max = selectedStartDate.toISOString().slice(0, 16);
+
+    cleanupStartDate.min = selectedEndDate.toISOString().slice(0, 16);
+    cleanupEndDate.min = selectedEndDate.toISOString().slice(0, 16);
 });
+
+cleanupStartDate.addEventListener('change', function() {
+    const selectedCleanupStartDate = new Date(cleanupStartDate.value);
+    const selectedEndDate = new Date(eventEndDate.value);
+
+    if (selectedCleanupStartDate <= selectedEndDate) {
+        cleanupStartDate.value = selectedEndDate.toISOString().slice(0, 16);
+        cleanupEndDate.min = selectedEndDate.toISOString().slice(0, 16);
+    } else {
+        cleanupEndDate.min = cleanupStartDate.value;
+    }
+});
+
+cleanupEndDate.addEventListener('change', function() {
+    cleanupStartDate.max = cleanupEndDate.value;
+});
+
+
+function displayFiles() {
+    const fileList = document.getElementById('attachments').files;
+    const fileListContainer = document.getElementById('fileList');
+    
+    fileListContainer.innerHTML = '';
+
+    for (let i = 0; i < fileList.length; i++) {
+        const fileName = fileList[i].name;
+        const listItem = document.createElement('div');
+        listItem.textContent = fileName;
+        fileListContainer.appendChild(listItem);
+    }
+}
 
